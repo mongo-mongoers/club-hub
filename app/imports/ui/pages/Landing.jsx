@@ -5,19 +5,23 @@ import { PageIDs } from '../utilities/ids';
 /* A simple static component to render some text for the landing page. */
 const Landing = () => (
   <div id={PageIDs.landingPage}>
-    <div className="landing-green-background">
-      <Container className="text-center">
-        <h1 style={{ paddingTop: '20px', color: 'white', fontSize: '36pt' }}>
-          Welcome to Bowfolios
-        </h1>
-        <h3 style={{ paddingBottom: '20px', color: 'white' }}>
-          Profiles, projects, and interest areas for the UH Community
-        </h3>
-      </Container>
+    <div className="banner-background">
+      <div className="overlay">
+        <Row className="align-content-center h-100">
+          <Col className="text-center">
+            <h1 style={{ paddingTop: '20px', color: 'white', fontSize: '36pt' }}>
+              Welcome to Club Hub
+            </h1>
+            <h3 style={{ paddingBottom: '20px', color: 'white' }}>
+              Discover, Connect, and Thrive: Your One-Stop Destination for Campus Clubs and Activities
+            </h3>
+          </Col>
+        </Row>
+      </div>
     </div>
     <div className="landing-white-background">
       <Container className="justify-content-center text-center">
-        <h2 style={{ color: '#376551' }}>Start by making your profile....</h2>
+        <h2 style={{ color: '#376551' }}>Create an account and discover new clubs at UH Maonoa!</h2>
         <Row md={1} lg={2}>
           <Col xs={6}>
             <Image src="/images/home-page.png" width={500} />
@@ -30,7 +34,7 @@ const Landing = () => (
     </div>
     <div className="landing-green-background">
       <Container className="justify-content-center text-center">
-        <h2 style={{ color: 'white' }}>...then add your projects</h2>
+        <h2 style={{ color: 'white' }}>Learn about the clubs and bookmark any that catch your interests!</h2>
         <Row md={1} lg={2}>
           <Col xs={6}>
             <Image src="/images/add-project-page.png" width={500} />
@@ -43,7 +47,7 @@ const Landing = () => (
     </div>
     <div className="landing-white-background text-center">
       <h2 style={{ color: '#376551' }}>
-        Connect to people and projects with shared interests!
+        Connect with others and participate in upcoming events!
       </h2>
       <Container>
         <Row md={1} lg={2}>

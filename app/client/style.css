@@ -7,6 +7,7 @@
   --bowfolio-navbar-bg-rgb: 55, 101, 81;
   --bowfolio-navbar-text: white;
   --bowfolio-navbar-highlight-text: var(--bs-gray-500);
+  overflow-x: hidden;
 }
 /* Change bootstrap variable values.
  See https://getbootstrap.com/docs/5.2/customize/css-variables/
@@ -47,6 +48,17 @@ body {
   background-color: var(--bowfolio-navbar-text);
   color: var(--bowfolio-navbar-bg);
   padding-top: 20px;
+}
+
+.banner-background {
+  background-image: url('images/banner-background.png');
+  background-size: cover;
+  height: 600px;
+}
+
+.overlay {
+  background-color: rgba(0, 0, 0, 0.40);
+  height: 600px;
 }
 
 .reset-margins {
