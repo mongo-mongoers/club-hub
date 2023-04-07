@@ -5,7 +5,7 @@ import { PageIDs } from '../utilities/ids';
 /* A simple static component to render some text for the landing page. */
 const Landing = () => (
   <div id={PageIDs.landingPage}>
-    <div className="banner-background">
+    <div className="landing-banner">
       <div className="overlay">
         <Row className="align-content-center h-100">
           <Col className="text-center">

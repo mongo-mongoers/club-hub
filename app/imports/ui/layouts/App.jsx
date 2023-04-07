@@ -16,6 +16,7 @@ import Interests from '../pages/Interests';
 import Home from '../pages/Home';
 import Filter from '../pages/Filter';
 import AddProject from '../pages/AddProject';
+import ACManoa from '../pages/ACManoa';
 
 /* Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 const App = () => (
@@ -29,6 +30,7 @@ const App = () => (
         <Route path="/signout" element={<SignOut />} />
         <Route path="/interests" element={<Interests />} />
         <Route path="/clubList" element={<Profiles />} />
+        <Route path="/acmanoa" element={<ACManoa />} />
         <Route path="/projects" element={<Projects />} />
         <Route path="/addProject" element={<ProtectedRoute><AddProject /></ProtectedRoute>} />
         <Route path="/myClubs" element={<ProtectedRoute><Filter /></ProtectedRoute>} />
