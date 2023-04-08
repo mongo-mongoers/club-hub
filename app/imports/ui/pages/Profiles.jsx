@@ -10,8 +10,7 @@ import { ProfilesProjects } from '../../api/profiles/ProfilesProjects';
 import { Projects } from '../../api/projects/Projects';
 import LoadingSpinner from '../components/LoadingSpinner';
 import { pageStyle } from './pageStyles';
-import { PageIDs } from '../utilities/ids';
-
+import ClubCard from '../components/ClubCard';
 /* Returns the Profile and associated Projects and Interests associated with the passed user email. */
 function getProfileData(email) {
   const data = Profiles.collection.findOne({ email });
@@ -27,9 +26,7 @@ const MakeCard = ({ profile }) => (
   <Col>
     <Card className="h-100">
       <Card.Header>
-        <Image src={profile.picture} width={50} />
-        <Card.Title>{profile.firstName} {profile.lastName}</Card.Title>
-        <Card.Subtitle><span className="date">{profile.title}</span></Card.Subtitle>
+        <Image src={profile.picture} width={280} />
       </Card.Header>
       <Card.Body>
         <Card.Text>
@@ -70,14 +67,24 @@ const ProfilesPage = () => {
       ready: sub1.ready() && sub2.ready() && sub3.ready() && sub4.ready(),
     };
   }, []);
-  const emails = _.pluck(Profiles.collection.find().fetch(), 'email');
+  //const emails = _.pluck(Profiles.collection.find().fetch(), 'email');
   // There is a potential race condition. We might not be ready at this point.
   // Need to ensure that getProfileData doesn't throw an error on line 18.
-  const profileData = emails.map(email => getProfileData(email));
+
+  const testData = [{
+    name: 'test1', abbreviation: 't1', image: 'https://github.com/cammoore.png', description: 'description test 1', goal: 'goal test 1', topics: ['good boys', 'and girls'],
+  },
+  {
+    name: 'test2', abbreviation: 't2', image: 'https://github.com/cammoore.png', description: 'description test 2', goal: 'goal test 2',topics: ['good boys', 'and girls'],
+  },
+  {
+    name: 'test3', abbreviation: 't3', image: 'https://github.com/cammoore.png', description: 'description test 3', goal: 'goal test 3', topics: ['good boys', 'and girls'],
+  },
+  ];
   return ready ? (
-    <Container id={PageIDs.profilesPage} style={pageStyle}>
+    <Container style={pageStyle}>
       <Row xs={1} md={2} lg={4} className="g-2">
-        {profileData.map((profile, index) => <MakeCard key={index} profile={profile} />)}
+        {testData.map((club, index) => <ClubCard key={index} club={club} />)}
       </Row>
     </Container>
   ) : <LoadingSpinner />;
