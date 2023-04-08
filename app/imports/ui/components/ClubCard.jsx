@@ -5,10 +5,8 @@ import { Card, Image, Badge } from 'react-bootstrap';
 /** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
 const ClubCard = ({ club }) => (
   <Card className="h-100">
-    <Card.Header>
-      <Image src={club.image} width={280} />
-    </Card.Header>
-    <Card.Body>
+    <Image src={club.image} className="card-img-top" />
+    <Card.Body className="text-center">
       <Card.Title>Club Abbreviation: {club.abbreviation}</Card.Title>
       <Card.Text>Club description: {club.description}</Card.Text>
       <Card.Text>{club.topics.map((interest, index) => <Badge key={index} bg="info">{interest}</Badge>)}</Card.Text>
