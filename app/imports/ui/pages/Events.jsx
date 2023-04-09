@@ -41,7 +41,7 @@ const EventsPage = () => {
   const testData = [{
     club: 'ACM',
     name: 'Computer Science Career Fair!',
-    date: '5/01/23',
+    date: '3/31/23',
     description:
       'Attend this career fair for a great opportunity to network, learn about job or internship openings, and make connections with industry professionals! This' +
       'event will be held on Friday, March 31st from 2pm - 4pm on the 3rd Floor of the Pacific Ocean Science & Technology (POST) Building. This Career Fair will' +
@@ -50,10 +50,18 @@ const EventsPage = () => {
     location: '3rd Floor of the Pacific Ocean Science & Technology (POST) Building',
   },
   {
-    club: 'GH', name: 'Event-2', date: '6/01/23', description: 'description test 2', location: 'Campus Center',
+    club: 'ACM',
+    name: 'Event-2',
+    date: '6/01/23',
+    description: 'description test 2',
+    location: 'Campus Center',
   },
   {
-    club: 'FF', name: 'Event-3', date: '7/01/23', description: 'description test 3', location: 'Campus Center',
+    club: 'FF',
+    name: 'Event-3',
+    date: '7/01/23',
+    description: 'description test 3',
+    location: 'Campus Center',
   },
   ];
   return ready ? (
