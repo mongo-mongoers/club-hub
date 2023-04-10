@@ -41,25 +41,25 @@ const ProfilesPage = () => {
     };
   }, []);
 
-  const testData = [{
-    name: 'test1', abbreviation: 'ACM', image: 'https://github.com/cammoore.png', description: 'description test 1', goal: 'goal test 1', topics: ['good boys', 'and girls'],
-  },
-  {
-    name: 'test2', abbreviation: 'ACM', image: 'https://github.com/cammoore.png', description: 'description test 2', goal: 'goal test 2', topics: ['good boys', 'and girls'],
-  },
-  {
-    name: 'test3', abbreviation: 'ACM', image: 'https://github.com/cammoore.png', description: 'description test 3', goal: 'goal test 3', topics: ['good boys', 'and girls'],
-  },
-  {
-    name: 'test3', abbreviation: 'ACM', image: 'https://github.com/cammoore.png', description: 'description test 3', goal: 'goal test 3', topics: ['good boys', 'and girls'],
-  },
-  {
-    name: 'test3', abbreviation: 'ACM', image: 'https://github.com/cammoore.png', description: 'description test 3', goal: 'goal test 3', topics: ['good boys', 'and girls'],
-  },
-  {
-    name: 'test3', abbreviation: 'ACM', image: 'https://github.com/cammoore.png', description: 'description test 3', goal: 'goal test 3', topics: ['good boys', 'and girls'],
-  },
-  ];
+  // const testData = [{
+  //   name: 'test1', abbreviation: 'ACM', image: 'https://github.com/cammoore.png', description: 'description test 1', goal: 'goal test 1', topics: ['good boys', 'and girls'],
+  // },
+  // {
+  //   name: 'test2', abbreviation: 'ACM', image: 'https://github.com/cammoore.png', description: 'description test 2', goal: 'goal test 2', topics: ['good boys', 'and girls'],
+  // },
+  // {
+  //   name: 'test3', abbreviation: 'ACM', image: 'https://github.com/cammoore.png', description: 'description test 3', goal: 'goal test 3', topics: ['good boys', 'and girls'],
+  // },
+  // {
+  //   name: 'test3', abbreviation: 'ACM', image: 'https://github.com/cammoore.png', description: 'description test 3', goal: 'goal test 3', topics: ['good boys', 'and girls'],
+  // },
+  // {
+  //   name: 'test3', abbreviation: 'ACM', image: 'https://github.com/cammoore.png', description: 'description test 3', goal: 'goal test 3', topics: ['good boys', 'and girls'],
+  // },
+  // {
+  //   name: 'test3', abbreviation: 'ACM', image: 'https://github.com/cammoore.png', description: 'description test 3', goal: 'goal test 3', topics: ['good boys', 'and girls'],
+  // },
+  // ];
 
   const clubData = {
     clubs: [],
