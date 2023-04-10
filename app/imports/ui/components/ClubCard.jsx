@@ -5,7 +5,7 @@ import { Card, Image, Badge } from 'react-bootstrap';
 /** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
 const ClubCard = ({ club }) => (
   <Card className="h-100">
-    <Image src={club.image} className="card-img-top" />
+    <Image src={club.logo} className="card-img-top" />
     <Card.Body className="text-center">
       <Card.Title>Club Abbreviation: {club.abbreviation}</Card.Title>
       <Card.Text>Club description: {club.description}</Card.Text>
@@ -19,7 +19,7 @@ ClubCard.propTypes = {
   club: PropTypes.shape({
     name: PropTypes.string,
     abbreviation: PropTypes.string,
-    image: PropTypes.string,
+    logo: PropTypes.string,
     goal: PropTypes.string,
     topics: PropTypes.arrayOf(PropTypes.string),
     description: PropTypes.string,
