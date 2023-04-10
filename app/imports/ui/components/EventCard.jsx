@@ -30,7 +30,7 @@ EventCard.propTypes = {
     name: PropTypes.string,
     date: PropTypes.string,
     description: PropTypes.string,
-    location: PropTypes.arrayOf(PropTypes.string),
+    location: PropTypes.string,
   }).isRequired,
 };
 
