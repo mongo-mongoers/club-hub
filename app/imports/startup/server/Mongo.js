@@ -51,7 +51,7 @@ function addProject({ name, homepage, description, interests, picture }) {
 function addClub({ name, abbreviation, topics, description, goals, email, logo }) {
   console.log(`Defining club ${name}`);
   Clubs.collection.insert({ name, abbreviation, topics, description, goals, email, logo });
-};
+}
 
 /** Initialize DB if it appears to be empty (i.e. no users defined.) */
 if (Meteor.users.find().count() === 0) {
