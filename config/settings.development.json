@@ -143,5 +143,11 @@
       "logo": "/images/home-page.png"
     }
   ],
+  "defaultProfilesClubs": [
+    {
+      "profileFirstName": "Philip",
+      "clubName": "Association for Computing Machinery"
+    }
+  ],
   "loadAssetsFile":  false
 }
