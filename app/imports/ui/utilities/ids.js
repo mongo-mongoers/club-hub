@@ -39,6 +39,7 @@ export const ComponentIDs = {
 export const PageIDs = {
   addProjectPage: 'addProjectPage',
   acmanoa: 'acmanoa',
+  eventspage: 'eventspage',
   filterPage: 'filterPage',
   homePage: 'homePage',
   interestsPage: 'interestsPage',
