@@ -17,7 +17,7 @@ const ClubBody = ({ club }) => (
           What are the goals of {club.abbreviation}?
         </h3>
         <p className="py-2">
-          {club.goals}
+          {club.goal}
         </p>
         <h3>
           Questions, Comments, Concerns?
@@ -29,7 +29,7 @@ const ClubBody = ({ club }) => (
     </Row>
     <Row className="justify-content-center my-5">
       <Col xs={3} className="text-center">
-        <Image src={club.logo} alt="ACManoa" width={400} />
+        <Image src={club.logo} alt="ACM logo" width={400} />
       </Col>
     </Row>
   </div>
@@ -42,7 +42,7 @@ ClubBody.propTypes = {
     abbreviation: PropTypes.string,
     topics: PropTypes.arrayOf(PropTypes.string),
     description: PropTypes.string,
-    goals: PropTypes.string,
+    goal: PropTypes.string,
     email: PropTypes.string,
     logo: PropTypes.string,
   }).isRequired,

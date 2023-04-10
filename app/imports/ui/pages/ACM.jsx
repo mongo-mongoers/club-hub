@@ -12,7 +12,7 @@ import ClubBanner from '../components/ClubInfoBanner';
 import ClubBody from '../components/ClubInfoBody';
 
 /* A simple static component to render some text for the landing page. */
-const ACManoa = () => {
+const ACM = () => {
 
   const { ready } = useTracker(() => {
     // Ensure that minimongo is populated with all collections prior to running render().
@@ -34,11 +34,9 @@ const ACManoa = () => {
     topics: ['ACManoa', 'Service'],
     email: 'acmmanoa@hawaii.edu',
     description:
-      'Attend this career fair for a great opportunity to network, learn about job or internship openings, and make connections with industry professionals! This' +
-      'event will be held on Friday, March 31st from 2pm - 4pm on the 3rd Floor of the Pacific Ocean Science & Technology (POST) Building. This Career Fair will' +
-      'conclude the Hawai\'i Tech Days of Spring which is a series of events dedicated to the Technology, IT, and Intelligence sectors with local and national' +
-      'industry partners.',
-    goal: '3rd Floor of the Pacific Ocean Science & Technology (POST) Building',
+      'The Association for Computing Machinery at UH Manoa (ACManoa/ACM) is a global scientific and educational organization dedicated to advancing the art, ' +
+      'science, engineering, and application of computing, serving both professional and public interests by fostering the open exchange of information and by promoting the highest professional and ethical standards.',
+    goal: 'The main goals of the organization is to promote professional and technical development, facilitate networking, and enrich the lives of the organization members.',
     logo: 'https://avatars.githubusercontent.com/u/17691904?s=280&v=4',
   };
   return ready ? (
@@ -53,4 +51,4 @@ const ACManoa = () => {
   ) : <LoadingSpinner />;
 };
 
-export default ACManoa;
+export default ACM;
