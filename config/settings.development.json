@@ -90,6 +90,7 @@
       "email": "sin8@hawaii.edu"
     }
   ],
+
   "defaultProjects": [
     {
       "name": "Open Power Quality",
@@ -128,6 +129,18 @@
         "Visualization"
       ],
       "picture": "https://www.hawaii.edu/its/wp-content/uploads/sites/2/2019/01/LAVAlogo-300x192-300x192.png"
+    }
+  ],
+
+  "defaultClubs": [
+    {
+      "name": "Association for Computing Machinery",
+      "abbreviation": "ACM",
+      "topics": ["academic", "computers", "ICS"],
+      "description": "ACM is a global scientific and educational organization dedicated to advancing the art, science, engineering, and application of computing, serving both professional and public interests by fostering the open exchange of information and by promoting the highest professional and ethical standards. The main goals of the organization is to promote professional and technical development, facilitate networking, and enrich the lives of the organization members.",
+      "goals": "Make students better",
+      "email": "testemail@mail.com",
+      "logo": "/images/home-page.png"
     }
   ],
   "loadAssetsFile":  false
