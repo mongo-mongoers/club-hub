@@ -9,6 +9,9 @@ import { Projects } from '../../api/projects/Projects';
 import LoadingSpinner from '../components/LoadingSpinner';
 import { pageStyle } from './pageStyles';
 import ClubCard from '../components/ClubCard';
+import { ProfilesClubs } from '../../api/profiles/ProfilesClubs';
+import { Clubs } from '../../api/clubs/Clubs';
+
 /* Returns the Profile and associated Projects and Interests associated with the passed user email. */
 // function getProfileData(email) {
 //   const data = Profiles.collection.findOne({ email });
@@ -24,19 +27,19 @@ import ClubCard from '../components/ClubCard';
 /* Renders the Profile Collection as a set of Cards. */
 const ProfilesPage = () => {
 
-  const { ready } = useTracker(() => {
+  const { ready, user } = useTracker(() => {
     // Ensure that minimongo is populated with all collections prior to running render().
     const sub1 = Meteor.subscribe(Profiles.userPublicationName);
     const sub2 = Meteor.subscribe(ProfilesInterests.userPublicationName);
     const sub3 = Meteor.subscribe(ProfilesProjects.userPublicationName);
     const sub4 = Meteor.subscribe(Projects.userPublicationName);
+    const sub5 = Meteor.subscribe(ProfilesClubs.userPublicationName);
+    const sub6 = Meteor.subscribe(Clubs.userPublicationName);
     return {
-      ready: sub1.ready() && sub2.ready() && sub3.ready() && sub4.ready(),
+      ready: sub1.ready() && sub2.ready() && sub3.ready() && sub4.ready() && sub5.ready() && sub6.ready(),
+      user: Meteor.user(),
     };
   }, []);
-  // const emails = _.pluck(Profiles.collection.find().fetch(), 'email');
-  // There is a potential race condition. We might not be ready at this point.
-  // Need to ensure that getProfileData doesn't throw an error on line 18.
 
   const testData = [{
     name: 'test1', abbreviation: 'ACM', image: 'https://github.com/cammoore.png', description: 'description test 1', goal: 'goal test 1', topics: ['good boys', 'and girls'],
@@ -57,15 +60,27 @@ const ProfilesPage = () => {
     name: 'test3', abbreviation: 'ACM', image: 'https://github.com/cammoore.png', description: 'description test 3', goal: 'goal test 3', topics: ['good boys', 'and girls'],
   },
   ];
-  return ready ? (
+
+  const clubData = {
+    clubs: [],
+    ready: false,
+  };
+  if (ready) {
+    const userProfilesClubs = ProfilesClubs.collection.find({ profileEmail: user.username }).fetch();
+    const userClubNames = userProfilesClubs.map((profileClub) => profileClub.clubName);
+    const clubs = userClubNames.map(clubName => Clubs.collection.find({ name: clubName }).fetch()[0]);
+    clubData.clubs = clubs;
+    clubData.ready = true;
+  }
+  return ready && clubData.ready ? (
     <Container style={pageStyle}>
       <Row className="justify-content-center">
         <Col>
           <Col className="text-center">
-            <h2>Club List</h2>
+            <h2>My Clubs</h2>
           </Col>
           <Row xs={1} md={2} lg={4} className="g-4 justify-content-center m-auto">
-            {testData.map((club, index) => (<Col> <ClubCard key={index} club={club} /></Col>))}
+            {clubData.clubs.map((club, index) => (<Col> <ClubCard key={index} club={club} /></Col>))}
           </Row>
         </Col>
       </Row>

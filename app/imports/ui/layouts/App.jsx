@@ -34,7 +34,7 @@ const App = () => (
         <Route path="/clubInfo/:clubAbv" element={<ClubInfo />} />
         <Route path="/projects" element={<Projects />} />
         <Route path="/addProject" element={<ProtectedRoute><AddProject /></ProtectedRoute>} />
-        <Route path="/myClubs" element={<ProtectedRoute><Filter /></ProtectedRoute>} />
+        <Route path="/myClubs" element={<ProtectedRoute><Profiles /></ProtectedRoute>} />
         <Route path="/events" element={<ProtectedRoute><EventsPage /></ProtectedRoute>} />
         <Route path="/notauthorized" element={<NotAuthorized />} />
         <Route path="*" element={<NotFound />} />
