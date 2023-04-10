@@ -55,7 +55,7 @@ const Landing = () => (
             <Image src="/images/interests-page.png" width={500} />
           </Col>
           <Col xs={6}>
-            <Image src="/images/filter-page.png" width={500} />
+            <Image src="/images/filter-page.png" width={500} />kl
           </Col>
         </Row>
       </Container>

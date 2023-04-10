@@ -8,6 +8,7 @@ import { ProfilesProjects } from '../../api/profiles/ProfilesProjects';
 import { ProfilesInterests } from '../../api/profiles/ProfilesInterests';
 import { Interests } from '../../api/interests/Interests';
 import { Clubs } from '../../api/clubs/Clubs';
+import { ProfilesClubs } from '../../api/profiles/ProfilesClubs';
 
 /* eslint-disable no-console */
 
@@ -53,6 +54,11 @@ function addClub({ name, abbreviation, topics, description, goals, email, logo }
   Clubs.collection.insert({ name, abbreviation, topics, description, goals, email, logo });
 }
 
+function addProfilesClubs({ profileFirstName, clubName }) {
+  console.log(`Defining profile ${profileFirstName} is in ${clubName}`);
+  ProfilesClubs.collection.insert({ profileFirstName, clubName });
+}
+
 /** Initialize DB if it appears to be empty (i.e. no users defined.) */
 if (Meteor.users.find().count() === 0) {
   if (Meteor.settings.defaultProjects && Meteor.settings.defaultProfiles && Meteor.settings.defaultClubs) {
@@ -62,6 +68,8 @@ if (Meteor.users.find().count() === 0) {
     Meteor.settings.defaultProjects.map(project => addProject(project));
     console.log('Creating the default clubs');
     Meteor.settings.defaultClubs.forEach(club => addClub(club));
+    console.log('Adding profiles to clubs');
+    Meteor.settings.defaultProfilesClubs.forEach(pClub => addProfilesClubs(pClub));
   } else {
     console.log('Cannot initialize the database!  Please invoke meteor with a settings file.');
   }
