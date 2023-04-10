@@ -18,7 +18,7 @@ import Filter from '../pages/Filter';
 import AddProject from '../pages/AddProject';
 import ACM from '../pages/ACM';
 import EventsPage from '../pages/Events';
-
+import MyClubsPage from '../pages/MyClubs';
 /* Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 const App = () => (
   <Router>
@@ -34,7 +34,7 @@ const App = () => (
         <Route path="/acm" element={<ACM />} />
         <Route path="/projects" element={<Projects />} />
         <Route path="/addProject" element={<ProtectedRoute><AddProject /></ProtectedRoute>} />
-        <Route path="/myClubs" element={<ProtectedRoute><Filter /></ProtectedRoute>} />
+        <Route path="/myClubs" element={<ProtectedRoute><MyClubsPage /></ProtectedRoute>} />
         <Route path="/events" element={<ProtectedRoute><EventsPage /></ProtectedRoute>} />
         <Route path="/notauthorized" element={<NotAuthorized />} />
         <Route path="*" element={<NotFound />} />
