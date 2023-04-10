@@ -39,22 +39,22 @@ const ProfilesPage = () => {
   // Need to ensure that getProfileData doesn't throw an error on line 18.
 
   const testData = [{
-    name: 'test1', abbreviation: 't1', image: 'https://github.com/cammoore.png', description: 'description test 1', goal: 'goal test 1', topics: ['good boys', 'and girls'],
+    name: 'test1', abbreviation: 'ACM', image: 'https://github.com/cammoore.png', description: 'description test 1', goal: 'goal test 1', topics: ['good boys', 'and girls'],
   },
   {
-    name: 'test2', abbreviation: 't2', image: 'https://github.com/cammoore.png', description: 'description test 2', goal: 'goal test 2', topics: ['good boys', 'and girls'],
+    name: 'test2', abbreviation: 'ACM', image: 'https://github.com/cammoore.png', description: 'description test 2', goal: 'goal test 2', topics: ['good boys', 'and girls'],
   },
   {
-    name: 'test3', abbreviation: 't3', image: 'https://github.com/cammoore.png', description: 'description test 3', goal: 'goal test 3', topics: ['good boys', 'and girls'],
+    name: 'test3', abbreviation: 'ACM', image: 'https://github.com/cammoore.png', description: 'description test 3', goal: 'goal test 3', topics: ['good boys', 'and girls'],
   },
   {
-    name: 'test3', abbreviation: 't3', image: 'https://github.com/cammoore.png', description: 'description test 3', goal: 'goal test 3', topics: ['good boys', 'and girls'],
+    name: 'test3', abbreviation: 'ACM', image: 'https://github.com/cammoore.png', description: 'description test 3', goal: 'goal test 3', topics: ['good boys', 'and girls'],
   },
   {
-    name: 'test3', abbreviation: 't3', image: 'https://github.com/cammoore.png', description: 'description test 3', goal: 'goal test 3', topics: ['good boys', 'and girls'],
+    name: 'test3', abbreviation: 'ACM', image: 'https://github.com/cammoore.png', description: 'description test 3', goal: 'goal test 3', topics: ['good boys', 'and girls'],
   },
   {
-    name: 'test3', abbreviation: 't3', image: 'https://github.com/cammoore.png', description: 'description test 3', goal: 'goal test 3', topics: ['good boys', 'and girls'],
+    name: 'test3', abbreviation: 'ACM', image: 'https://github.com/cammoore.png', description: 'description test 3', goal: 'goal test 3', topics: ['good boys', 'and girls'],
   },
   ];
   return ready ? (

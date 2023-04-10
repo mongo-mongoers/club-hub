@@ -16,8 +16,8 @@ import Interests from '../pages/Interests';
 import Home from '../pages/Home';
 import Filter from '../pages/Filter';
 import AddProject from '../pages/AddProject';
-import ACM from '../pages/ACM';
 import EventsPage from '../pages/Events';
+import ClubInfo from '../pages/ClubInfo';
 
 /* Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 const App = () => (
@@ -31,7 +31,7 @@ const App = () => (
         <Route path="/signout" element={<SignOut />} />
         <Route path="/interests" element={<Interests />} />
         <Route path="/clubList" element={<Profiles />} />
-        <Route path="/acm" element={<ACM />} />
+        <Route path="/clubInfo/:clubAbv" element={<ClubInfo />} />
         <Route path="/projects" element={<Projects />} />
         <Route path="/addProject" element={<ProtectedRoute><AddProject /></ProtectedRoute>} />
         <Route path="/myClubs" element={<ProtectedRoute><Filter /></ProtectedRoute>} />

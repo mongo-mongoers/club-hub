@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Card, Image, Badge } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 /** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
 const ClubCard = ({ club }) => (
@@ -10,6 +11,7 @@ const ClubCard = ({ club }) => (
       <Card.Title>Club Abbreviation: {club.abbreviation}</Card.Title>
       <Card.Text>Club description: {club.description}</Card.Text>
       <Card.Text>{club.topics.map((interest, index) => <Badge key={index} bg="info">{interest}</Badge>)}</Card.Text>
+      <Link to={`/clubInfo/${club.abbreviation}`}>MoreInfo</Link>
     </Card.Body>
   </Card>
 );
