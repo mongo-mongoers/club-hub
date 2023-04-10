@@ -54,9 +54,9 @@ function addClub({ name, abbreviation, topics, description, goals, email, logo }
   Clubs.collection.insert({ name, abbreviation, topics, description, goals, email, logo });
 }
 
-function addProfilesClubs({ profileFirstName, clubName }) {
-  console.log(`Defining profile ${profileFirstName} is in ${clubName}`);
-  ProfilesClubs.collection.insert({ profileFirstName, clubName });
+function addProfilesClubs({ profileEmail, clubName }) {
+  console.log(`Defining profile ${profileEmail} is in ${clubName}`);
+  ProfilesClubs.collection.insert({ profileEmail, clubName });
 }
 
 /** Initialize DB if it appears to be empty (i.e. no users defined.) */

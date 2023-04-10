@@ -10,7 +10,7 @@ class ProfilesClubsCollection {
     this.collection = new Mongo.Collection(this.name);
     // Define the structure of each document in the collection.
     this.schema = new SimpleSchema({
-      profileFirstName: String,
+      profileEmail: String,
       clubName: String,
     });
     // Ensure collection documents obey schema.
