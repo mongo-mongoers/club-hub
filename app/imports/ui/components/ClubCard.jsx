@@ -1,20 +1,27 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Card, Image, Badge } from 'react-bootstrap';
+import { Card } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 /** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
-const ClubCard = ({ club }) => (
-  <Card className="h-100">
-    <Image src={club.logo} className="card-img-top" />
-    <Card.Body className="text-center">
-      <Card.Title>Club Abbreviation: {club.abbreviation}</Card.Title>
-      <Card.Text>Club description: {club.description}</Card.Text>
-      <Card.Text>{club.topics.map((interest, index) => <Badge key={index} bg="info">{interest}</Badge>)}</Card.Text>
-      <Link to={`/clubInfo/${club.abbreviation}`}>MoreInfo</Link>
-    </Card.Body>
-  </Card>
-);
+const ClubCard = ({ club }) => {
+  const truncatedDescription = club.description.slice(0, 200);
+  return (
+    <Card style={{ width: '18rem' }}>
+      <Card.Header className="text-center">
+        <Card.Img variant="top" src={club.logo} className="w-50" />
+      </Card.Header>
+      <Card.Body className="text-center">
+        <Card.Title>{club.name} ({club.abbreviation})</Card.Title>
+        <Card.Text className="text-start">{truncatedDescription}...</Card.Text>
+        <Link to={`/clubInfo/${club.abbreviation}`}>More Info</Link>
+      </Card.Body>
+      <Card.Footer className="text-center">
+        {club.topics.map((interest, index) => <div key={index} className="label-2 mx-1">{interest}</div>)}
+      </Card.Footer>
+    </Card>
+  );
+};
 
 // Require a document to be passed to this component.
 ClubCard.propTypes = {

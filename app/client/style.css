@@ -78,6 +78,18 @@ body {
   border-radius: 100px;
 }
 
+.label-2 {
+  padding: 0px 10px;
+  display: inline-block;
+  line-height: 20px;
+  font-size: .75rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: rgba(55,101,81,0.8);
+  border: 1px solid rgba(55,101,81,0.5);
+  border-radius: 100px;
+}
+
 .reset-margins {
   margin-top: 0;
   margin-bottom: 0;
