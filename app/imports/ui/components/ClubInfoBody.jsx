@@ -17,7 +17,7 @@ const ClubBody = ({ club }) => (
           What are the goals of {club.abbreviation}?
         </h3>
         <p className="py-2">
-          {club.goal}
+          {club.goals}
         </p>
         <h3>
           Questions, Comments, Concerns?
@@ -42,7 +42,7 @@ ClubBody.propTypes = {
     abbreviation: PropTypes.string,
     topics: PropTypes.arrayOf(PropTypes.string),
     description: PropTypes.string,
-    goal: PropTypes.string,
+    goals: PropTypes.string,
     email: PropTypes.string,
     logo: PropTypes.string,
   }).isRequired,
