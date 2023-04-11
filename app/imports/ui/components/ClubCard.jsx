@@ -29,7 +29,7 @@ ClubCard.propTypes = {
     name: PropTypes.string,
     abbreviation: PropTypes.string,
     logo: PropTypes.string,
-    goal: PropTypes.string,
+    goals: PropTypes.string,
     topics: PropTypes.arrayOf(PropTypes.string),
     description: PropTypes.string,
   }).isRequired,
