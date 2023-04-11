@@ -10,13 +10,13 @@ import SignOut from '../pages/SignOut';
 import NavBar from '../components/NavBar';
 import SignIn from '../pages/SignIn';
 import NotAuthorized from '../pages/NotAuthorized';
-import Profiles from '../pages/Profiles';
 import Projects from '../pages/Projects';
 import Interests from '../pages/Interests';
 import Home from '../pages/Home';
 import AddProject from '../pages/AddProject';
 import EventsPage from '../pages/Events';
 import ClubInfo from '../pages/ClubInfo';
+import ProfilesPage from '../pages/Profiles';
 
 /* Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 const App = () => (
@@ -29,11 +29,11 @@ const App = () => (
         <Route path="/signup" element={<SignUp />} />
         <Route path="/signout" element={<SignOut />} />
         <Route path="/interests" element={<Interests />} />
-        <Route path="/clubList" element={<Profiles />} />
+        <Route path="/clubList" element={<Landing />} />
         <Route path="/clubInfo/:clubAbv" element={<ClubInfo />} />
         <Route path="/projects" element={<Projects />} />
         <Route path="/addProject" element={<ProtectedRoute><AddProject /></ProtectedRoute>} />
-        <Route path="/myClubs" element={<ProtectedRoute><Profiles /></ProtectedRoute>} />
+        <Route path="/myClubs" element={<ProtectedRoute><ProfilesPage /></ProtectedRoute>} />
         <Route path="/events" element={<ProtectedRoute><EventsPage /></ProtectedRoute>} />
         <Route path="/notauthorized" element={<NotAuthorized />} />
         <Route path="*" element={<NotFound />} />
