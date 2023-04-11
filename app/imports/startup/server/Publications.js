@@ -30,7 +30,13 @@ Meteor.publish(ProjectsInterests.userPublicationName, () => ProjectsInterests.co
 Meteor.publish(Clubs.userPublicationName, () => Clubs.collection.find());
 
 /** Define a publication to publish this collection. */
-Meteor.publish(ProfilesClubs.userPublicationName, () => ProfilesClubs.collection.find());
+Meteor.publish(ProfilesClubs.userPublicationName, function () {
+  if (this.userId) {
+    const username = Meteor.users.findOne(this.userId).username;
+    return ProfilesClubs.collection.find({ profileEmail: username });
+  }
+  return this.ready();
+});
 
 // alanning:roles publication
 // Recommended code to publish roles for each user.
