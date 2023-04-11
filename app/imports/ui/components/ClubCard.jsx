@@ -14,7 +14,7 @@ const ClubCard = ({ club }) => {
       <Card.Body className="text-center">
         <Card.Title>{club.name} ({club.abbreviation})</Card.Title>
         <Card.Text className="text-start">{truncatedDescription}...</Card.Text>
-        <Link to={`/clubInfo/${club.abbreviation}`}>More Info</Link>
+        <Link className="text-success" to={`/clubInfo/${club.abbreviation}`}>More Info</Link>
       </Card.Body>
       <Card.Footer className="text-center">
         {club.topics.map((interest, index) => <div key={index} className="label-2 mx-1">{interest}</div>)}
