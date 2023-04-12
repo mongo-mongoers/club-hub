@@ -30,7 +30,7 @@ const NavBar = () => {
                 <Nav.Link as={NavLink} id={ComponentIDs.eventsMenuItem} to="/events" key="events">Events</Nav.Link>]
             ) : ''}
             {Roles.userIsInRole(Meteor.userId(), 'admin') ? (
-              <Nav.Link as={NavLink} id={ComponentIDs.addClubsMenuItem} to="/admin" key="addClubs">Add Clubs</Nav.Link>
+              <Nav.Link as={NavLink} id={ComponentIDs.createClubsMenuItem} to="/createClub" key="createClubs">Create Clubs</Nav.Link>
             ) : ''}
           </Nav>
           <Nav className="justify-content-end">

@@ -19,6 +19,7 @@
     {
       "firstName": "Henri",
       "lastName": "Casanova",
+      "role": "admin",
       "bio": "In my spare time, I like to scuba dive.",
       "title": "Professor",
       "interests": [
