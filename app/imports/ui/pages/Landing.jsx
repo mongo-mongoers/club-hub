@@ -22,12 +22,9 @@ const Landing = () => (
     <div className="landing-white-background">
       <Container className="justify-content-center text-center">
         <h2 style={{ color: '#376551' }}>Create an account and discover new clubs at UH Manoa!</h2>
-        <Row md={1} lg={2}>
+        <Row md={1} lg={1}>
           <Col xs={6}>
-            <Image src="/images/home-page.png" width={500} />
-          </Col>
-          <Col xs={6}>
-            <Image src="/images/profiles-page.png" width={500} />
+            <Image src="/images/clublist-page.png" width={500} />
           </Col>
         </Row>
       </Container>
@@ -37,10 +34,10 @@ const Landing = () => (
         <h2 style={{ color: 'white' }}>Learn about the clubs and bookmark any that catch your interests!</h2>
         <Row md={1} lg={2}>
           <Col xs={6}>
-            <Image src="/images/add-project-page.png" width={500} />
+            <Image src="/images/interests-page.png" width={500} />
           </Col>
           <Col xs={6}>
-            <Image src="/images/projects-page.png" width={500} />
+            <Image src="/images/club-info-page.png" width={500} />
           </Col>
         </Row>
       </Container>
@@ -52,10 +49,10 @@ const Landing = () => (
       <Container>
         <Row md={1} lg={2}>
           <Col xs={6}>
-            <Image src="/images/interests-page.png" width={500} />
+            <Image src="/images/add-project-page.png" width={500} />
           </Col>
           <Col xs={6}>
-            <Image src="/images/filter-page.png" width={500} />
+            <Image src="/images/projects-page.png" width={500} />
           </Col>
         </Row>
       </Container>
