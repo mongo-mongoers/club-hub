@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 const ClubCard = ({ club }) => {
   const truncatedDescription = club.description.slice(0, 200);
   return (
-    <Card style={{ width: '18rem' }}>
+    <Card style={{ width: '18rem' }} className="mx-auto">
       <Card.Header className="text-center">
         <Card.Img variant="top" src={club.logo} className="w-50" />
       </Card.Header>
