@@ -38,8 +38,10 @@ export const ComponentIDs = {
 
 export const PageIDs = {
   addProjectPage: 'addProjectPage',
-  acmanoa: 'acmanoa',
-  eventspage: 'eventspage',
+  clubInfo: 'clubInfo',
+  clubList: 'clubList',
+  clubBookmark: 'clubBookmark',
+  eventsPage: 'eventsPage',
   filterPage: 'filterPage',
   homePage: 'homePage',
   interestsPage: 'interestsPage',
