@@ -1,5 +1,5 @@
 export const ComponentIDs = {
-  addClubsMenuItem: 'addClubsMenuItem',
+  createClubsMenuItem: 'createClubsMenuItem',
   addProjectMenuItem: 'addProjectMenuItem',
   addProjectFormName: 'addProjectFormName',
   addProjectFormPicture: 'addProjectFormPicture',

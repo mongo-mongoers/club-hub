@@ -20,6 +20,7 @@ class ClubsCollection {
       topics: { type: Array },
       'topics.$': {
         type: String,
+        allowedValues: ['Academic', 'Social', 'ICS', 'Service'],
       },
       description: { type: String },
       goals: { type: String },
