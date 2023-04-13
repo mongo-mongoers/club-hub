@@ -19,6 +19,10 @@ const ClubList = () => {
       clubs: data,
     };
   }, []);
+  // Function to toggle bookmark status for a club
+  const toggleBookmark = (clubId, bookmarked) => {
+    Clubs.updateBookmark(clubId, !bookmarked);
+  };
   return ready ? (
     <Container style={pageStyle}>
       <Row className="justify-content-center">
@@ -27,7 +31,11 @@ const ClubList = () => {
             <h2>Club List</h2>
           </Col>
           <Row xs={1} md={2} lg={4} className="g-4 justify-content-center m-auto">
-            {clubs.map((club, index) => (<Col> <ClubCard key={index} club={club} /></Col>))}
+            {clubs.map((club, index) => (
+              <Col key={index}>
+                <ClubCard club={club} bookmarked={club.bookmarked} toggleBookmark={toggleBookmark} />
+              </Col>
+            ))}
           </Row>
         </Col>
       </Row>

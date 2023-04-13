@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Card } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
@@ -6,6 +6,10 @@ import { Link } from 'react-router-dom';
 /** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
 const ClubCard = ({ club }) => {
   const truncatedDescription = club.description.slice(0, 200);
+  const [bookmarked, setBookmarked] = useState(false); // Add bookmarked state and setter
+  const handleBookmarkClick = () => {
+    setBookmarked(!bookmarked); // Toggle bookmarked state
+  };
   return (
     <Card style={{ width: '18rem' }}>
       <Card.Header className="text-center">
@@ -18,6 +22,9 @@ const ClubCard = ({ club }) => {
       </Card.Body>
       <Card.Footer className="text-center">
         {club.topics.map((interest, index) => <div key={index} className="label-2 mx-1">{interest}</div>)}
+        <button type="button" onClick={handleBookmarkClick}>
+          {bookmarked ? 'Remove Bookmark' : 'Add Bookmark'}
+        </button>
       </Card.Footer>
     </Card>
   );
