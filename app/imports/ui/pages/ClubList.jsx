@@ -32,15 +32,10 @@ const ClubList = () => {
               Clubs
             </h1>
           </Col>
-          <Row xs={1} md={2} lg={4} className="g-4 justify-content-center m-auto">
-            {clubs.map((club, index) => (
-              <Col key={index}>
-                <ClubCard club={club} bookmarked={club.bookmarked} toggleBookmark={toggleBookmark} />
-              </Col>
-            ))}
-          </Row>
-        </Col>
-
+        </Row>
+      </div>
+      <Row xs={1} md={2} lg={5} className="g-4 flex-wrap justify-content-center mx-0 my-5 min-vw-100">
+        {clubs.map((club, index) => (<Col className="align-items-center text-center"> <ClubCard key={index} club={club} bookmarked={club.bookmarked} toggleBookmark={toggleBookmark} /></Col>))}
       </Row>
     </Container>
   ) : <LoadingSpinner />;
