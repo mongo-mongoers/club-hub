@@ -4,6 +4,7 @@ import { Profiles } from '../../api/profiles/Profiles';
 import { ProfilesInterests } from '../../api/profiles/ProfilesInterests';
 import { ProfilesProjects } from '../../api/profiles/ProfilesProjects';
 import { ProjectsInterests } from '../../api/projects/ProjectsInterests';
+import { Clubs } from '../../api/clubs/Clubs';
 import { ProfilesClubs } from '../../api/profiles/ProfilesClubs';
 
 /**
@@ -66,6 +67,14 @@ Meteor.methods({
   },
 });
 
+const createClubMethod = 'Clubs.add';
+/** Creates a new project in the Projects collection, and also updates ProfilesProjects and ProjectsInterests. */
+Meteor.methods({
+  'Clubs.add'({ name, abbreviation, topics, description, goals, email, logo }) {
+    Clubs.collection.insert({ name, abbreviation, topics, description, goals, email, logo });
+  },
+});
+
 const addProfilesClubs = 'ProfilesClubs.add';
 
 /** Creates a new project in the Projects collection, and also updates ProfilesProjects and ProjectsInterests. */
@@ -84,4 +93,4 @@ Meteor.methods({
   },
 });
 
-export { updateProfileMethod, addProjectMethod, addProfilesClubs, removeProfilesClubs };
+export { updateProfileMethod, addProjectMethod, createClubMethod, addProfilesClubs, removeProfilesClubs };
