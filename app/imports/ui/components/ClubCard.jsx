@@ -7,7 +7,7 @@ import { useTracker } from 'meteor/react-meteor-data';
 import _ from 'underscore';
 import { ProfilesClubs } from '../../api/profiles/ProfilesClubs';
 import LoadingSpinner from './LoadingSpinner';
-import { addProfilesClubs, removeProfilesClubs} from '../../startup/both/Methods';
+import { addProfilesClubs, removeProfilesClubs } from '../../startup/both/Methods';
 
 /** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
 const ClubCard = ({ club }) => {
@@ -53,9 +53,9 @@ const ClubCard = ({ club }) => {
   };
 
   return ready ? (
-    <Card style={{ width: '18rem' }} className="mx-auto">
+    <Card style={{ width: '18rem', height: '35rem' }} className="mx-auto">
       <Card.Header className="text-center">
-        <Card.Img variant="top" src={club.logo} className="w-50" />
+        <Card.Img style={{ height: '8rem' }} variant="top" src={club.logo} className="w-50" />
       </Card.Header>
       <Card.Body className="text-center">
         <Card.Title>{club.name} ({club.abbreviation})</Card.Title>

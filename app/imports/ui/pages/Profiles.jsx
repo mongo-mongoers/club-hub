@@ -36,7 +36,7 @@ const ProfilesPage = () => {
           </Col>
         </Row>
       </div>
-      <Row xs={1} md={2} lg={5} className="g-4 flex-wrap justify-content-center mx-0 my-5 min-vw-100">
+      <Row xs={1} md={2} lg={4} className="g-4 flex-wrap justify-content-center mx-0 my-5 min-vw-100">
         {clubData.map((club, index) => (<Col className="align-items-center text-center"> <ClubCard key={index} club={club} /></Col>))}
       </Row>
     </Container>
