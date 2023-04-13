@@ -6,9 +6,12 @@ import LoadingSpinner from '../components/LoadingSpinner';
 import ClubCard from '../components/ClubCard';
 import { ProfilesClubs } from '../../api/profiles/ProfilesClubs';
 import { Clubs } from '../../api/clubs/Clubs';
+/* Component for layout out a Profile Card. */
+
 import { PageIDs } from '../utilities/ids';
 
 /* Renders the Profiles Page: Displays the Clubs that the User has bookmarked. */
+
 const ProfilesPage = () => {
   const { ready, clubData } = useTracker(() => {
     // Get access to Club data and Bookmarks.
