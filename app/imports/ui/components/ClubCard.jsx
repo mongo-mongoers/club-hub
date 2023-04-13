@@ -11,7 +11,7 @@ const ClubCard = ({ club }) => {
     setBookmarked(!bookmarked); // Toggle bookmarked state
   };
   return (
-    <Card style={{ width: '18rem' }}>
+    <Card style={{ width: '18rem' }} className="mx-auto">
       <Card.Header className="text-center">
         <Card.Img variant="top" src={club.logo} className="w-50" />
       </Card.Header>

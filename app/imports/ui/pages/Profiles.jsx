@@ -3,17 +3,18 @@ import { Meteor } from 'meteor/meteor';
 import { Container, Row, Col } from 'react-bootstrap';
 import { useTracker } from 'meteor/react-meteor-data';
 import LoadingSpinner from '../components/LoadingSpinner';
-import { pageStyle } from './pageStyles';
 import ClubCard from '../components/ClubCard';
 import { ProfilesClubs } from '../../api/profiles/ProfilesClubs';
 import { Clubs } from '../../api/clubs/Clubs';
 /* Component for layout out a Profile Card. */
 
-/* Renders the Profile Collection as a set of Cards. */
-const ProfilesPage = () => {
+import { PageIDs } from '../utilities/ids';
 
+/* Renders the Profiles Page: Displays the Clubs that the User has bookmarked. */
+
+const ProfilesPage = () => {
   const { ready, clubData } = useTracker(() => {
-    // Ensure that minimongo is populated with all collections prior to running render().
+    // Get access to Club data and Bookmarks.
     const sub1 = Meteor.subscribe(ProfilesClubs.userPublicationName);
     const sub2 = Meteor.subscribe(Clubs.userPublicationName);
     const userProfilesClubs = ProfilesClubs.collection.find({}).fetch();
@@ -25,16 +26,18 @@ const ProfilesPage = () => {
     };
   }, []);
   return ready ? (
-    <Container style={pageStyle}>
-      <Row className="justify-content-center">
-        <Col>
-          <Col className="text-center">
-            <h2>My Clubs</h2>
+    <Container id={PageIDs.clubBookmark} className="align-content-center mx-0 px-0">
+      <div className="club-banner justify-content-center min-vw-100">
+        <Row className="justify-content-center align-middle text-center py-5 text-white">
+          <Col xs={5}>
+            <h1>
+              Bookmarks
+            </h1>
           </Col>
-          <Row xs={1} md={2} lg={4} className="g-4 justify-content-center m-auto">
-            {clubData.map((club, index) => (<Col> <ClubCard key={index} club={club} /></Col>))}
-          </Row>
-        </Col>
+        </Row>
+      </div>
+      <Row xs={1} md={2} lg={5} className="g-4 flex-wrap justify-content-center mx-0 my-5 min-vw-100">
+        {clubData.map((club, index) => (<Col className="align-items-center text-center"> <ClubCard key={index} club={club} /></Col>))}
       </Row>
     </Container>
   ) : <LoadingSpinner />;

@@ -65,7 +65,7 @@ const EventsPage = () => {
   },
   ];
   return ready ? (
-    <Container id={PageIDs.eventspage} className="align-content-center mx-0 px-0">
+    <Container id={PageIDs.eventsPage} className="align-content-center mx-0 px-0">
       <div className="club-banner justify-content-center min-vw-100">
         <Row className="justify-content-center align-middle text-center py-5 text-white">
           <Col xs={5}>
