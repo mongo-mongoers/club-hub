@@ -39,9 +39,8 @@ const ClubList = () => {
               </Col>
             ))}
           </Row>
-        </Col>
-
-      </Row>
+        </Row>
+      </div>
     </Container>
   ) : <LoadingSpinner />;
 };
