@@ -5,6 +5,7 @@ import { ProfilesInterests } from '../../api/profiles/ProfilesInterests';
 import { ProfilesProjects } from '../../api/profiles/ProfilesProjects';
 import { ProjectsInterests } from '../../api/projects/ProjectsInterests';
 import { Clubs } from '../../api/clubs/Clubs';
+import { ProfilesClubs } from '../../api/profiles/ProfilesClubs';
 
 /**
  * In Bowfolios, insecure mode is enabled, so it is possible to update the server's Mongo database by making
@@ -74,4 +75,22 @@ Meteor.methods({
   },
 });
 
-export { updateProfileMethod, addProjectMethod, createClubMethod };
+const addProfilesClubs = 'ProfilesClubs.add';
+
+/** Creates a new project in the Projects collection, and also updates ProfilesProjects and ProjectsInterests. */
+Meteor.methods({
+  'ProfilesClubs.add'({ clubName, profileEmail }) {
+    ProfilesClubs.collection.insert({ profileEmail: profileEmail, clubName: clubName });
+  },
+});
+
+const removeProfilesClubs = 'ProfilesClubs.remove';
+
+/** Creates a new project in the Projects collection, and also updates ProfilesProjects and ProjectsInterests. */
+Meteor.methods({
+  'ProfilesClubs.remove'({ clubName, profileEmail }) {
+    ProfilesClubs.collection.remove({ profileEmail, clubName });
+  },
+});
+
+export { updateProfileMethod, addProjectMethod, createClubMethod, addProfilesClubs, removeProfilesClubs };
