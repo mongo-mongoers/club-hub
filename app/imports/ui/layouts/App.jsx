@@ -20,6 +20,7 @@ import ClubInfo from '../pages/ClubInfo';
 import ProfilesPage from '../pages/Profiles';
 import LoadingSpinner from '../components/LoadingSpinner';
 import CreateClub from '../pages/CreateClub';
+import ClubList from '../pages/ClubList';
 
 /* Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 const App = () => {
@@ -39,7 +40,7 @@ const App = () => {
           <Route path="/signup" element={<SignUp />} />
           <Route path="/signout" element={<SignOut />} />
           <Route path="/interests" element={<Interests />} />
-          <Route path="/clubList" element={<Landing />} />
+          <Route path="/clubList" element={<ClubList />} />
           <Route path="/clubInfo/:clubAbv" element={<ClubInfo />} />
           <Route path="/projects" element={<Projects />} />
           <Route path="/addProject" element={<ProtectedRoute><AddProject /></ProtectedRoute>} />
@@ -54,34 +55,6 @@ const App = () => {
     </Router>
   );
 };
-
-import ClubList from '../pages/ClubList';
-
-/* Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
-const App = () => (
-  <Router>
-    <div className="d-flex flex-column min-vh-100">
-      <NavBar />
-      <Routes>
-        <Route exact path="/" element={<Landing />} />
-        <Route path="/signin" element={<SignIn />} />
-        <Route path="/signup" element={<SignUp />} />
-        <Route path="/signout" element={<SignOut />} />
-        <Route path="/interests" element={<Interests />} />
-        <Route path="/clubList" element={<ClubList />} />
-        <Route path="/clubInfo/:clubAbv" element={<ClubInfo />} />
-        <Route path="/projects" element={<Projects />} />
-        <Route path="/addProject" element={<ProtectedRoute><AddProject /></ProtectedRoute>} />
-        <Route path="/myClubs" element={<ProtectedRoute><ProfilesPage /></ProtectedRoute>} />
-        <Route path="/events" element={<ProtectedRoute><EventsPage /></ProtectedRoute>} />
-        <Route path="/notauthorized" element={<NotAuthorized />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
-      <Footer />
-    </div>
-  </Router>
-);
-
 
 /*
  * ProtectedRoute (see React Router v6 sample)
