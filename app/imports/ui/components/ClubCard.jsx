@@ -33,7 +33,6 @@ const ClubCard = ({ club }) => {
   const handleBookmark = (status) => {
     const clubName = club.name;
     const profileEmail = Meteor.user().username;
-    console.log(profileEmail, clubName);
     if (status === 'remove') {
       Meteor.call(removeProfilesClubs, { clubName, profileEmail }, displayError);
     } else {
@@ -45,7 +44,6 @@ const ClubCard = ({ club }) => {
   const buttonDisplay = () => {
     if (Meteor.userId()) {
       const clubNames = _.pluck(profilesClubs, 'clubName');
-      console.log(clubNames);
       const status = clubNames.includes(club.name);
       return <button type="button" onClick={() => handleBookmark(status ? 'remove' : 'add')}>{status ? 'Unbookmark' : 'Bookmark'}</button>;
     }
