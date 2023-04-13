@@ -21,6 +21,7 @@ import ProfilesPage from '../pages/Profiles';
 import LoadingSpinner from '../components/LoadingSpinner';
 import CreateClub from '../pages/CreateClub';
 import ClubList from '../pages/ClubList';
+import EditClub from '../pages/EditClub';
 
 /* Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 const App = () => {
@@ -48,6 +49,7 @@ const App = () => {
           <Route path="/events" element={<ProtectedRoute><EventsPage /></ProtectedRoute>} />
           <Route path="/notauthorized" element={<NotAuthorized />} />
           <Route path="/createClub" element={<AdminProtectedRoute ready={ready}><CreateClub /></AdminProtectedRoute>} />
+          <Route path="/editClub/:_id" element={<AdminProtectedRoute ready={ready}><EditClub /></AdminProtectedRoute>} />
           <Route path="*" element={<NotFound />} />
         </Routes>
         <Footer />
