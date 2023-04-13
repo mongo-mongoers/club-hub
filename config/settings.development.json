@@ -142,6 +142,33 @@
       "goals": "The main goals of the organization is to promote professional and technical development, facilitate networking, and enrich the lives of the organization members.",
       "email": "acmmanoa@hawaii.edu",
       "logo": "https://avatars.githubusercontent.com/u/17691904?s=280&v=4"
+    },
+    {
+      "name": "Ballroom Dance Club",
+      "abbreviation": "Ballroom",
+      "topics": ["Leisure", "Recreational"],
+      "description": "Ballroom is a fun physical activity that provides stress relief and allows you to build relationships and friends with other members. You can improve your posture, build confidence and add this to your resume. You might be surprised that most of the top Adult Amateur ballroom dancers in the US are Computer Science or Engineering majors/graduates and you might even have one of them interview you for your next job!",
+      "goals": "The main goals of the organization is to learn the basics of various ballroom dances like Waltz, Cha-cha, Tango, Rumba, Samba, Swing, etc in a fun and engaging environment. We have opportunities to perform for the ballroom dance community in Hawaii. We also participate in the ballroom dance competitions that are held twice a year in the State of Hawaii.",
+      "email": "rnarayan@hawaii.edu",
+      "logo": "https://acmmanoa.org/assets/img/logos/BallroomDanceLogo.png"
+    },
+    {
+      "name": "Robotic Space Exploration",
+      "abbreviation": "RoSE",
+      "topics": ["Academic", "Professional", "Engineering"],
+      "description": "Team RoSE is concerned with the fabrication, dynamics, controls, systems engineering, and machine learning for space applications. The main driving force for the team is the University Rover Challenge (URC). URC, which is an international competition to design the next generation of rovers for robotic exploration. Rovers from other teams and previous years can be seen in the links section. These models are from years of iterations, modifications, and redesigns. There are four sections of emphases to the URC: science, retrieval, service, and autonomy.",
+      "goals": "Team RoSE has the goal to create a professional and safe atmosphere for students to collaborate on an engineering project that aims to design and fabricate a rover for the University Rover Challenge.",
+      "email": "higadebo@hawaii.edu",
+      "logo": "https://manoa.hawaii.edu/uh-vip/wp-content/uploads/AC_2_rose-448x448.png"
+    },
+    {
+      "name": "Information Technology Management Association",
+      "abbreviation": "ITMA",
+      "topics": ["Academic", "Professional", "ICS"],
+      "description": "Our mission is to strengthen the social and professional network between members of the Information Technology Management Association, alumni, and professionals by focusing on the development of quality relationships. ITMA is motivated and dedicated to providing its members with social and professional networks, providing access to technical resources, and being an example of a growing technical environment to foster career development.",
+      "goals": "The main goals of this organization is to provide a better understanding of the nature and functions of information systems and related areas, prepare its members for a career in information technology, proliferate interaction between members and the business community propagate a communication link between its members and faculty, and produce lasting relationships between its members.",
+      "email": "support@itmahawaii.com",
+      "logo": "https://media.licdn.com/dms/image/C5603AQHvcmjF7Vnpvg/profile-displayphoto-shrink_800_800/0/1529292585152?e=2147483647&v=beta&t=Cb7nrIsgVoFC7TSilIE2qZuXNhbASw8HgeA_KL565hs"
     }
   ],
   "defaultProfilesClubs": [
