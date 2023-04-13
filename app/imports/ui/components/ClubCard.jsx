@@ -19,6 +19,8 @@ const ClubCard = ({ club }) => {
         <Card.Title>{club.name} ({club.abbreviation})</Card.Title>
         <Card.Text className="text-start">{truncatedDescription}...</Card.Text>
         <Link className="text-success" to={`/clubInfo/${club.abbreviation}`}>More Info</Link>
+        <br />
+        <Link to={`/editClub/${club._id}`}>Edit Club</Link>
       </Card.Body>
       <Card.Footer className="text-center">
         {club.topics.map((interest, index) => <div key={index} className="label-2 mx-1">{interest}</div>)}
@@ -39,6 +41,7 @@ ClubCard.propTypes = {
     goals: PropTypes.string,
     topics: PropTypes.arrayOf(PropTypes.string),
     description: PropTypes.string,
+    _id: PropTypes.string,
   }).isRequired,
 };
 
