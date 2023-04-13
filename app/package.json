@@ -17,6 +17,7 @@
     "simpl-schema": "^3.4.1",
     "simpler-state": "^1.2.0",
     "sweetalert": "^2.1.2",
+    "underscore": "^1.13.6",
     "uniforms": "^3.10.2",
     "uniforms-bootstrap5": "^3.10.2",
     "uniforms-bridge-simple-schema-2": "^3.10.2"
