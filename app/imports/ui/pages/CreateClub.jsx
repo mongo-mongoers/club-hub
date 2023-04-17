@@ -14,7 +14,7 @@ const formSchema = new SimpleSchema({
   abbreviation: { type: String },
   topics: { type: Array }, 'topics.$': {
     type: String,
-    allowedValues: ['Academic', 'Social', 'ICS', 'Service'],
+    allowedValues: ['Academic', 'Social', 'ICS', 'Service', 'Leisure', 'Professional', 'Engineering', 'Recreational'],
   },
   description: { type: String },
   goals: { type: String },
