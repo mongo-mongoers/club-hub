@@ -49,9 +49,9 @@ function addProject({ name, homepage, description, interests, picture }) {
   interests.map(interest => addInterest(interest));
 }
 
-function addClub({ name, abbreviation, topics, description, goals, email, logo }) {
+function addClub({ name, slug, abbreviation, topics, description, goals, email, logo }) {
   console.log(`Defining club ${name}`);
-  Clubs.collection.insert({ name, abbreviation, topics, description, goals, email, logo });
+  Clubs.collection.insert({ name, slug, abbreviation, topics, description, goals, email, logo });
 }
 
 function addProfilesClubs({ profileEmail, clubName }) {

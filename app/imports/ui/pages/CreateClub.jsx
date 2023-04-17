@@ -1,17 +1,18 @@
+import { Meteor } from 'meteor/meteor';
 import React from 'react';
 import { Card, Col, Container, Row } from 'react-bootstrap';
 import { AutoForm, ErrorsField, LongTextField, SelectField, SubmitField, TextField } from 'uniforms-bootstrap5';
 import swal from 'sweetalert';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 import SimpleSchema from 'simpl-schema';
-import { Clubs } from '../../api/clubs/Clubs';
+import { createClubMethod } from '../../startup/both/Methods';
+import slugify from '../../api/methods/slug';
 
 // Create a schema to specify the structure of the data to appear in the form.
 const formSchema = new SimpleSchema({
   name: { type: String },
   abbreviation: { type: String },
-  topics: { type: Array },
-  'topics.$': {
+  topics: { type: Array }, 'topics.$': {
     type: String,
     allowedValues: ['Academic', 'Social', 'ICS', 'Service'],
   },
@@ -28,19 +29,18 @@ const CreateClub = () => {
 
   // On submit, insert the data.
   const submit = (data, formRef) => {
-    const { name, abbreviation, topics, description, goals, email, logo } = data;
+    // const { name, abbreviation, topics, description, goals, email, logo } = data;
     // const owner = Meteor.user().username;
-    Clubs.collection.insert(
-      { name, abbreviation, topics, description, goals, email, logo },
-      (error) => {
-        if (error) {
-          swal('Error', error.message, 'error');
-        } else {
-          swal('Success', 'Item added successfully', 'success');
-          formRef.reset();
-        }
-      },
-    );
+    const newData = { ...data, slug: slugify(data.name) };
+
+    Meteor.call(createClubMethod, newData, (error) => {
+      if (error) {
+        swal('Error', error.message, 'error');
+      } else {
+        swal('Success', 'Item added successfully', 'success');
+        formRef.reset();
+      }
+    });
   };
 
   // Render the form. Use Uniforms: https://github.com/vazco/uniforms

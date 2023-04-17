@@ -136,6 +136,7 @@
   "defaultClubs": [
     {
       "name": "Association for Computing Machinery",
+      "slug": "association-for-computing-machinery",
       "abbreviation": "ACM",
       "topics": ["Academic", "Service", "ICS"],
       "description": "ACM is a global scientific and educational organization dedicated to advancing the art, science, engineering, and application of computing, serving both professional and public interests by fostering the open exchange of information and by promoting the highest professional and ethical standards. The main goals of the organization is to promote professional and technical development, facilitate networking, and enrich the lives of the organization members.",
@@ -145,6 +146,7 @@
     },
     {
       "name": "Ballroom Dance Club",
+      "slug": "ballroom-dance-club",
       "abbreviation": "Ballroom",
       "topics": ["Academic", "Service"],
       "description": "Ballroom is a fun physical activity that provides stress relief and allows you to build relationships and friends with other members. You can improve your posture, build confidence and add this to your resume. You might be surprised that most of the top Adult Amateur ballroom dancers in the US are Computer Science or Engineering majors/graduates and you might even have one of them interview you for your next job!",
@@ -154,6 +156,7 @@
     },
     {
       "name": "Robotic Space Exploration",
+      "slug": "robotic-space-exploration",
       "abbreviation": "RoSE",
       "topics": ["Academic", "Professional", "Engineering"],
       "description": "Team RoSE is concerned with the fabrication, dynamics, controls, systems engineering, and machine learning for space applications. The main driving force for the team is the University Rover Challenge (URC). URC, which is an international competition to design the next generation of rovers for robotic exploration. Rovers from other teams and previous years can be seen in the links section. These models are from years of iterations, modifications, and redesigns. There are four sections of emphases to the URC: science, retrieval, service, and autonomy.",
@@ -163,6 +166,7 @@
     },
     {
       "name": "Information Technology Management Association",
+      "slug": "information-technology-management-association",
       "abbreviation": "ITMA",
       "topics": ["Academic", "Professional", "ICS"],
       "description": "Our mission is to strengthen the social and professional network between members of the Information Technology Management Association, alumni, and professionals by focusing on the development of quality relationships. ITMA is motivated and dedicated to providing its members with social and professional networks, providing access to technical resources, and being an example of a growing technical environment to foster career development.",
