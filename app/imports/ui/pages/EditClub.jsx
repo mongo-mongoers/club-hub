@@ -8,6 +8,7 @@ import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 import { useParams } from 'react-router';
 import LoadingSpinner from '../components/LoadingSpinner';
 import { Clubs } from '../../api/clubs/Clubs';
+import { updateClubMethod } from '../../startup/both/Methods';
 
 const bridge = new SimpleSchema2Bridge(Clubs.schema);
 
@@ -32,8 +33,8 @@ const EditClub = () => {
   // console.log('EditStuff', doc, ready);
   // On successful submit, insert the data.
   const submit = (data) => {
-    const { name, abbreviation, topics, description, goals, email, logo } = data;
-    Clubs.collection.update(_id, { $set: { name, abbreviation, topics, description, goals, email, logo } }, (error) => (error ?
+    // const { name, abbreviation, topics, description, goals, email, logo } = data;
+    Meteor.call(updateClubMethod, _id, data, (error) => (error ?
       swal('Error', error.message, 'error') :
       swal('Success', 'Item updated successfully', 'success')));
   };

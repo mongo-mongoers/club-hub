@@ -10,7 +10,7 @@ import { createClubMethod } from '../../startup/both/Methods';
 // Create a schema to specify the structure of the data to appear in the form.
 const formSchema = new SimpleSchema({
   name: { type: String }, abbreviation: { type: String }, topics: { type: Array }, 'topics.$': {
-    type: String, allowedValues: ['Academic', 'Social', 'ICS', 'Service'],
+    type: String, allowedValues: ['Academic', 'Social', 'ICS', 'Service', 'Leisure', 'Professional', 'Engineering', 'Recreational'],
   }, description: { type: String }, goals: { type: String }, email: { type: String }, logo: { type: String },
 });
 
