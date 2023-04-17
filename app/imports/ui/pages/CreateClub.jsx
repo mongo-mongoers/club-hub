@@ -6,12 +6,20 @@ import swal from 'sweetalert';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 import SimpleSchema from 'simpl-schema';
 import { createClubMethod } from '../../startup/both/Methods';
+import slugify from '../../api/methods/slug';
 
 // Create a schema to specify the structure of the data to appear in the form.
 const formSchema = new SimpleSchema({
-  name: { type: String }, abbreviation: { type: String }, topics: { type: Array }, 'topics.$': {
-    type: String, allowedValues: ['Academic', 'Social', 'ICS', 'Service'],
-  }, description: { type: String }, goals: { type: String }, email: { type: String }, logo: { type: String },
+  name: { type: String },
+  abbreviation: { type: String },
+  topics: { type: Array }, 'topics.$': {
+    type: String,
+    allowedValues: ['Academic', 'Social', 'ICS', 'Service'],
+  },
+  description: { type: String },
+  goals: { type: String },
+  email: { type: String },
+  logo: { type: String },
 });
 
 const bridge = new SimpleSchema2Bridge(formSchema);
@@ -23,7 +31,9 @@ const CreateClub = () => {
   const submit = (data, formRef) => {
     // const { name, abbreviation, topics, description, goals, email, logo } = data;
     // const owner = Meteor.user().username;
-    Meteor.call(createClubMethod, data, (error) => {
+    const newData = { ...data, slug: slugify(data.name) };
+
+    Meteor.call(createClubMethod, newData, (error) => {
       if (error) {
         swal('Error', error.message, 'error');
       } else {

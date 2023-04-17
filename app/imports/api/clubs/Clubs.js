@@ -11,6 +11,7 @@ class ClubsCollection {
     // Define the structure of each document in the collection.
     this.schema = new SimpleSchema({
       name: { type: String },
+      slug: { type: String },
       // Add a bookmarked field to store the bookmark status
       bookmarked: {
         type: Boolean,
