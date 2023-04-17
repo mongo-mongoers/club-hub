@@ -22,6 +22,7 @@ const ClubBanner = ({ club }) => (
 ClubBanner.propTypes = {
   club: PropTypes.shape({
     name: PropTypes.string,
+    slug: PropTypes.string,
     abbreviation: PropTypes.string,
     topics: PropTypes.arrayOf(PropTypes.string),
     description: PropTypes.string,

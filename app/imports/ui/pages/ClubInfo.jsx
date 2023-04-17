@@ -12,19 +12,21 @@ import ClubBody from '../components/ClubInfoBody';
 /* A simple static component to render some text for the landing page. */
 const ClubInfo = () => {
   // Get the documentID from the URL field. See imports/ui/layouts/App.jsx for the route containing :_id.
-  const { clubAbv } = useParams();
-
+  const { clubSlug } = useParams();
+  console.log('clubSlug:', clubSlug);
   const { ready, club } = useTracker(() => {
     // Get access to Club data.
     const subscription = Meteor.subscribe(Clubs.userPublicationName);
     // Determine if the subscription is ready
     const rdy = subscription.ready();
-    const data = Clubs.collection.findOne({ abbreviation: clubAbv });
+    const data = Clubs.collection.findOne({ slug: clubSlug });
     return {
       ready: rdy,
       club: data,
     };
   }, []);
+
+  console.log('club:', club);
   // const emails = _.pluck(Profiles.collection.find().fetch(), 'email');
   // There is a potential race condition. We might not be ready at this point.
   // Need to ensure that getProfileData doesn't throw an error on line 18.

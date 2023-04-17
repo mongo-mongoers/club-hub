@@ -42,14 +42,14 @@ const App = () => {
           <Route path="/signout" element={<SignOut />} />
           <Route path="/interests" element={<Interests />} />
           <Route path="/clubList" element={<ClubList />} />
-          <Route path="/clubInfo/:clubAbv" element={<ClubInfo />} />
+          <Route path="/clubInfo/:clubSlug" element={<ClubInfo />} />
           <Route path="/projects" element={<Projects />} />
           <Route path="/addProject" element={<ProtectedRoute><AddProject /></ProtectedRoute>} />
-          <Route path="/myClubs" element={<ProtectedRoute><ProfilesPage /></ProtectedRoute>} />
+          <Route path="/bookmarks" element={<ProtectedRoute><ProfilesPage /></ProtectedRoute>} />
           <Route path="/events" element={<ProtectedRoute><EventsPage /></ProtectedRoute>} />
           <Route path="/notauthorized" element={<NotAuthorized />} />
           <Route path="/createClub" element={<AdminProtectedRoute ready={ready}><CreateClub /></AdminProtectedRoute>} />
-          <Route path="/editClub/:_id" element={<AdminProtectedRoute ready={ready}><EditClub /></AdminProtectedRoute>} />
+          <Route path="/clubEdit/:_id" element={<AdminProtectedRoute ready={ready}><EditClub /></AdminProtectedRoute>} />
           <Route path="*" element={<NotFound />} />
         </Routes>
         <Footer />
