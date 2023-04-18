@@ -8,6 +8,7 @@ import { ProfilesProjects } from '../../api/profiles/ProfilesProjects';
 import { ProfilesInterests } from '../../api/profiles/ProfilesInterests';
 import { Interests } from '../../api/interests/Interests';
 import { Clubs } from '../../api/clubs/Clubs';
+import { Events } from '../../api/events/Events';
 import { ProfilesClubs } from '../../api/profiles/ProfilesClubs';
 
 /* eslint-disable no-console */
@@ -53,7 +54,10 @@ function addClub({ name, slug, abbreviation, topics, description, goals, email, 
   console.log(`Defining club ${name}`);
   Clubs.collection.insert({ name, slug, abbreviation, topics, description, goals, email, logo });
 }
-
+function addEvents({ club, name, date, description, email, location }) {
+  console.log(`Defining Event ${club}`);
+  Events.collection.insert({ club, name, date, description, email, location });
+}
 function addProfilesClubs({ profileEmail, clubName }) {
   console.log(`Defining profile ${profileEmail} is in ${clubName}`);
   ProfilesClubs.collection.insert({ profileEmail, clubName });
@@ -70,6 +74,8 @@ if (Meteor.users.find().count() === 0) {
     Meteor.settings.defaultClubs.forEach(club => addClub(club));
     console.log('Adding profiles to clubs');
     Meteor.settings.defaultProfilesClubs.forEach(pClub => addProfilesClubs(pClub));
+    console.log('Adding Events');
+    Meteor.settings.defaultProfilesEvents.forEach(event => addEvents(event));
   } else {
     console.log('Cannot initialize the database!  Please invoke meteor with a settings file.');
   }

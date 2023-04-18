@@ -11,6 +11,7 @@ class EventsCollection {
     // Define the structure of each document in the collection.
     this.schema = new SimpleSchema({
       club: { type: String },
+      name: { type: String },
       date: { type: String },
       description: { type: String },
       email: { type: String },
