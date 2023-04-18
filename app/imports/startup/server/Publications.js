@@ -6,6 +6,7 @@ import { ProfilesProjects } from '../../api/profiles/ProfilesProjects';
 import { Projects } from '../../api/projects/Projects';
 import { ProjectsInterests } from '../../api/projects/ProjectsInterests';
 import { Clubs } from '../../api/clubs/Clubs';
+import { Events } from '../../api/events/Events';
 import { ProfilesClubs } from '../../api/profiles/ProfilesClubs';
 
 /** Define a publication to publish all interests. */
@@ -30,6 +31,9 @@ Meteor.publish(ProjectsInterests.userPublicationName, () => ProjectsInterests.co
 Meteor.publish(Clubs.userPublicationName, () => Clubs.collection.find());
 
 /** Define a publication to publish this collection. */
+
+Meteor.publish(Events.userPublicationName, () => Events.collection.find());
+
 Meteor.publish(ProfilesClubs.userPublicationName, function () {
   if (this.userId) {
     const username = Meteor.users.findOne(this.userId).username;

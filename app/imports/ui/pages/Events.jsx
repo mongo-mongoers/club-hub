@@ -28,9 +28,18 @@ const EventsPage = () => {
     const sub1 = Meteor.subscribe(ProfilesClubs.userPublicationName);
     const sub2 = Meteor.subscribe(Clubs.userPublicationName);
     const sub3 = Meteor.subscribe(Events.userPublicationName);
+
     const userProfilesClubs = ProfilesClubs.collection.find({}).fetch();
+    const allEvents = Events.collection.find({}).fetch();
+    console.log(allEvents);
     const userClubNames = userProfilesClubs.map((profileClub) => profileClub.clubName);
     const events = userClubNames.map((clubName) => Events.collection.findOne({ club: clubName }));
+    // console.log('userProfilesClubs');
+    // console.log(userProfilesClubs);
+    // console.log('userClubNames');
+    // console.log(userClubNames);
+    // console.log('Events:');
+    // console.log(events);
     return {
       ready: sub1.ready() && sub2.ready() && sub3.ready(),
       eventData: events,
