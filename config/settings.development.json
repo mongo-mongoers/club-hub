@@ -181,5 +181,15 @@
       "clubName": "Association for Computing Machinery"
     }
   ],
-  "loadAssetsFile":  false
+  "loadAssetsFile":  false,
+  "defaultProfilesEvents": [
+    {
+  "club": "ACM",
+  "name": "Computer Science Career Fair!",
+  "date": "3/31/23",
+  "description":
+  "Attend this career fair for a great opportunity to network, learn about job or internship openings, and make connections with industry professionals! This",
+  "location": "3rd Floor of the Pacific Ocean Science & Technology (POST) Building"
+}
+]
 }
