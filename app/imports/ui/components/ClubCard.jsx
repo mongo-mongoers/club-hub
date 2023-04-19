@@ -3,6 +3,7 @@ import { Meteor } from 'meteor/meteor';
 import PropTypes from 'prop-types';
 import { Card, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { Roles } from 'meteor/alanning:roles';
 import { useTracker } from 'meteor/react-meteor-data';
 import _ from 'underscore';
 import { ProfilesClubs } from '../../api/profiles/ProfilesClubs';
@@ -22,7 +23,12 @@ const ClubCard = ({ club }) => {
       profilesClubs: data,
     };
   });
-
+  // Checks if the user is an admin
+  const isAdmin = Roles.userIsInRole(Meteor.userId(), 'admin');
+  // Checks if the user is an owner (if username matches the email associated with the club)
+  const isOwner = Meteor.user().username === club.email;
+  // Adjusts length of description for clubCard
+  const truncatedDescription = club.description.slice(0, 200);
   const displayError = (error, result) => {
     if (error) {
       console.log('Error:', error);
@@ -40,7 +46,6 @@ const ClubCard = ({ club }) => {
     }
   };
 
-  const truncatedDescription = club.description.slice(0, 200);
   const buttonDisplay = () => {
     if (Meteor.userId()) {
       const clubNames = _.pluck(profilesClubs, 'clubName');
@@ -51,7 +56,7 @@ const ClubCard = ({ club }) => {
   };
 
   return ready ? (
-    <Card style={{ width: '24rem', height: '32rem' }} className="mx-auto">
+    <Card style={{ width: '24rem', height: '33rem' }} className="mx-auto">
       <Card.Header className="text-center">
         <Card.Img
           src={club.logo}
@@ -63,7 +68,11 @@ const ClubCard = ({ club }) => {
         <Card.Title style={{ fontWeight: 'bold' }}>{club.name}</Card.Title>
         <Card.Subtitle className="mb-2 text-muted" style={{ fontSize: '1.5rem' }}>{club.abbreviation}</Card.Subtitle>
         <Card.Text className="text-start">{truncatedDescription}...</Card.Text>
-        <Link to={`/clubEdit/${club.slug}`}>Edit Club</Link>
+        {(isAdmin || isOwner) ? (
+          <Link to={`/clubEdit/${club.slug}`}>
+            <Button variant="outline-secondary">Edit Club</Button>
+          </Link>
+        ) : null}
         <div className="d-flex justify-content-between align-items-end">
           <Link to={`/clubInfo/${club.slug}`} style={{ textDecoration: 'none' }}>
             <Button variant="outline-secondary">More Info</Button>
@@ -84,43 +93,13 @@ ClubCard.propTypes = {
     name: PropTypes.string,
     slug: PropTypes.string,
     abbreviation: PropTypes.string,
-    logo: PropTypes.string,
-    goals: PropTypes.string,
     topics: PropTypes.arrayOf(PropTypes.string),
     description: PropTypes.string,
+    goals: PropTypes.string,
+    email: PropTypes.string,
+    logo: PropTypes.string,
     _id: PropTypes.string,
   }).isRequired,
 };
 
 export default ClubCard;
-/*
-<Card className="mb-4" style={{ borderRadius: '0.5rem' }}>
-      <Card.Img variant="top" src={club.logo} style={{ height: '10rem', objectFit: 'cover', borderRadius: '0.5rem 0.5rem 0 0' }} />
-      <Card.Body className="p-4">
-        <Card.Title style={{ fontSize: '2rem', fontWeight: 'bold' }}>{club.name}</Card.Title>
-        <Card.Subtitle className="mb-2 text-muted" style={{ fontSize: '1.5rem' }}>{club.abbreviation}</Card.Subtitle>
-        <Card.Text className="mb-3" style={{ fontSize: '1.2rem' }}>{truncatedDescription}...</Card.Text>
-        <div className="d-flex justify-content-between">
-          <Link to={`/clubInfo/${club.slug}`} style={{ textDecoration: 'none' }}>
-            <Button variant="info">More Info</Button>
-          </Link>
-          <Link to={`/clubEdit/${club._id}`} style={{ textDecoration: 'none' }}>
-            <Button variant="outline-secondary">Edit Club</Button>
-          </Link>
-        </div>
-      </Card.Body>
-      <Card.Footer
-        className="p-4 d-flex justify-content-between align-items-center"
-        style={{ backgroundColor: '#f6f6f6', borderRadius: '0 0 0.5rem 0.5rem' }}
-      >
-        <div>
-          {club.topics.map((interest, index) => (
-            <Badge key={index} className="mx-1" variant="primary">{interest}</Badge>
-          ))}
-        </div>
-        <div>
-          {buttonDisplay()}
-        </div>
-      </Card.Footer>
-    </Card>
- */
