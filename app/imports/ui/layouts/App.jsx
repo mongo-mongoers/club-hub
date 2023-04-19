@@ -1,9 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Meteor } from 'meteor/meteor';
-import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, Navigate, useParams } from 'react-router-dom';
 import { Roles } from 'meteor/alanning:roles';
 import { useTracker } from 'meteor/react-meteor-data';
+import { Clubs } from '../../api/clubs/Clubs';
 import Footer from '../components/Footer';
 import Landing from '../pages/Landing';
 import NotFound from '../pages/NotFound';
@@ -49,7 +50,7 @@ const App = () => {
           <Route path="/events" element={<ProtectedRoute><EventsPage /></ProtectedRoute>} />
           <Route path="/notauthorized" element={<NotAuthorized />} />
           <Route path="/createClub" element={<AdminProtectedRoute ready={ready}><CreateClub /></AdminProtectedRoute>} />
-          <Route path="/clubEdit/:_id" element={<AdminProtectedRoute ready={ready}><EditClub /></AdminProtectedRoute>} />
+          <Route path="/clubEdit/:clubSlug" element={<AdminOrOwnerProtectedRoute ready={ready}><EditClub /></AdminOrOwnerProtectedRoute>} />
           <Route path="*" element={<NotFound />} />
         </Routes>
         <Footer />
@@ -85,6 +86,34 @@ const AdminProtectedRoute = ({ ready, children }) => {
   return (isLogged && isAdmin) ? children : <Navigate to="/notauthorized" />;
 };
 
+const AdminOrOwnerProtectedRoute = ({ ready, children }) => {
+  const isLogged = Meteor.userId() !== null;
+  const { clubSlug } = useParams(); // Get the clubSlug from the route params
+
+  const { isAdmin, isOwner, ready2 } = useTracker(() => {
+    const subscription = Meteor.subscribe(Clubs.userPublicationName);
+    const rdy2 = subscription.ready();
+    const club = Clubs.collection.findOne({ slug: clubSlug }); // Find the club using clubSlug
+    const role = Roles.userIsInRole(Meteor.userId(), 'admin');
+    const user = Meteor.user().username === club.email;
+    return {
+      ready2: rdy2,
+      isAdmin: role,
+      isOwner: user,
+    };
+  });
+
+  if (!isLogged) {
+    return <Navigate to="/signin" />;
+  }
+
+  if (!ready || !ready2) {
+    return <LoadingSpinner />;
+  }
+
+  return (isAdmin || isOwner) ? children : <Navigate to="/notauthorized" />;
+};
+
 // Require a component and location to be passed to each ProtectedRoute.
 ProtectedRoute.propTypes = {
   children: PropTypes.oneOfType([PropTypes.object, PropTypes.func]),
@@ -100,6 +129,16 @@ AdminProtectedRoute.propTypes = {
 };
 
 AdminProtectedRoute.defaultProps = {
+  ready: false,
+  children: <Landing />,
+};
+
+AdminOrOwnerProtectedRoute.propTypes = {
+  ready: PropTypes.bool,
+  children: PropTypes.oneOfType([PropTypes.object, PropTypes.func]),
+};
+
+AdminOrOwnerProtectedRoute.defaultProps = {
   ready: false,
   children: <Landing />,
 };

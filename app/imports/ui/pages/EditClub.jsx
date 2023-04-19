@@ -15,21 +15,23 @@ const bridge = new SimpleSchema2Bridge(Clubs.schema);
 /* Renders the EditStuff page for editing a single document. */
 const EditClub = () => {
   // Get the documentID from the URL field. See imports/ui/layouts/App.jsx for the route containing :_id.
-  const { _id } = useParams();
+  const { clubSlug } = useParams();
   // console.log('EditStuff', _id);
   // useTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker
-  const { doc, ready } = useTracker(() => {
+  const { doc, ready, _id } = useTracker(() => {
     // Get access to Stuff documents.
     const subscription = Meteor.subscribe(Clubs.userPublicationName);
     // Determine if the subscription is ready
     const rdy = subscription.ready();
     // Get the document
-    const document = Clubs.collection.findOne(_id);
+    const document = Clubs.collection.findOne({ slug: clubSlug });
+    const id = document._id;
     return {
       doc: document,
       ready: rdy,
+      _id: id,
     };
-  }, [_id]);
+  }, [clubSlug]);
   // console.log('EditStuff', doc, ready);
   // On successful submit, insert the data.
   const submit = (data) => {
