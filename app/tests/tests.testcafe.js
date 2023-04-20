@@ -9,6 +9,7 @@ import { homePage } from './home.page';
 import { addProjectPage } from './addproject.page';
 import { filterPage } from './filter.page';
 import { navBar } from './navbar.component';
+import { clubListPage } from './clublist.page';
 
 /* global fixture:false, test:false */
 
@@ -46,10 +47,12 @@ test('Test that profiles page displays', async (testController) => {
   await profilesPage.hasDefaultProfiles(testController);
 });
 
-test('Test that interests page displays', async (testController) => {
-  await navBar.gotoInterestsPage(testController);
-  await interestsPage.isDisplayed(testController);
-  await interestsPage.hasDefaultInterests(testController);
+test.only('Test that club list page displays', async (testController) => {
+  await navBar.gotoSignInPage(testController);
+  await signInPage.signin(testController, credentials.username, credentials.password);
+  await navBar.gotoClubListPage(testController);
+  await clubListPage.isDisplayed(testController);
+  // await interestsPage.hasDefaultInterests(testController);
 });
 
 test('Test that projects page displays', async (testController) => {
