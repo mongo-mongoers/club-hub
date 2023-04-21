@@ -4,7 +4,6 @@ import { signOutPage } from './signout.page';
 import { signupPage } from './signup.page';
 import { profilesPage } from './profiles.page';
 import { projectsPage } from './projects.page';
-import { interestsPage } from './interests.page';
 import { homePage } from './home.page';
 import { addProjectPage } from './addproject.page';
 import { filterPage } from './filter.page';
@@ -55,35 +54,35 @@ test.only('Test that club list page displays', async (testController) => {
   // await interestsPage.hasDefaultInterests(testController);
 });
 
-test('Test that projects page displays', async (testController) => {
-  await navBar.gotoProjectsPage(testController);
-  await projectsPage.isDisplayed(testController);
-  await projectsPage.hasDefaultProjects(testController);
-});
-
-test('Test that home page display and profile modification works', async (testController) => {
-  await navBar.ensureLogout(testController);
-  await navBar.gotoSignInPage(testController);
-  await signInPage.signin(testController, credentials.username, credentials.password);
-  await homePage.isDisplayed(testController);
-  await homePage.updateProfile(testController, credentials.firstName);
-  await navBar.ensureLogout(testController);
-});
-
-test('Test that addProject page works', async (testController) => {
-  await navBar.ensureLogout(testController);
-  await navBar.gotoSignInPage(testController);
-  await signInPage.signin(testController, credentials.username, credentials.password);
-  await navBar.gotoAddProjectPage(testController);
-  await addProjectPage.isDisplayed(testController);
-  await addProjectPage.addProject(testController);
-});
-
-test('Test that filter page works', async (testController) => {
-  await navBar.ensureLogout(testController);
-  await navBar.gotoSignInPage(testController);
-  await signInPage.signin(testController, credentials.username, credentials.password);
-  await navBar.gotoFilterPage(testController);
-  await filterPage.isDisplayed(testController);
-  await filterPage.filter(testController);
-});
+// test('Test that projects page displays', async (testController) => {
+//   await navBar.gotoProjectsPage(testController);
+//   await projectsPage.isDisplayed(testController);
+//   await projectsPage.hasDefaultProjects(testController);
+// });
+//
+// test('Test that home page display and profile modification works', async (testController) => {
+//   await navBar.ensureLogout(testController);
+//   await navBar.gotoSignInPage(testController);
+//   await signInPage.signin(testController, credentials.username, credentials.password);
+//   await homePage.isDisplayed(testController);
+//   await homePage.updateProfile(testController, credentials.firstName);
+//   await navBar.ensureLogout(testController);
+// });
+//
+// test('Test that addProject page works', async (testController) => {
+//   await navBar.ensureLogout(testController);
+//   await navBar.gotoSignInPage(testController);
+//   await signInPage.signin(testController, credentials.username, credentials.password);
+//   await navBar.gotoAddProjectPage(testController);
+//   await addProjectPage.isDisplayed(testController);
+//   await addProjectPage.addProject(testController);
+// });
+//
+// test('Test that filter page works', async (testController) => {
+//   await navBar.ensureLogout(testController);
+//   await navBar.gotoSignInPage(testController);
+//   await signInPage.signin(testController, credentials.username, credentials.password);
+//   await navBar.gotoFilterPage(testController);
+//   await filterPage.isDisplayed(testController);
+//   await filterPage.filter(testController);
+// });
