@@ -50,7 +50,7 @@ const ClubCard = ({ club }) => {
       const isOwner = Meteor.user().username === club.email;
       return (isAdmin || isOwner) ? (
         <Link to={`/clubEdit/${club.slug}`}>
-          <Button variant="outline-secondary">Edit Club</Button>
+          <Button id="editclub-button" variant="outline-secondary">Edit Club</Button>
         </Link>
       ) : null;
     }
@@ -60,7 +60,7 @@ const ClubCard = ({ club }) => {
     if (Meteor.userId()) {
       const clubNames = _.pluck(profilesClubs, 'clubName');
       const status = clubNames.includes(club.name);
-      return <Button variant="outline-secondary" type="button" onClick={() => handleBookmark(status ? 'remove' : 'add')}>{status ? 'Unbookmark' : 'Bookmark'}</Button>;
+      return <Button id="bookmark-button" variant="outline-secondary" type="button" onClick={() => handleBookmark(status ? 'remove' : 'add')}>{status ? 'Unbookmark' : 'Bookmark'}</Button>;
     }
     return null;
   };
