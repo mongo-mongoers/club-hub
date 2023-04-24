@@ -63,7 +63,37 @@ function addProfilesClubs({ profileEmail, clubName }) {
   ProfilesClubs.collection.insert({ profileEmail, clubName });
 }
 
+/**
+ * If the loadAssetsFile field in settings.development.json is true, then load the data in private/data.json.
+ * This approach allows you to initialize your system with large amounts of data.
+ * Note that settings.development.json is limited to 64,000 characters.
+ * We use the "Assets" capability in Meteor.
+ * For more info on assets, see https://docs.meteor.com/api/assets.html
+ * User count check is to make sure we don't load the file twice, which would generate errors due to duplicate info.
+ */
+if ((Meteor.settings.loadAssetsFile) && (Meteor.users.find().count() < 7)) {
+  const assetsFileName = 'data.json';
+  console.log(`Loading data from private/${assetsFileName}`);
+  const jsonData = JSON.parse(Assets.getText(assetsFileName));
+
+  if (jsonData.defaultProjects && jsonData.defaultProfiles && jsonData.defaultClubs) {
+    console.log('Creating the default profiles');
+    jsonData.defaultProfiles.map(profile => addProfile(profile));
+    console.log('Creating the default projects');
+    jsonData.defaultProjects.map(project => addProject(project));
+    console.log('Creating the default clubs');
+    jsonData.defaultClubs.forEach(club => addClub(club));
+    console.log('Adding profiles to clubs');
+    jsonData.defaultProfilesClubs.forEach(pClub => addProfilesClubs(pClub));
+    console.log('Adding Events');
+    jsonData.defaultProfilesEvents.forEach(event => addEvents(event));
+  } else {
+    console.log('Cannot initialize the database!  Please invoke meteor with a settings file.');
+  }
+}
+
 /** Initialize DB if it appears to be empty (i.e. no users defined.) */
+// Turned off, will not load unless this code block is placed above the loadAssetsFile
 if (Meteor.users.find().count() === 0) {
   if (Meteor.settings.defaultProjects && Meteor.settings.defaultProfiles && Meteor.settings.defaultClubs) {
     console.log('Creating the default profiles');
@@ -79,20 +109,4 @@ if (Meteor.users.find().count() === 0) {
   } else {
     console.log('Cannot initialize the database!  Please invoke meteor with a settings file.');
   }
-}
-
-/**
- * If the loadAssetsFile field in settings.development.json is true, then load the data in private/data.json.
- * This approach allows you to initialize your system with large amounts of data.
- * Note that settings.development.json is limited to 64,000 characters.
- * We use the "Assets" capability in Meteor.
- * For more info on assets, see https://docs.meteor.com/api/assets.html
- * User count check is to make sure we don't load the file twice, which would generate errors due to duplicate info.
- */
-if ((Meteor.settings.loadAssetsFile) && (Meteor.users.find().count() < 7)) {
-  const assetsFileName = 'data.json';
-  console.log(`Loading data from private/${assetsFileName}`);
-  const jsonData = JSON.parse(Assets.getText(assetsFileName));
-  jsonData.profiles.map(profile => addProfile(profile));
-  jsonData.projects.map(project => addProject(project));
 }
