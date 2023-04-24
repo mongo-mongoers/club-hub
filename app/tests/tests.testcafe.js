@@ -56,7 +56,6 @@ test.only('Test that bookmarks are working', async (testController) => {
   await clubCard.bookmarkClub(testController);
 });
 
-
 // test('Test that home page display and profile modification works', async (testController) => {
 //   await navBar.ensureLogout(testController);
 //   await navBar.gotoSignInPage(testController);
