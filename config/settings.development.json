@@ -181,7 +181,7 @@
       "clubName": "Association for Computing Machinery"
     }
   ],
-  "loadAssetsFile":  false,
+  "loadAssetsFile":  true,
   "defaultProfilesEvents": [
     {
   "club": "Association for Computing Machinery",
