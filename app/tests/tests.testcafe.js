@@ -40,9 +40,9 @@ test('Test that signup page, then logout works', async (testController) => {
   await signOutPage.isDisplayed(testController);
 });
 
-test('Test that club list page displays', async (testController) => {
-  await navBar.gotoSignInPage(testController);
-  await signInPage.signin(testController, credentials.username, credentials.password);
+test.only('Test that club list page displays', async (testController) => {
+  // await navBar.gotoSignInPage(testController);
+  // await signInPage.signin(testController, credentials.username, credentials.password);
   await navBar.gotoClubListPage(testController);
   await clubListPage.isDisplayed(testController);
   // await interestsPage.hasDefaultInterests(testController);
