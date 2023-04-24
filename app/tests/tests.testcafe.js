@@ -10,6 +10,7 @@ import { filterPage } from './filter.page';
 import { navBar } from './navbar.component';
 import { clubListPage } from './clublist.page';
 import { clubCard } from './clubcard.component';
+import { eventsPage } from './events.page';
 
 /* global fixture:false, test:false */
 
@@ -47,13 +48,21 @@ test('Test that club list page displays', async (testController) => {
 
 });
 
-test.only('Test that bookmarks are working', async (testController) => {
+test.only('Test that bookmark button changes myclubs, events page', async (testController) => {
+  // Creates a new user
+  const newUser = `user-${new Date().getTime()}@foo.com`;
   await navBar.ensureLogout(testController);
-  await navBar.gotoSignInPage(testController);
-  await signInPage.signin(testController, credentials.username, credentials.password);
+  await navBar.gotoSignUpPage(testController);
+  await signupPage.signupUser(testController, newUser, credentials.password);
+  // Saves one club to user bookmarks
   await navBar.gotoClubListPage(testController);
-  await clubListPage.isDisplayed(testController);
   await clubCard.bookmarkClub(testController);
+  // Checks if club count is = 1 on myClubs page
+  await navBar.gotoBookmarksPage(testController);
+  await profilesPage.clubCount(testController);
+  // Checks if events page has events from bookmarked clubs
+  await navBar.gotoEventsPage(testController);
+  await eventsPage.eventCount(testController);
 });
 
 // test('Test that home page display and profile modification works', async (testController) => {
@@ -64,16 +73,7 @@ test.only('Test that bookmarks are working', async (testController) => {
 //   await homePage.updateProfile(testController, credentials.firstName);
 //   await navBar.ensureLogout(testController);
 // });
-//
-// test('Test that addProject page works', async (testController) => {
-//   await navBar.ensureLogout(testController);
-//   await navBar.gotoSignInPage(testController);
-//   await signInPage.signin(testController, credentials.username, credentials.password);
-//   await navBar.gotoAddProjectPage(testController);
-//   await addProjectPage.isDisplayed(testController);
-//   await addProjectPage.addProject(testController);
-// });
-//
+
 // test('Test that filter page works', async (testController) => {
 //   await navBar.ensureLogout(testController);
 //   await navBar.gotoSignInPage(testController);

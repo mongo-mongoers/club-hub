@@ -1,9 +1,9 @@
 import { Selector } from 'testcafe';
 import { PageIDs } from '../imports/ui/utilities/ids';
 
-class ClubListPage {
+class EventsPage {
   constructor() {
-    this.pageId = `#${PageIDs.clubList}`;
+    this.pageId = `#${PageIDs.eventsPage}`;
     this.pageSelector = Selector(this.pageId);
   }
 
@@ -13,6 +13,10 @@ class ClubListPage {
     await testController.wait(10000).expect(this.pageSelector.exists).ok();
   }
 
+  async eventCount(testController) {
+    const cardCount = Selector('h5').count;
+    await testController.expect(cardCount).eql(1);
+  }
 }
 
-export const clubListPage = new ClubListPage();
+export const eventsPage = new EventsPage();

@@ -8,7 +8,7 @@ class ClubCard {
       await testController.click('button.navbar-toggler');
     }
     const bookmarkSelector = Selector('#bookmark-button');
-    await testController.click(bookmarkSelector().nth(1));
+    await testController.click(bookmarkSelector().nth(0));
   }
 }
 export const clubCard = new ClubCard();
