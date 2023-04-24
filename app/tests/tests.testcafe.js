@@ -40,7 +40,7 @@ test('Test that signup page, then logout works', async (testController) => {
   await signOutPage.isDisplayed(testController);
 });
 
-test.only('Test that club list page displays', async (testController) => {
+test('Test that club list page displays', async (testController) => {
   // await navBar.gotoSignInPage(testController);
   // await signInPage.signin(testController, credentials.username, credentials.password);
   await navBar.gotoClubListPage(testController);
@@ -48,7 +48,7 @@ test.only('Test that club list page displays', async (testController) => {
   // await interestsPage.hasDefaultInterests(testController);
 });
 
-test('Test that bookmarks are working', async (testController) => {
+test.only('Test that bookmarks are working', async (testController) => {
   await navBar.ensureLogout(testController);
   await navBar.gotoSignInPage(testController);
   await signInPage.signin(testController, credentials.username, credentials.password);
