@@ -7,8 +7,9 @@ class ClubCard {
     if (!visible) {
       await testController.click('button.navbar-toggler');
     }
-    await testController.click(`#${ComponentIDs.loginDropdown}`);
-    await testController.click(`#${ComponentIDs.loginDropdownSignIn}`);
+    const bookmarkSelector = Selector(`#${ComponentIDs.addProjectFormInterests} div.form-check input`);
+    await testController.click(bookmarkSelector().nth(0));
+    await testController.click(bookmarkSelector().nth(1));
   }
 }
 export const clubCard = new ClubCard();
