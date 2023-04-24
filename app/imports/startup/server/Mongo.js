@@ -71,7 +71,7 @@ function addProfilesClubs({ profileEmail, clubName }) {
  * For more info on assets, see https://docs.meteor.com/api/assets.html
  * User count check is to make sure we don't load the file twice, which would generate errors due to duplicate info.
  */
-if ((Meteor.settings.loadAssetsFile) && (Meteor.users.find().count() < 7)) {
+if ((Meteor.settings.loadAssetsFile) && (Meteor.users.find().count() === 0)) {
   const assetsFileName = 'data.json';
   console.log(`Loading data from private/${assetsFileName}`);
   const jsonData = JSON.parse(Assets.getText(assetsFileName));
