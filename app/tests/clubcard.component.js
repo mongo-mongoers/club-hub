@@ -7,8 +7,7 @@ class ClubCard {
     if (!visible) {
       await testController.click('button.navbar-toggler');
     }
-    const bookmarkSelector = Selector(`#${ComponentIDs.addProjectFormInterests} div.form-check input`);
-    await testController.click(bookmarkSelector().nth(0));
+    const bookmarkSelector = Selector('#bookmark-button');
     await testController.click(bookmarkSelector().nth(1));
   }
 }

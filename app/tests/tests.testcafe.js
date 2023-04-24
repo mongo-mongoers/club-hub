@@ -9,6 +9,7 @@ import { addProjectPage } from './addproject.page';
 import { filterPage } from './filter.page';
 import { navBar } from './navbar.component';
 import { clubListPage } from './clublist.page';
+import { clubCard } from './clubcard.component';
 
 /* global fixture:false, test:false */
 
@@ -41,11 +42,9 @@ test('Test that signup page, then logout works', async (testController) => {
 });
 
 test('Test that club list page displays', async (testController) => {
-  // await navBar.gotoSignInPage(testController);
-  // await signInPage.signin(testController, credentials.username, credentials.password);
   await navBar.gotoClubListPage(testController);
   await clubListPage.isDisplayed(testController);
-  // await interestsPage.hasDefaultInterests(testController);
+
 });
 
 test.only('Test that bookmarks are working', async (testController) => {
@@ -54,14 +53,10 @@ test.only('Test that bookmarks are working', async (testController) => {
   await signInPage.signin(testController, credentials.username, credentials.password);
   await navBar.gotoClubListPage(testController);
   await clubListPage.isDisplayed(testController);
-  // await interestsPage.hasDefaultInterests(testController);
+  await clubCard.bookmarkClub(testController);
 });
-// test('Test that projects page displays', async (testController) => {
-//   await navBar.gotoProjectsPage(testController);
-//   await projectsPage.isDisplayed(testController);
-//   await projectsPage.hasDefaultProjects(testController);
-// });
-//
+
+
 // test('Test that home page display and profile modification works', async (testController) => {
 //   await navBar.ensureLogout(testController);
 //   await navBar.gotoSignInPage(testController);
