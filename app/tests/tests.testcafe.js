@@ -48,7 +48,7 @@ test('Test that club list page displays', async (testController) => {
 
 });
 
-test.only('Test that bookmark button changes myclubs, events page', async (testController) => {
+test('Test that bookmark button changes myclubs, events page', async (testController) => {
   // Creates a new user
   const newUser = `user-${new Date().getTime()}@foo.com`;
   await navBar.ensureLogout(testController);
@@ -63,6 +63,13 @@ test.only('Test that bookmark button changes myclubs, events page', async (testC
   // Checks if events page has events from bookmarked clubs
   await navBar.gotoEventsPage(testController);
   await eventsPage.eventCount(testController);
+});
+
+test.only('Test that edit club page shows up for club owners', async (testController) => {
+  await navBar.gotoSignInPage(testController);
+  await signInPage.signin(testController, 'acmmanoa@hawaii.edu', 'foo');
+  await navBar.gotoClubListPage(testController);
+  await clubCard.editClub(testController);
 });
 
 // test('Test that home page display and profile modification works', async (testController) => {

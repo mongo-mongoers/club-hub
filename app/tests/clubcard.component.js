@@ -10,5 +10,14 @@ class ClubCard {
     const bookmarkSelector = Selector('#bookmark-button');
     await testController.click(bookmarkSelector().nth(0));
   }
+
+  async editClub(testController) {
+    const visible = await Selector(`#${ComponentIDs.basicNavbarNav}`).visible;
+    if (!visible) {
+      await testController.click('button.navbar-toggler');
+    }
+    const editSelector = Selector('#editclub-button');
+    await testController.click(editSelector().nth(0));
+  }
 }
 export const clubCard = new ClubCard();

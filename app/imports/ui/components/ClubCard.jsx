@@ -50,7 +50,7 @@ const ClubCard = ({ club }) => {
       const isOwner = Meteor.user().username === club.email;
       return (isAdmin || isOwner) ? (
         <Link to={`/clubEdit/${club.slug}`}>
-          <Button variant="outline-secondary">Edit Club</Button>
+          <Button id="editclub-button" variant="outline-secondary">Edit Club</Button>
         </Link>
       ) : null;
     }
