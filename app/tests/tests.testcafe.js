@@ -65,7 +65,7 @@ test('Test that bookmark button changes myclubs, events page', async (testContro
   await eventsPage.eventCount(testController);
 });
 
-test.only('Test that edit club page shows up for club owners', async (testController) => {
+test('Test that edit club page shows up for club owners', async (testController) => {
   await navBar.gotoSignInPage(testController);
   await signInPage.signin(testController, 'acmmanoa@hawaii.edu', 'foo');
   await navBar.gotoClubListPage(testController);
