@@ -7,6 +7,7 @@ import { navBar } from './navbar.component';
 import { clubListPage } from './clublist.page';
 import { clubCard } from './clubcard.component';
 import { eventsPage } from './events.page';
+import { createClubPage } from './createclub.page';
 
 /* global fixture:false, test:false */
 
@@ -66,6 +67,13 @@ test('Test that edit club page shows up for club owners', async (testController)
   await signInPage.signin(testController, 'acmmanoa@hawaii.edu', 'foo');
   await navBar.gotoClubListPage(testController);
   await clubCard.editClub(testController);
+});
+
+test.only('Test that create club page shows up for admins', async (testController) => {
+  await navBar.gotoSignInPage(testController);
+  await signInPage.signin(testController, 'henric@hawaii.edu', 'foo');
+  await navBar.gotoCreateClubPage(testController);
+  await createClubPage.isDisplayed(testController);
 });
 
 // test('Test that home page display and profile modification works', async (testController) => {

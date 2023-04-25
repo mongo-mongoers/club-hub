@@ -20,12 +20,6 @@ const ProfilesPage = () => {
     const userProfilesClubs = ProfilesClubs.collection.find({}).fetch();
     const userClubNames = userProfilesClubs.map((profileClub) => profileClub.clubName);
     const clubs = userClubNames.map((clubName) => Clubs.collection.findOne({ name: clubName }));
-    // console.log('userProfilesClubs');
-    // console.log(userProfilesClubs);
-    // console.log('userClubNames');
-    // console.log(userClubNames);
-    // console.log('clubs');
-    // console.log(clubs);
     return {
       ready: sub1.ready() && sub2.ready(),
       clubData: clubs,

@@ -53,4 +53,5 @@ export const PageIDs = {
   signInPage: 'signInPage',
   signOutPage: 'signOutPage',
   signUpPage: 'signUpPage',
+  createClubPage: 'createClubPage',
 };
