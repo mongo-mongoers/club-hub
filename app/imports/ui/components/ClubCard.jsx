@@ -56,7 +56,20 @@ const ClubCard = ({ club }) => {
     }
     return null;
   };
-
+  const addEvent = () => {
+    if (Meteor.userId()) {
+      // Checks if the user is an admin
+      const isAdmin = Roles.userIsInRole(Meteor.userId(), 'admin');
+      // Checks if the user is an owner (if username matches the email associated with the club)
+      const isOwner = Meteor.user().username === club.email;
+      return (isAdmin || isOwner) ? (
+        <Link to={`/createEvent/${club.slug}`}>
+          <Button id="editclub-button" variant="outline-secondary">Add Event</Button>
+        </Link>
+      ) : null;
+    }
+    return null;
+  };
   const buttonDisplay = () => {
     if (Meteor.userId()) {
       const clubNames = _.pluck(profilesClubs, 'clubName');
@@ -80,6 +93,7 @@ const ClubCard = ({ club }) => {
         <Card.Subtitle className="mb-2 text-muted" style={{ fontSize: '1.5rem' }}>{club.abbreviation}</Card.Subtitle>
         <Card.Text className="text-start">{truncatedDescription}...</Card.Text>
         {editClub()}
+        {addEvent()}
         <div className="d-flex justify-content-between align-items-end">
           <Link to={`/clubInfo/${club.slug}`} style={{ textDecoration: 'none' }}>
             <Button variant="outline-secondary">More Info</Button>
