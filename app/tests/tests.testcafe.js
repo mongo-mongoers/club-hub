@@ -33,7 +33,7 @@ test('Test that bookmarks page displays', async (testController) => {
   await profilesPage.isDisplayed(testController);
 });
 
-test.only('Test that events page displays', async (testController) => {
+test('Test that events page displays', async (testController) => {
   await navBar.gotoSignInPage(testController);
   await signInPage.signin(testController, credentials.username, credentials.password);
   await navBar.gotoEventsPage(testController);
@@ -45,6 +45,13 @@ test('Test that edit club page displays for club owners', async (testController)
   await signInPage.signin(testController, 'acmmanoa@hawaii.edu', 'foo');
   await navBar.gotoClubListPage(testController);
   await clubCard.editClub(testController);
+});
+
+test('Test that the more info page displays', async (testController) => {
+  await navBar.ensureLogout(testController);
+  await navBar.gotoClubListPage(testController);
+  await clubListPage.gotoClubInfo(testController);
+  await clubInfoPage.isDisplayed(testController);
 });
 
 test('Test that signin and signout work', async (testController) => {
@@ -64,7 +71,7 @@ test('Test that signup page, then logout works', async (testController) => {
   await signOutPage.isDisplayed(testController);
 });
 
-test('Test that bookmark button changes myclubs, events page', async (testController) => {
+test('Test that bookmark button changes bookmarks, events page', async (testController) => {
   // Creates a new user
   const newUser = `user-${new Date().getTime()}@foo.com`;
   await navBar.ensureLogout(testController);
@@ -101,11 +108,4 @@ test('Test that club modification works for club owners', async (testController)
   await navBar.gotoClubListPage(testController);
   await clubListPage.editClub(testController);
   await navBar.ensureLogout(testController);
-});
-
-test('Test that the more info page displays', async (testController) => {
-  await navBar.ensureLogout(testController);
-  await navBar.gotoClubListPage(testController);
-  await clubListPage.gotoClubInfo(testController);
-  await clubInfoPage.isDisplayed(testController);
 });
