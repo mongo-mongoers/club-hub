@@ -34,7 +34,7 @@ const ClubList = () => {
           </Col>
         </Row>
       </div>
-      <Row xs={1} md={2} lg={4} className="g-4 justify-content-center mx-0 my-5 min-vw-100">
+      <Row xs={1} md={2} lg={4} className="justify-content-center mx-0 my-5 min-vw-100">
         {clubs.map((club, index) => (<Col key={index} className="align-items-center text-center"> <ClubCard key={index} club={club} bookmarked={club.bookmarked} toggleBookmark={toggleBookmark} /></Col>))}
       </Row>
     </Container>
