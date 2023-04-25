@@ -44,6 +44,8 @@ export const ComponentIDs = {
   createClubFormSubmit: 'createClubFormSubmit',
   clubCard: 'clubCard',
   clubCardTitle: 'clubCardTitle',
+  editClubName: 'editClubName',
+  editClubSubmit: 'editClubSubmit',
 
 };
 

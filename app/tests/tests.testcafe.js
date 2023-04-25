@@ -21,6 +21,24 @@ test('Test that landing page shows up', async (testController) => {
   await landingPage.isDisplayed(testController);
 });
 
+test('Test that club list page displays', async (testController) => {
+  await navBar.gotoClubListPage(testController);
+  await clubListPage.isDisplayed(testController);
+});
+test('Test that bookmarks page displays', async (testController) => {
+  await navBar.gotoSignInPage(testController);
+  await signInPage.signin(testController, credentials.username, credentials.password);
+  await navBar.gotoBookmarksPage(testController);
+  await profilesPage.isDisplayed(testController);
+});
+
+test('Test that edit club page displays for club owners', async (testController) => {
+  await navBar.gotoSignInPage(testController);
+  await signInPage.signin(testController, 'acmmanoa@hawaii.edu', 'foo');
+  await navBar.gotoClubListPage(testController);
+  await clubCard.editClub(testController);
+});
+
 test('Test that signin and signout work', async (testController) => {
   await navBar.gotoSignInPage(testController);
   await signInPage.signin(testController, credentials.username, credentials.password);
@@ -32,17 +50,10 @@ test('Test that signup page, then logout works', async (testController) => {
   // Create a new user email address that's guaranteed to be unique.
   const newUser = `user-${new Date().getTime()}@foo.com`;
   await navBar.gotoSignUpPage(testController);
-  await signupPage.isDisplayed(testController);
   await signupPage.signupUser(testController, newUser, credentials.password);
   // New user has successfully logged in, so now let's logout.
   await navBar.logout(testController);
   await signOutPage.isDisplayed(testController);
-});
-
-test('Test that club list page displays', async (testController) => {
-  await navBar.gotoClubListPage(testController);
-  await clubListPage.isDisplayed(testController);
-
 });
 
 test('Test that bookmark button changes myclubs, events page', async (testController) => {
@@ -62,13 +73,6 @@ test('Test that bookmark button changes myclubs, events page', async (testContro
   await eventsPage.eventCount(testController);
 });
 
-test('Test that edit club page shows up for club owners', async (testController) => {
-  await navBar.gotoSignInPage(testController);
-  await signInPage.signin(testController, 'acmmanoa@hawaii.edu', 'foo');
-  await navBar.gotoClubListPage(testController);
-  await clubCard.editClub(testController);
-});
-
 test('Test that create club page shows up for admins', async (testController) => {
   await navBar.gotoSignInPage(testController);
   await signInPage.signin(testController, 'henric@hawaii.edu', 'foo');
@@ -76,20 +80,20 @@ test('Test that create club page shows up for admins', async (testController) =>
   await createClubPage.isDisplayed(testController);
 });
 
-test.only('Test that admins can create a club via create clubs page', async (testController) => {
+test('Test that admins can create a club via create clubs page', async (testController) => {
   await navBar.gotoSignInPage(testController);
   await signInPage.signin(testController, 'henric@hawaii.edu', 'foo');
   await navBar.gotoCreateClubPage(testController);
   await createClubPage.addClub(testController);
 });
-// test('Test that home page display and profile modification works', async (testController) => {
-//   await navBar.ensureLogout(testController);
-//   await navBar.gotoSignInPage(testController);
-//   await signInPage.signin(testController, credentials.username, credentials.password);
-//   await homePage.isDisplayed(testController);
-//   await homePage.updateProfile(testController, credentials.firstName);
-//   await navBar.ensureLogout(testController);
-// });
+test.only('Test that club modification works for club owners', async (testController) => {
+  await navBar.ensureLogout(testController);
+  await navBar.gotoSignInPage(testController);
+  await signInPage.signin(testController, 'acmmanoa@hawaii.edu', 'foo');
+  await navBar.gotoClubListPage(testController);
+  await clubListPage.editClub(testController);
+  await navBar.ensureLogout(testController);
+});
 
 // test('Test that filter page works', async (testController) => {
 //   await navBar.ensureLogout(testController);
