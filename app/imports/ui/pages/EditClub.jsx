@@ -50,7 +50,7 @@ const EditClub = () => {
       <Row className="justify-content-center">
         <Col xs={5}>
           <Col className="text-center"><h2>Edit Club</h2></Col>
-          <AutoForm schema={bridge} onSubmit={data => submit(data)} model={doc.name}>
+          <AutoForm schema={bridge} onSubmit={data => submit(data)} model={doc}>
             <Card>
               <Card.Body>
                 <Row>
