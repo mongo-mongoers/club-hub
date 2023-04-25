@@ -5,6 +5,7 @@ import { ProfilesInterests } from '../../api/profiles/ProfilesInterests';
 import { ProfilesProjects } from '../../api/profiles/ProfilesProjects';
 import { ProjectsInterests } from '../../api/projects/ProjectsInterests';
 import { Clubs } from '../../api/clubs/Clubs';
+import { Events } from '../../api/events/Events';
 import { ProfilesClubs } from '../../api/profiles/ProfilesClubs';
 import slugify from '../../api/methods/slug';
 
@@ -67,7 +68,14 @@ Meteor.methods({
     }
   },
 });
+const createEventMethod = 'Events.add';
 
+/** Creates a new project in the Projects collection, and also updates ProfilesProjects and ProjectsInterests. */
+Meteor.methods({
+  'Events.add'({ club, name, date, description, email, location }) {
+    Events.collection.insert({ club, name, date, description, email, location });
+  },
+});
 const createClubMethod = 'Clubs.add';
 
 /** Creates a new project in the Projects collection, and also updates ProfilesProjects and ProjectsInterests. */
@@ -107,4 +115,4 @@ Meteor.methods({
   },
 });
 
-export { updateProfileMethod, addProjectMethod, createClubMethod, editClubMethod, addProfilesClubs, removeProfilesClubs };
+export { updateProfileMethod, addProjectMethod, createClubMethod, editClubMethod, addProfilesClubs, removeProfilesClubs, createEventMethod };

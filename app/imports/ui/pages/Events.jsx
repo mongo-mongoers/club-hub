@@ -30,8 +30,8 @@ const EventsPage = () => {
     const sub3 = Meteor.subscribe(Events.userPublicationName);
 
     const userProfilesClubs = ProfilesClubs.collection.find({}).fetch();
-    const allEvents = Events.collection.find({}).fetch();
-    console.log(allEvents);
+    // const allEvents = Events.collection.find({}).fetch();
+    // console.log(allEvents);
     const userClubNames = userProfilesClubs.map((profileClub) => profileClub.clubName);
     const events = userClubNames.map((clubName) => Events.collection.findOne({ club: clubName }));
     // console.log('userProfilesClubs');
