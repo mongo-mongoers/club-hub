@@ -12,11 +12,6 @@ class ClubsCollection {
     this.schema = new SimpleSchema({
       name: { type: String },
       slug: { type: String },
-      // Add a bookmarked field to store the bookmark status
-      bookmarked: {
-        type: Boolean,
-        defaultValue: false,
-      },
       abbreviation: { type: String },
       topics: { type: Array },
       'topics.$': {

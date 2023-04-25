@@ -23,10 +23,6 @@ const ClubCard = ({ club }) => {
       profilesClubs: data,
     };
   });
-  // Checks if the user is an admin
-  const isAdmin = Roles.userIsInRole(Meteor.userId(), 'admin');
-  // Checks if the user is an owner (if username matches the email associated with the club)
-  const isOwner = Meteor.user().username === club.email;
   // Adjusts length of description for clubCard
   const truncatedDescription = club.description.slice(0, 200);
   const displayError = (error, result) => {
@@ -46,11 +42,25 @@ const ClubCard = ({ club }) => {
     }
   };
 
+  const editClub = () => {
+    if (Meteor.userId()) {
+      // Checks if the user is an admin
+      const isAdmin = Roles.userIsInRole(Meteor.userId(), 'admin');
+      // Checks if the user is an owner (if username matches the email associated with the club)
+      const isOwner = Meteor.user().username === club.email;
+      return (isAdmin || isOwner) ? (
+        <Link to={`/clubEdit/${club.slug}`}>
+          <Button id="editclub-button" variant="outline-secondary">Edit Club</Button>
+        </Link>
+      ) : null;
+    }
+    return null;
+  };
   const buttonDisplay = () => {
     if (Meteor.userId()) {
       const clubNames = _.pluck(profilesClubs, 'clubName');
       const status = clubNames.includes(club.name);
-      return <Button variant="outline-secondary" type="button" onClick={() => handleBookmark(status ? 'remove' : 'add')}>{status ? 'Unbookmark' : 'Bookmark'}</Button>;
+      return <Button id="bookmark-button" variant="outline-secondary" type="button" onClick={() => handleBookmark(status ? 'remove' : 'add')}>{status ? 'Unbookmark' : 'Bookmark'}</Button>;
     }
     return null;
   };
@@ -68,11 +78,7 @@ const ClubCard = ({ club }) => {
         <Card.Title style={{ fontWeight: 'bold' }}>{club.name}</Card.Title>
         <Card.Subtitle className="mb-2 text-muted" style={{ fontSize: '1.5rem' }}>{club.abbreviation}</Card.Subtitle>
         <Card.Text className="text-start">{truncatedDescription}...</Card.Text>
-        {(isAdmin || isOwner) ? (
-          <Link to={`/clubEdit/${club.slug}`}>
-            <Button variant="outline-secondary">Edit Club</Button>
-          </Link>
-        ) : null}
+        {editClub()}
         <div className="d-flex justify-content-between align-items-end">
           <Link to={`/clubInfo/${club.slug}`} style={{ textDecoration: 'none' }}>
             <Button variant="outline-secondary">More Info</Button>
