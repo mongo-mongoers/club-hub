@@ -34,6 +34,14 @@ export const ComponentIDs = {
   signUpFormEmail: 'signUpFormEmail',
   signUpFormPassword: 'signUpFormPassword',
   signUpFormSubmit: 'signUpFormSubmit',
+  createClubFormName: "createClubFormName",
+  createClubFormAbbreviation: "createClubFormAbbreviation",
+  createClubFormGoals: "createClubFormGoals",
+  createClubFormEmail: "createclubFormEmail",
+  createClubFormLogo: "createClubFormLogo",
+  createClubFormTopics: "createClubFormTopics",
+  createClubFormDescription: "createClubFormDescription",
+
 };
 
 export const PageIDs = {

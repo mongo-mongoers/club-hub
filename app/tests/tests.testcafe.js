@@ -69,13 +69,19 @@ test('Test that edit club page shows up for club owners', async (testController)
   await clubCard.editClub(testController);
 });
 
-test.only('Test that create club page shows up for admins', async (testController) => {
+test('Test that create club page shows up for admins', async (testController) => {
   await navBar.gotoSignInPage(testController);
   await signInPage.signin(testController, 'henric@hawaii.edu', 'foo');
   await navBar.gotoCreateClubPage(testController);
   await createClubPage.isDisplayed(testController);
 });
 
+test('Test that admins can create a club via create clubs page', async (testController) => {
+  await navBar.gotoSignInPage(testController);
+  await signInPage.signin(testController, 'henric@hawaii.edu', 'foo');
+  await navBar.gotoCreateClubPage(testController);
+
+});
 // test('Test that home page display and profile modification works', async (testController) => {
 //   await navBar.ensureLogout(testController);
 //   await navBar.gotoSignInPage(testController);

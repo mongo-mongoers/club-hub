@@ -20,7 +20,7 @@ class AddProjectPage {
     const description = 'Growing awesome computer scientists, one graduate at a time.';
     await this.isDisplayed(testController);
     // Define the new project
-    await testController.typeText(`#${ComponentIDs.addProjectFormName}`, name);
+    await testController.typeText(`#${ComponentIDs.addCl}`, name);
     await testController.typeText(`#${ComponentIDs.addProjectFormPicture}`, picture);
     await testController.typeText(`#${ComponentIDs.addProjectFormHomePage}`, homepage);
     await testController.typeText(`#${ComponentIDs.addProjectFormDescription}`, description);

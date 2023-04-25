@@ -7,7 +7,7 @@ import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 import SimpleSchema from 'simpl-schema';
 import { createClubMethod } from '../../startup/both/Methods';
 import slugify from '../../api/methods/slug';
-import { PageIDs } from '../utilities/ids';
+import { ComponentIDs, PageIDs } from '../utilities/ids';
 
 // Create a schema to specify the structure of the data to appear in the form.
 const formSchema = new SimpleSchema({
@@ -55,7 +55,7 @@ const CreateClub = () => {
             <Card>
               <Card.Body>
                 <Row>
-                  <Col><TextField name="name" /></Col>
+                  <Col><TextField id={ComponentIDs.createClubFormName}  name="name" /></Col>
                   <Col><TextField name="abbreviation" /></Col>
                 </Row>
                 <Row>
