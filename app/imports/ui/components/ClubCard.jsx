@@ -56,6 +56,7 @@ const ClubCard = ({ club }) => {
     }
     return null;
   };
+
   const buttonDisplay = () => {
     if (Meteor.userId()) {
       const clubNames = _.pluck(profilesClubs, 'clubName');
