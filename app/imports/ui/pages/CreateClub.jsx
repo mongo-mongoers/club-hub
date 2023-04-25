@@ -55,23 +55,23 @@ const CreateClub = () => {
             <Card>
               <Card.Body>
                 <Row>
-                  <Col><TextField id={ComponentIDs.createClubFormName}  name="name" /></Col>
-                  <Col><TextField name="abbreviation" /></Col>
+                  <Col><TextField id={ComponentIDs.createClubFormName} name="name" /></Col>
+                  <Col><TextField id={ComponentIDs.createClubFormAbbreviation} name="abbreviation" /></Col>
                 </Row>
                 <Row>
-                  <LongTextField name="description" />
+                  <LongTextField id={ComponentIDs.createClubFormDescription} name="description" />
                 </Row>
                 <Row>
-                  <LongTextField name="goals" />
+                  <LongTextField id={ComponentIDs.createClubFormGoals} name="goals" />
                 </Row>
                 <Row>
-                  <TextField name="email" />
-                  <TextField name="logo" />
+                  <TextField id={ComponentIDs.createClubFormEmail} name="email" />
+                  <TextField id={ComponentIDs.createClubFormLogo} name="logo" />
                 </Row>
                 <Row>
-                  <SelectField name="topics" />
+                  <SelectField id={ComponentIDs.createClubFormTopics} name="topics" />
                 </Row>
-                <SubmitField value="Submit" />
+                <SubmitField id={ComponentIDs.createClubFormSubmit} value="Submit" />
                 <ErrorsField />
 
               </Card.Body>

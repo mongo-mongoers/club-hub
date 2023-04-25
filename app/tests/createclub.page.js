@@ -13,11 +13,12 @@ class CreateClubPage {
   }
 
   async addClub(testController) {
-    const name = `radgrad-${new Date().getTime()}`;
+    const name = `testName-${new Date().getTime()}`;
     const abbreviation = 'TST';
     const description = 'test description';
     const goals = 'test goals';
     const email = `user-${new Date().getTime()}@foo.com`;
+    const logo = 'https://cdn.pixabay.com/photo/2016/01/03/11/24/gear-1119298_960_720.png';
     await this.isDisplayed(testController);
     // Define the new project
     await testController.typeText(`#${ComponentIDs.createClubFormName}`, name);
@@ -25,14 +26,14 @@ class CreateClubPage {
     await testController.typeText(`#${ComponentIDs.createClubFormDescription}`, description);
     await testController.typeText(`#${ComponentIDs.createClubFormGoals}`, goals);
     await testController.typeText(`#${ComponentIDs.createClubFormEmail}`, email);
+    await testController.typeText(`#${ComponentIDs.createClubFormLogo}`, logo);
 
-    // Select two interests.
-    const interestsSelector = Selector(`#${ComponentIDs.addProjectFormInterests} div.form-check input`);
-    await testController.click(interestsSelector.nth(0));
-    await testController.click(interestsSelector.nth(8));
-
-    await testController.click(`#${ComponentIDs.addProjectFormSubmit} input.btn.btn-primary`);
-    await testController.click(Selector('.swal-button--confirm'));
+    // Select two club topics
+    const topicSelector = Selector(`#${ComponentIDs.createClubFormTopics} option`);
+    await testController.click(topicSelector.nth(1));
+    await testController.click(topicSelector.nth(2));
+    // Submit
+    await testController.click(`#${ComponentIDs.createClubFormSubmit}`);
   }
 }
 
