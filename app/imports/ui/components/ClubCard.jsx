@@ -92,8 +92,10 @@ const ClubCard = ({ club }) => {
         <Card.Title style={{ fontWeight: 'bold' }}>{club.name}</Card.Title>
         <Card.Subtitle className="mb-2 text-muted" style={{ fontSize: '1.5rem' }}>{club.abbreviation}</Card.Subtitle>
         <Card.Text className="text-start">{truncatedDescription}...</Card.Text>
-        {editClub()}
-        {addEvent()}
+        <div className="d-flex justify-content-between align-items-end">
+          {editClub()}
+          {addEvent()}
+        </div>
         <div className="d-flex justify-content-between align-items-end">
           <Link to={`/clubInfo/${club.slug}`} style={{ textDecoration: 'none' }}>
             <Button variant="outline-secondary">More Info</Button>
