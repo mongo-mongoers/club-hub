@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import swal from 'sweetalert';
 import { Card, Col, Container, Row } from 'react-bootstrap';
 import { AutoForm, ErrorsField, LongTextField, SelectField, SubmitField, TextField } from 'uniforms-bootstrap5';
@@ -6,6 +6,7 @@ import { Meteor } from 'meteor/meteor';
 import { useTracker } from 'meteor/react-meteor-data';
 import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 import { useParams } from 'react-router';
+import { Navigate } from 'react-router-dom';
 import LoadingSpinner from '../components/LoadingSpinner';
 import { Clubs } from '../../api/clubs/Clubs';
 import { editClubMethod } from '../../startup/both/Methods';
@@ -14,6 +15,7 @@ const bridge = new SimpleSchema2Bridge(Clubs.schema);
 
 /* Renders the EditStuff page for editing a single document. */
 const EditClub = () => {
+  const [redirect, setRedirect] = useState(false);
   // Get the documentID from the URL field. See imports/ui/layouts/App.jsx for the route containing :_id.
   const { clubSlug } = useParams();
   // console.log('EditStuff', _id);
@@ -41,9 +43,14 @@ const EditClub = () => {
         swal('Error', error.message, 'error');
       } else {
         swal('Success', 'Item updated successfully', 'success');
+        setRedirect(true);
       }
     });
   };
+
+  if (redirect) {
+    return (<Navigate to="/clubList" />);
+  }
 
   return ready ? (
     <Container className="py-3">
