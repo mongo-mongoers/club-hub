@@ -42,6 +42,8 @@ export const ComponentIDs = {
   createClubFormTopics: 'createClubFormTopics',
   createClubFormDescription: 'createClubFormDescription',
   createClubFormSubmit: 'createClubFormSubmit',
+  clubCard: 'clubCard',
+  clubCardTitle: 'clubCardTitle',
 
 };
 

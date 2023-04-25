@@ -13,7 +13,7 @@ class CreateClubPage {
   }
 
   async addClub(testController) {
-    const name = `testName-${new Date().getTime()}`;
+    const name = `AAA-${new Date().getTime()}`;
     const abbreviation = 'TST';
     const description = 'test description';
     const goals = 'test goals';
@@ -33,8 +33,14 @@ class CreateClubPage {
     await testController.click(topicSelector.nth(1));
     await testController.click(topicSelector.nth(2));
     // Submit
-    await testController.click(`#${ComponentIDs.createClubFormSubmit}`);
+    await testController.click(`#${ComponentIDs.createClubFormSubmit} input.btn.btn-primary`);
+    await testController.click(Selector('.swal-button--confirm'));
+    await testController.click(`#${ComponentIDs.clubListMenuItem}`);
+    await testController.click(Selector('#card-title').withExactText(name));
   }
+  // async newClubIsDisplayed(testController) {
+  //   await testController.expect(Selector('div-card-title h5').value).eql(firstName);
+  // }
 }
 
 export const createClubPage = new CreateClubPage();

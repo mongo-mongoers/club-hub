@@ -81,7 +81,6 @@ test.only('Test that admins can create a club via create clubs page', async (tes
   await signInPage.signin(testController, 'henric@hawaii.edu', 'foo');
   await navBar.gotoCreateClubPage(testController);
   await createClubPage.addClub(testController);
-
 });
 // test('Test that home page display and profile modification works', async (testController) => {
 //   await navBar.ensureLogout(testController);
