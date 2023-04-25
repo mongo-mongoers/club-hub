@@ -20,19 +20,13 @@ const ProfilesPage = () => {
     const userProfilesClubs = ProfilesClubs.collection.find({}).fetch();
     const userClubNames = userProfilesClubs.map((profileClub) => profileClub.clubName);
     const clubs = userClubNames.map((clubName) => Clubs.collection.findOne({ name: clubName }));
-    // console.log('userProfilesClubs');
-    // console.log(userProfilesClubs);
-    // console.log('userClubNames');
-    // console.log(userClubNames);
-    // console.log('clubs');
-    // console.log(clubs);
     return {
       ready: sub1.ready() && sub2.ready(),
       clubData: clubs,
     };
   }, []);
   return ready ? (
-    <Container id={PageIDs.clubBookmark} className="align-content-center mx-0 px-0">
+    <Container id={PageIDs.profilesPage} className="align-content-center mx-0 px-0">
       <div className="club-banner justify-content-center min-vw-100">
         <Row className="justify-content-center align-middle text-center py-5 text-white">
           <Col xs={5}>

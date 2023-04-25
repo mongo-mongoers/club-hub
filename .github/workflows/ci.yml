@@ -35,6 +35,7 @@ jobs:
 
       - name: Run Meteor commands
         shell: bash -l {0}
+      - uses: meteorengineer/setup-meteor@v1
         run: |
           meteor npm install
           meteor npm run lint

@@ -9,6 +9,7 @@ import _ from 'underscore';
 import { ProfilesClubs } from '../../api/profiles/ProfilesClubs';
 import LoadingSpinner from './LoadingSpinner';
 import { addProfilesClubs, removeProfilesClubs } from '../../startup/both/Methods';
+import { ComponentIDs } from '../utilities/ids';
 
 /** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
 const ClubCard = ({ club }) => {
@@ -80,7 +81,7 @@ const ClubCard = ({ club }) => {
   };
 
   return ready ? (
-    <Card style={{ width: '24rem', height: '33rem' }} className="mx-auto">
+    <Card id={ComponentIDs.clubCard} style={{ width: '24rem', height: '33rem' }} className="mx-auto">
       <Card.Header className="text-center">
         <Card.Img
           src={club.logo}
@@ -89,7 +90,7 @@ const ClubCard = ({ club }) => {
         />
       </Card.Header>
       <Card.Body className="text-center d-flex flex-column justify-content-between">
-        <Card.Title style={{ fontWeight: 'bold' }}>{club.name}</Card.Title>
+        <Card.Title id="card-title" style={{ fontWeight: 'bold' }}>{club.name}</Card.Title>
         <Card.Subtitle className="mb-2 text-muted" style={{ fontSize: '1.5rem' }}>{club.abbreviation}</Card.Subtitle>
         <Card.Text className="text-start">{truncatedDescription}...</Card.Text>
         <div className="d-flex justify-content-between align-items-end">
@@ -98,7 +99,7 @@ const ClubCard = ({ club }) => {
         </div>
         <div className="d-flex justify-content-between align-items-end">
           <Link to={`/clubInfo/${club.slug}`} style={{ textDecoration: 'none' }}>
-            <Button variant="outline-secondary">More Info</Button>
+            <Button id="moreinfo-button" variant="outline-secondary">More Info</Button>
           </Link>
           {buttonDisplay()}
         </div>

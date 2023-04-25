@@ -10,6 +10,7 @@ import { Navigate } from 'react-router-dom';
 import LoadingSpinner from '../components/LoadingSpinner';
 import { Clubs } from '../../api/clubs/Clubs';
 import { editClubMethod } from '../../startup/both/Methods';
+import { ComponentIDs } from '../utilities/ids';
 
 const bridge = new SimpleSchema2Bridge(Clubs.schema);
 
@@ -61,7 +62,7 @@ const EditClub = () => {
             <Card>
               <Card.Body>
                 <Row>
-                  <Col><TextField name="name" /></Col>
+                  <Col><TextField id={ComponentIDs.editClubName} name="name" /></Col>
                   <Col><TextField name="abbreviation" /></Col>
                 </Row>
                 <Row>
@@ -77,7 +78,7 @@ const EditClub = () => {
                 <Row>
                   <SelectField name="topics" />
                 </Row>
-                <SubmitField value="Submit" />
+                <SubmitField id={ComponentIDs.editClubSubmit} value="Submit" />
                 <ErrorsField />
               </Card.Body>
             </Card>
