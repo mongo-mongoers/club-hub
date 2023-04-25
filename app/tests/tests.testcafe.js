@@ -8,6 +8,7 @@ import { clubListPage } from './clublist.page';
 import { clubCard } from './clubcard.component';
 import { eventsPage } from './events.page';
 import { createClubPage } from './createclub.page';
+import { clubInfoPage } from './clubinfo.page';
 
 /* global fixture:false, test:false */
 
@@ -30,6 +31,13 @@ test('Test that bookmarks page displays', async (testController) => {
   await signInPage.signin(testController, credentials.username, credentials.password);
   await navBar.gotoBookmarksPage(testController);
   await profilesPage.isDisplayed(testController);
+});
+
+test.only('Test that events page displays', async (testController) => {
+  await navBar.gotoSignInPage(testController);
+  await signInPage.signin(testController, credentials.username, credentials.password);
+  await navBar.gotoEventsPage(testController);
+  await eventsPage.isDisplayed(testController);
 });
 
 test('Test that edit club page displays for club owners', async (testController) => {
@@ -86,7 +94,7 @@ test('Test that admins can create a club via create clubs page', async (testCont
   await navBar.gotoCreateClubPage(testController);
   await createClubPage.addClub(testController);
 });
-test.only('Test that club modification works for club owners', async (testController) => {
+test('Test that club modification works for club owners', async (testController) => {
   await navBar.ensureLogout(testController);
   await navBar.gotoSignInPage(testController);
   await signInPage.signin(testController, 'acmmanoa@hawaii.edu', 'foo');
@@ -95,11 +103,9 @@ test.only('Test that club modification works for club owners', async (testContro
   await navBar.ensureLogout(testController);
 });
 
-// test('Test that filter page works', async (testController) => {
-//   await navBar.ensureLogout(testController);
-//   await navBar.gotoSignInPage(testController);
-//   await signInPage.signin(testController, credentials.username, credentials.password);
-//   await navBar.gotoFilterPage(testController);
-//   await filterPage.isDisplayed(testController);
-//   await filterPage.filter(testController);
-// });
+test('Test that the more info page displays', async (testController) => {
+  await navBar.ensureLogout(testController);
+  await navBar.gotoClubListPage(testController);
+  await clubListPage.gotoClubInfo(testController);
+  await clubInfoPage.isDisplayed(testController);
+});

@@ -99,7 +99,7 @@ const ClubCard = ({ club }) => {
         </div>
         <div className="d-flex justify-content-between align-items-end">
           <Link to={`/clubInfo/${club.slug}`} style={{ textDecoration: 'none' }}>
-            <Button variant="outline-secondary">More Info</Button>
+            <Button id="moreinfo-button" variant="outline-secondary">More Info</Button>
           </Link>
           {buttonDisplay()}
         </div>

@@ -29,6 +29,10 @@ class ClubListPage {
     await testController.click(Selector('.swal-button--confirm'));
     await testController.click(Selector('#card-title').withExactText(originalClubName));
   }
+
+  async gotoClubInfo(testController) {
+    await testController.click('#moreinfo-button');
+  }
 }
 
 export const clubListPage = new ClubListPage();
