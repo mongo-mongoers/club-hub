@@ -51,7 +51,7 @@ const App = () => {
           <Route path="/events" element={<ProtectedRoute><EventsPage /></ProtectedRoute>} />
           <Route path="/notauthorized" element={<NotAuthorized />} />
           <Route path="/createClub" element={<AdminProtectedRoute ready={ready}><CreateClub /></AdminProtectedRoute>} />
-          <Route path="/createEvent" element={<CreateEvent />} />
+          <Route path="/createEvent/:clubSlug" element={<AdminOrOwnerProtectedRoute ready={ready}><CreateEvent /></AdminOrOwnerProtectedRoute>} />
           <Route path="/clubEdit/:clubSlug" element={<AdminOrOwnerProtectedRoute ready={ready}><EditClub /></AdminOrOwnerProtectedRoute>} />
           <Route path="*" element={<NotFound />} />
         </Routes>
