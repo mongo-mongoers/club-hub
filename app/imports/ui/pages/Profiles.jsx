@@ -26,7 +26,7 @@ const ProfilesPage = () => {
     };
   }, []);
   return ready ? (
-    <Container id={PageIDs.profilesPage} className="align-content-center mx-0 px-0">
+    <Container id={PageIDs.profilesPage} fluid className="align-content-center mx-0 px-0">
       <div className="club-banner justify-content-center min-vw-100">
         <Row className="justify-content-center align-middle text-center py-5 text-white">
           <Col xs={5}>
@@ -36,8 +36,12 @@ const ProfilesPage = () => {
           </Col>
         </Row>
       </div>
-      <Row xs={1} md={2} lg={4} className="g-4 flex-wrap justify-content-center mx-0 my-5 min-vw-100">
-        {clubData.map((club, index) => (<Col className="align-items-center text-center"> <ClubCard key={index} club={club} /></Col>))}
+      <Row xs={1} md={2} lg={3} xxl={4} className="g-4 flex-wrap justify-content-center mx-0 my-5">
+        {clubData.map((club, index) => (
+          <Col key={index} className="d-flex align-items-stretch">
+            <ClubCard key={index} club={club} />
+          </Col>
+        ))}
       </Row>
     </Container>
   ) : <LoadingSpinner />;
