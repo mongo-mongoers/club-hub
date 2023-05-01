@@ -76,6 +76,13 @@ Meteor.methods({
     Events.collection.insert({ club, name, date, description, email, location });
   },
 });
+const removeEventMethod = 'Event.remove';
+
+Meteor.methods({
+  'Event.remove'({ _id }) {
+    Events.collection.remove({ _id });
+  },
+});
 const createClubMethod = 'Clubs.add';
 
 /** Creates a new project in the Projects collection, and also updates ProfilesProjects and ProjectsInterests. */
@@ -123,4 +130,4 @@ Meteor.methods({
   },
 });
 
-export { updateProfileMethod, addProjectMethod, createClubMethod, editClubMethod, removeClubMethod, addProfilesClubs, removeProfilesClubs, createEventMethod };
+export { updateProfileMethod, addProjectMethod, createClubMethod, editClubMethod, removeClubMethod, addProfilesClubs, removeProfilesClubs, createEventMethod, removeEventMethod };
