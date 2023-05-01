@@ -128,10 +128,9 @@ const OwnerProtectedRoute = ({ ready, children }) => {
     if (Meteor.user()) {
       userEmail = Meteor.user().username;
       console.log(userEmail);
-      const userProfilesClubs = Clubs.collection.find({}).fetch();
       club = userEmail ? Clubs.collection.findOne({ email: userEmail }) : undefined;
-      console.log(userProfilesClubs);
-      user = Meteor.user().username === club.email;
+      console.log(club);
+      user = club ? Meteor.user().username === club.email : false;
     }
     return {
       ready2: rdy2,

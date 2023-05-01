@@ -16,6 +16,7 @@ class EventsCollection {
       description: { type: String },
       email: { type: String },
       location: { type: String },
+      _id: { type: String },
     });
     // Ensure collection documents obey schema.
     this.collection.attachSchema(this.schema);

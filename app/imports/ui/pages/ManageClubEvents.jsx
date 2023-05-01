@@ -5,8 +5,6 @@ import { useTracker } from 'meteor/react-meteor-data';
 import LoadingSpinner from '../components/LoadingSpinner';
 import EventCard from '../components/EventCard';
 import { PageIDs } from '../utilities/ids';
-import { ProfilesClubs } from '../../api/profiles/ProfilesClubs';
-import { Clubs } from '../../api/clubs/Clubs';
 import { Events } from '../../api/events/Events';
 /* Returns the Profile and associated Projects and Interests associated with the passed user email. */
 // function getProfileData(email) {
@@ -25,23 +23,14 @@ const OwnerEventsPage = () => {
 
   const { ready, eventData } = useTracker(() => {
     // Get access to Club data and Bookmarks.
-    const sub1 = Meteor.subscribe(ProfilesClubs.userPublicationName);
-    const sub2 = Meteor.subscribe(Clubs.userPublicationName);
-    const sub3 = Meteor.subscribe(Events.userPublicationName);
-
-    const userProfilesClubs = ProfilesClubs.collection.find({}).fetch();
-    // const allEvents = Events.collection.find({}).fetch();
-    // console.log(allEvents);
-    const userClubNames = userProfilesClubs.map((profileClub) => profileClub.clubName);
-    const events = userClubNames.flatMap((clubName) => Events.collection.find({ club: clubName }).fetch());
-    // console.log('userProfilesClubs');
-    // console.log(userProfilesClubs);
-    // console.log('userClubNames');
-    // console.log(userClubNames);
-    // console.log('Events:');
+    const sub1 = Meteor.subscribe(Events.userPublicationName);
+    const userEmail = Meteor.user().username;
+    const allEvents = Events.collection.find({}).fetch();
+    console.log(allEvents);
+    const events = allEvents.filter(event => event.email === userEmail);
     console.log(events);
     return {
-      ready: sub1.ready() && sub2.ready() && sub3.ready(),
+      ready: sub1.ready(),
       eventData: events,
     };
   }, []);
@@ -51,7 +40,7 @@ const OwnerEventsPage = () => {
         <Row className="justify-content-center align-middle text-center py-5 text-white">
           <Col xs={5}>
             <h1>
-              Events
+              Your Organizations Events
             </h1>
           </Col>
         </Row>

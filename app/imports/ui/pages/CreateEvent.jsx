@@ -38,7 +38,7 @@ const CreateEvent = () => {
     const rdy = subscription.ready();
     // Get the document
     const document = Clubs.collection.findOne({ slug: clubSlug });
-    const objName = { club: document.name };
+    const objName = { club: document.name, email: document.email };
     return {
       doc: objName,
       ready: rdy,
