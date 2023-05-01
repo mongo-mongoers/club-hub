@@ -19,6 +19,7 @@ const EventCard = ({ event }) => (
       <Card.Title>{event.name}</Card.Title>
       <Card.Text className="text-start">{event.description}</Card.Text>
       <Card.Text>Location : {event.location}</Card.Text>
+      <Card.Text>Contact : {event.email}</Card.Text>
     </Card.Body>
   </Card>
 );
@@ -29,6 +30,7 @@ EventCard.propTypes = {
     club: PropTypes.string,
     name: PropTypes.string,
     date: PropTypes.string,
+    email: PropTypes.string,
     description: PropTypes.string,
     location: PropTypes.string,
   }).isRequired,
