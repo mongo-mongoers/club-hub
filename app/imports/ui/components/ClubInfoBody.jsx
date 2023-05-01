@@ -29,7 +29,7 @@ const ClubBody = ({ club }) => (
     </Row>
     <Row className="justify-content-center my-5">
       <Col xs={3} className="text-center">
-        <Image src={club.logo} alt="ACM logo" width={400} />
+        <Image src={`../${club.logo}`} alt="ACM logo" width={400} />
       </Col>
     </Row>
   </div>

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
+import swal from 'sweetalert';
 import PropTypes from 'prop-types';
 import { Card, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
@@ -8,7 +9,8 @@ import { useTracker } from 'meteor/react-meteor-data';
 import _ from 'underscore';
 import { ProfilesClubs } from '../../api/profiles/ProfilesClubs';
 import LoadingSpinner from './LoadingSpinner';
-import { addProfilesClubs, removeProfilesClubs } from '../../startup/both/Methods';
+import { addProfilesClubs, removeClubMethod, removeProfilesClubs } from '../../startup/both/Methods';
+import { ComponentIDs } from '../utilities/ids';
 
 /** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
 const ClubCard = ({ club }) => {
@@ -56,6 +58,50 @@ const ClubCard = ({ club }) => {
     }
     return null;
   };
+
+  const removeClub = () => {
+    if (Meteor.userId()) {
+      // Checks if the user is an admin
+      const isAdmin = Roles.userIsInRole(Meteor.userId(), 'admin');
+      // Checks if the user is an owner (if username matches the email associated with the club)
+      const isOwner = Meteor.user().username === club.email;
+
+      if (isAdmin || isOwner) {
+        const handleRemoveClub = () => {
+          swal({
+            title: 'Are you sure?',
+            text: 'Once removed, you will not be able to recover this club!',
+            icon: 'warning',
+            buttons: true,
+            dangerMode: true,
+          })
+            .then((willDelete) => {
+              if (willDelete) {
+                Meteor.call(removeClubMethod, { _id: club._id }, (error) => {
+                  if (error) {
+                    swal('Error removing club!', {
+                      icon: 'error',
+                    });
+                  } else {
+                    swal('Club removed successfully!', {
+                      icon: 'success',
+                    });
+                  }
+                });
+              }
+            });
+        };
+
+        return (
+          <Button id="removeclub-button" variant="outline-danger" onClick={handleRemoveClub}>
+            Remove Club
+          </Button>
+        );
+      }
+    }
+    return null;
+  };
+
   const addEvent = () => {
     if (Meteor.userId()) {
       // Checks if the user is an admin
@@ -80,7 +126,7 @@ const ClubCard = ({ club }) => {
   };
 
   return ready ? (
-    <Card style={{ width: '24rem', height: '33rem' }} className="mx-auto">
+    <Card id={ComponentIDs.clubCard} style={{ width: '24rem', height: '36rem' }} className="mx-auto">
       <Card.Header className="text-center">
         <Card.Img
           src={club.logo}
@@ -89,7 +135,7 @@ const ClubCard = ({ club }) => {
         />
       </Card.Header>
       <Card.Body className="text-center d-flex flex-column justify-content-between">
-        <Card.Title style={{ fontWeight: 'bold' }}>{club.name}</Card.Title>
+        <Card.Title id="card-title" style={{ fontWeight: 'bold' }}>{club.name}</Card.Title>
         <Card.Subtitle className="mb-2 text-muted" style={{ fontSize: '1.5rem' }}>{club.abbreviation}</Card.Subtitle>
         <Card.Text className="text-start">{truncatedDescription}...</Card.Text>
         <div className="d-flex justify-content-between align-items-end">
@@ -98,10 +144,11 @@ const ClubCard = ({ club }) => {
         </div>
         <div className="d-flex justify-content-between align-items-end">
           <Link to={`/clubInfo/${club.slug}`} style={{ textDecoration: 'none' }}>
-            <Button variant="outline-secondary">More Info</Button>
+            <Button id="moreinfo-button" variant="outline-secondary">More Info</Button>
           </Link>
           {buttonDisplay()}
         </div>
+        {removeClub()}
       </Card.Body>
       <Card.Footer className="text-center">
         {club.topics.map((interest, index) => <div key={index} className="label-2 mx-1">{interest}</div>)}

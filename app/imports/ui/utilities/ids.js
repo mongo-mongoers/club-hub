@@ -34,6 +34,19 @@ export const ComponentIDs = {
   signUpFormEmail: 'signUpFormEmail',
   signUpFormPassword: 'signUpFormPassword',
   signUpFormSubmit: 'signUpFormSubmit',
+  createClubFormName: 'createClubFormName',
+  createClubFormAbbreviation: 'createClubFormAbbreviation',
+  createClubFormGoals: 'createClubFormGoals',
+  createClubFormEmail: 'createClubFormEmail',
+  createClubFormLogo: 'createClubFormLogo',
+  createClubFormTopics: 'createClubFormTopics',
+  createClubFormDescription: 'createClubFormDescription',
+  createClubFormSubmit: 'createClubFormSubmit',
+  clubCard: 'clubCard',
+  clubCardTitle: 'clubCardTitle',
+  editClubName: 'editClubName',
+  editClubSubmit: 'editClubSubmit',
+
 };
 
 export const PageIDs = {
@@ -53,4 +66,7 @@ export const PageIDs = {
   signInPage: 'signInPage',
   signOutPage: 'signOutPage',
   signUpPage: 'signUpPage',
+  createClubPage: 'createClubPage',
+  clubInfoPage: 'clubInfoPage',
+
 };

@@ -44,7 +44,7 @@ const ClubInfo = () => {
   };
    */
   return ready ? (
-    <Container id={PageIDs.clubInfo} className="align-content-center mx-0 px-0 min-vw-100">
+    <Container id={PageIDs.clubInfoPage} className="align-content-center mx-0 px-0 min-vw-100">
       <div>
         <ClubBanner club={club} />
       </div>
