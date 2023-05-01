@@ -24,6 +24,7 @@ import CreateClub from '../pages/CreateClub';
 import ClubList from '../pages/ClubList';
 import EditClub from '../pages/EditClub';
 import CreateEvent from '../pages/CreateEvent';
+import OwnerEventsPage from '../pages/ManageClubEvents';
 
 /* Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 const App = () => {
@@ -52,6 +53,7 @@ const App = () => {
           <Route path="/notauthorized" element={<NotAuthorized />} />
           <Route path="/createClub" element={<AdminProtectedRoute ready={ready}><CreateClub /></AdminProtectedRoute>} />
           <Route path="/createEvent/:clubSlug" element={<AdminOrOwnerProtectedRoute ready={ready}><CreateEvent /></AdminOrOwnerProtectedRoute>} />
+          <Route path="/YourEvents" element={<OwnerProtectedRoute ready={ready}><OwnerEventsPage /></OwnerProtectedRoute>} />
           <Route path="/clubEdit/:clubSlug" element={<AdminOrOwnerProtectedRoute ready={ready}><EditClub /></AdminOrOwnerProtectedRoute>} />
           <Route path="*" element={<NotFound />} />
         </Routes>
@@ -115,7 +117,36 @@ const AdminOrOwnerProtectedRoute = ({ ready, children }) => {
 
   return (isAdmin || isOwner) ? children : <Navigate to="/notauthorized" />;
 };
+const OwnerProtectedRoute = ({ ready, children }) => {
+  const isLogged = Meteor.userId() !== null;
+  const { isOwner, ready2 } = useTracker(() => {
+    const subscription = Meteor.subscribe(Clubs.userPublicationName);
+    const rdy2 = subscription.ready();
+    let userEmail;
+    let club;
+    let user;
+    if (Meteor.user()) {
+      userEmail = Meteor.user().username;
+      console.log(userEmail);
+      const userProfilesClubs = Clubs.collection.find({}).fetch();
+      club = userEmail ? Clubs.collection.findOne({ email: userEmail }) : undefined;
+      console.log(userProfilesClubs);
+      user = Meteor.user().username === club.email;
+    }
+    return {
+      ready2: rdy2,
+      isOwner: user,
+    };
+  });
+  if (!isLogged) {
+    return <Navigate to="/signin" />;
+  }
 
+  if (!ready || !ready2) {
+    return <LoadingSpinner />;
+  }
+  return (isOwner) ? children : <Navigate to="/notauthorized" />;
+};
 // Require a component and location to be passed to each ProtectedRoute.
 ProtectedRoute.propTypes = {
   children: PropTypes.oneOfType([PropTypes.object, PropTypes.func]),
@@ -145,4 +176,13 @@ AdminOrOwnerProtectedRoute.defaultProps = {
   children: <Landing />,
 };
 
+OwnerProtectedRoute.propTypes = {
+  ready: PropTypes.bool,
+  children: PropTypes.oneOfType([PropTypes.object, PropTypes.func]),
+};
+
+OwnerProtectedRoute.defaultProps = {
+  ready: false,
+  children: <Landing />,
+};
 export default App;
