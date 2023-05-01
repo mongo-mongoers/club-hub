@@ -95,12 +95,13 @@ test('Test that create club page shows up for admins', async (testController) =>
   await createClubPage.isDisplayed(testController);
 });
 
-test.only('Test that admins can create and remove clubs', async (testController) => {
+test('Test that admins can create and remove clubs', async (testController) => {
   await navBar.gotoSignInPage(testController);
   await signInPage.signin(testController, 'henric@hawaii.edu', 'foo');
   await navBar.gotoCreateClubPage(testController);
   await createClubPage.addClub(testController);
 });
+
 test('Test that club modification works for club owners', async (testController) => {
   await navBar.ensureLogout(testController);
   await navBar.gotoSignInPage(testController);
@@ -108,4 +109,11 @@ test('Test that club modification works for club owners', async (testController)
   await navBar.gotoClubListPage(testController);
   await clubListPage.editClub(testController);
   await navBar.ensureLogout(testController);
+});
+
+test.only('Test that club owners can add events', async (testController) => {
+  await navBar.gotoSignInPage(testController);
+  await signInPage.signin(testController, 'acmmanoa@hawaii.edu', 'foo');
+  await navBar.gotoClubListPage(testController);
+  await clubListPage.gotoAddEvent(testController);
 });
