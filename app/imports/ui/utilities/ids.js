@@ -51,6 +51,8 @@ export const ComponentIDs = {
   addEventFormDate: 'addEventFormDate',
   addEventFormEmail: 'addEventFormEmail',
   addEventFormLocation: 'addEventFormLocation',
+  addEventFormSubmit: 'addEventFormSubmit',
+
 };
 
 export const PageIDs = {

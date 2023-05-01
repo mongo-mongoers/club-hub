@@ -19,21 +19,16 @@ class AddEventPage {
     const email = `user-${new Date().getTime()}@foo.com`;
     const location = 'test location for events';
     await this.isDisplayed(testController);
-    // Define the new project
+    // Define the new event
     await testController.typeText(`#${ComponentIDs.addEventFormName}`, name);
     await testController.typeText(`#${ComponentIDs.addEventFormDescription}`, description);
     await testController.typeText(`#${ComponentIDs.addEventFormDate}`, date);
     await testController.typeText(`#${ComponentIDs.addEventFormEmail}`, email);
     await testController.typeText(`#${ComponentIDs.addEventFormLocation}`, location);
-
-    // Select two club topics
-    const topicSelector = Selector(`#${ComponentIDs.createClubFormTopics} option`);
-    await testController.click(topicSelector.nth(1));
-    await testController.click(topicSelector.nth(2));
     // Submit
-    await testController.click(`#${ComponentIDs.createClubFormSubmit} input.btn.btn-primary`);
+    await testController.click(`#${ComponentIDs.addEventFormSubmit} input.btn.btn-primary`);
     await testController.click(Selector('.swal-button--confirm'));
-    await testController.click(`#${ComponentIDs.clubListMenuItem}`);
+    await testController.click(`#${ComponentIDs.eventsMenuItem}`);
     await testController.click(Selector('#card-title').withExactText(name));
   }
 }

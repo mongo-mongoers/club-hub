@@ -9,6 +9,7 @@ import { clubCard } from './clubcard.component';
 import { eventsPage } from './events.page';
 import { createClubPage } from './createclub.page';
 import { clubInfoPage } from './clubinfo.page';
+import { addEventPage } from './addevent.page';
 
 /* global fixture:false, test:false */
 
@@ -116,4 +117,5 @@ test.only('Test that club owners can add events', async (testController) => {
   await signInPage.signin(testController, 'acmmanoa@hawaii.edu', 'foo');
   await navBar.gotoClubListPage(testController);
   await clubListPage.gotoAddEvent(testController);
+  await addEventPage.addEvent(testController);
 });
