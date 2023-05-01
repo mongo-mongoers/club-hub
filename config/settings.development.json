@@ -184,6 +184,7 @@
   "loadAssetsFile":  true,
   "defaultProfilesEvents": [
     {
+  "slug": "association-for-computing-machinery",
   "club": "Association for Computing Machinery",
   "name": "Computer Science Career Fair!",
   "date": "3/31/23",

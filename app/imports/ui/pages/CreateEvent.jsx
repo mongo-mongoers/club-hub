@@ -10,6 +10,7 @@ import SimpleSchema from 'simpl-schema';
 import { Navigate } from 'react-router-dom';
 import { createEventMethod } from '../../startup/both/Methods';
 import { Events } from '../../api/events/Events';
+import slugify from '../../api/methods/slug';
 import LoadingSpinner from '../components/LoadingSpinner';
 
 // Create a schema to specify the structure of the data to appear in the form.
@@ -45,7 +46,7 @@ const CreateEvent = () => {
   }, [clubSlug]);
   // On submit, insert the data.
   const submit = (data, formRef) => {
-    const newData = { ...data, club: data.club };
+    const newData = { ...data, slug: slugify(data.club) };
 
     Meteor.call(createEventMethod, newData, (error) => {
       if (error) {
