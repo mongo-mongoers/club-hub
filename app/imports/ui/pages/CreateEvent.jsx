@@ -9,8 +9,7 @@ import SimpleSchema2Bridge from 'uniforms-bridge-simple-schema-2';
 import SimpleSchema from 'simpl-schema';
 import { Navigate } from 'react-router-dom';
 import { createEventMethod } from '../../startup/both/Methods';
-import { Events } from '../../api/events/Events';
-import slugify from '../../api/methods/slug';
+import { Clubs } from '../../api/clubs/Clubs';
 import LoadingSpinner from '../components/LoadingSpinner';
 
 // Create a schema to specify the structure of the data to appear in the form.
@@ -34,25 +33,25 @@ const CreateEvent = () => {
   // useTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker
   const { doc, ready } = useTracker(() => {
     // Get access to Stuff documents.
-    const subscription = Meteor.subscribe(Events.userPublicationName);
+    const subscription = Meteor.subscribe(Clubs.userPublicationName);
     // Determine if the subscription is ready
     const rdy = subscription.ready();
     // Get the document
-    const document = Events.collection.findOne({ slug: clubSlug });
+    const document = Clubs.collection.findOne({ slug: clubSlug });
+    const objName = { club: document.name };
     return {
-      doc: document.club,
+      doc: objName,
       ready: rdy,
     };
   }, [clubSlug]);
   // On submit, insert the data.
   const submit = (data, formRef) => {
-    const newData = { ...data, slug: slugify(data.club) };
 
-    Meteor.call(createEventMethod, newData, (error) => {
+    Meteor.call(createEventMethod, data, (error) => {
       if (error) {
         swal('Error', error.message, 'error');
       } else {
-        swal('Success', 'Item added successfully', 'success');
+        swal('Success', 'Event added successfully', 'success');
         formRef.reset();
         setRedirect(true);
       }

@@ -72,8 +72,8 @@ const createEventMethod = 'Events.add';
 
 /** Creates a new project in the Projects collection, and also updates ProfilesProjects and ProjectsInterests. */
 Meteor.methods({
-  'Events.add'({ club, name, date, description, email, location, slug }) {
-    Events.collection.insert({ club, name, date, description, email, location, slug });
+  'Events.add'({ club, name, date, description, email, location }) {
+    Events.collection.insert({ club, name, date, description, email, location });
   },
 });
 const createClubMethod = 'Clubs.add';
