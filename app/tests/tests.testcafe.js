@@ -95,7 +95,7 @@ test('Test that create club page shows up for admins', async (testController) =>
   await createClubPage.isDisplayed(testController);
 });
 
-test('Test that admins can create a club via create clubs page', async (testController) => {
+test.only('Test that admins can create and remove clubs', async (testController) => {
   await navBar.gotoSignInPage(testController);
   await signInPage.signin(testController, 'henric@hawaii.edu', 'foo');
   await navBar.gotoCreateClubPage(testController);
