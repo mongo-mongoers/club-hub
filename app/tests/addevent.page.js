@@ -29,7 +29,7 @@ class AddEventPage {
     await testController.click(`#${ComponentIDs.addEventFormSubmit} input.btn.btn-primary`);
     await testController.click(Selector('.swal-button--confirm'));
     await testController.click(`#${ComponentIDs.eventsMenuItem}`);
-    await testController.click(Selector('#card-title').withExactText(name));
+    await testController.click(Selector('#event-title').withExactText(name));
   }
 }
 

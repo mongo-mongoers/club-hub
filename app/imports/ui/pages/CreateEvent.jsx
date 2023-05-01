@@ -11,7 +11,7 @@ import { Navigate } from 'react-router-dom';
 import { createEventMethod } from '../../startup/both/Methods';
 import { Clubs } from '../../api/clubs/Clubs';
 import LoadingSpinner from '../components/LoadingSpinner';
-import { ComponentIDs } from '../utilities/ids';
+import { ComponentIDs, PageIDs } from '../utilities/ids';
 
 // Create a schema to specify the structure of the data to appear in the form.
 const formSchema = new SimpleSchema({
@@ -64,7 +64,7 @@ const CreateEvent = () => {
   // Render the form. Use Uniforms: https://github.com/vazco/uniforms
   let fRef = null;
   return ready ? (
-    <Container className="py-3">
+    <Container id={PageIDs.addEventPage} className="py-3">
       <Row className="justify-content-center">
         <Col xs={5}>
           <Col className="text-center"><h2>Create Event</h2></Col>

@@ -112,7 +112,7 @@ test('Test that club modification works for club owners', async (testController)
   await navBar.ensureLogout(testController);
 });
 
-test.only('Test that club owners can add events', async (testController) => {
+test('Test that club owners can add events', async (testController) => {
   await navBar.gotoSignInPage(testController);
   await signInPage.signin(testController, 'acmmanoa@hawaii.edu', 'foo');
   await navBar.gotoClubListPage(testController);
