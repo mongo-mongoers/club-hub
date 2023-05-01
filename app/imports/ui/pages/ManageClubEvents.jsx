@@ -1,11 +1,13 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
-import { Container, Row, Col } from 'react-bootstrap';
+import { Container, Row, Col, Button } from 'react-bootstrap';
 import { useTracker } from 'meteor/react-meteor-data';
+import { Link } from 'react-router-dom';
 import LoadingSpinner from '../components/LoadingSpinner';
 import EventCard from '../components/EventCard';
 import { PageIDs } from '../utilities/ids';
 import { Events } from '../../api/events/Events';
+import { Clubs } from '../../api/clubs/Clubs';
 /* Returns the Profile and associated Projects and Interests associated with the passed user email. */
 // function getProfileData(email) {
 //   const data = Profiles.collection.findOne({ email });
@@ -21,17 +23,21 @@ import { Events } from '../../api/events/Events';
 /* Renders the Profile Collection as a set of Cards. */
 const OwnerEventsPage = () => {
 
-  const { ready, eventData } = useTracker(() => {
+  const { ready, eventData, club } = useTracker(() => {
     // Get access to Club data and Bookmarks.
     const sub1 = Meteor.subscribe(Events.userPublicationName);
+    const sub2 = Meteor.subscribe(Clubs.userPublicationName);
     const userEmail = Meteor.user().username;
     const allEvents = Events.collection.find({}).fetch();
+    const allClubs = Clubs.collection.find({}).fetch();
+    const clubWithEmail = allClubs.find(aClub => aClub.email === userEmail);
     console.log(allEvents);
     const events = allEvents.filter(event => event.email === userEmail);
     console.log(events);
     return {
-      ready: sub1.ready(),
+      ready: sub1.ready() && sub2.ready(),
       eventData: events,
+      club: clubWithEmail,
     };
   }, []);
   return ready ? (
@@ -40,8 +46,11 @@ const OwnerEventsPage = () => {
         <Row className="justify-content-center align-middle text-center py-5 text-white">
           <Col xs={5}>
             <h1>
-              Your Organizations Events
+              Manage Your Events
             </h1>
+            <Link to={`/createEvent/${club.slug}`}>
+              <Button id="editclub-button" variant="outline-light">Add an Event</Button>
+            </Link>
           </Col>
         </Row>
       </div>
