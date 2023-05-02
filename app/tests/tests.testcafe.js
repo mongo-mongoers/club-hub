@@ -55,7 +55,7 @@ test('Test that the more info page displays', async (testController) => {
   await clubInfoPage.isDisplayed(testController);
 });
 
-test.only('Test that signin and signout work', async (testController) => {
+test('Test that signin and signout work', async (testController) => {
   await navBar.gotoSignInPage(testController);
   await signInPage.signin(testController, credentials.username, credentials.password);
   await navBar.logout(testController);
@@ -117,4 +117,9 @@ test('Test that club owners can create and remove events', async (testController
   await signInPage.signin(testController, 'acmmanoa@hawaii.edu', 'foo');
   await navBar.gotoMyEventsPage(testController);
   await addEventPage.addEvent(testController);
+});
+
+test('Test that clubs can be filtered by topic', async (testController) => {
+  await navBar.gotoClubListPage(testController);
+  await clubListPage.filterTopics(testController);
 });
