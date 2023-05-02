@@ -43,7 +43,7 @@ const NavBar = () => {
               <Nav.Link as={NavLink} id={ComponentIDs.createClubsMenuItem} to="/createClub" key="createClubs">Create Club</Nav.Link>
             ) : ''}
             {(isOwner && currentUser) ? (
-              <Nav.Link as={NavLink} id={ComponentIDs.createClubsMenuItem} to="/YourEvents" key="Your Events">Manage Your Events</Nav.Link>
+              <Nav.Link as={NavLink} id={ComponentIDs.myEventsMenuItem} to="/YourEvents" key="Your Events">Manage Your Events</Nav.Link>
             ) : ''}
           </Nav>
           <Nav className="justify-content-end">

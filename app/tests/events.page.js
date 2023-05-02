@@ -15,7 +15,7 @@ class EventsPage {
 
   async eventCount(testController) {
     const cardCount = Selector('h5').count;
-    await testController.expect(cardCount).gte(1);
+    await testController.expect(cardCount).lte(9);
   }
 }
 

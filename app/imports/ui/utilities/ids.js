@@ -52,7 +52,7 @@ export const ComponentIDs = {
   addEventFormEmail: 'addEventFormEmail',
   addEventFormLocation: 'addEventFormLocation',
   addEventFormSubmit: 'addEventFormSubmit',
-
+  myEventsMenuItem: 'myEventsMenuItem',
 };
 
 export const PageIDs = {
@@ -75,5 +75,5 @@ export const PageIDs = {
   createClubPage: 'createClubPage',
   clubInfoPage: 'clubInfoPage',
   addEventPage: 'addEventPage',
-
+  myEventsPage: 'myEventsPage',
 };

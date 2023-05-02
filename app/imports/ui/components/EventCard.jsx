@@ -37,7 +37,7 @@ const EventCard = ({ event }) => {
         };
 
         return (
-          <Button id="removeclub-button" variant="outline-danger" onClick={handleRemoveEvent}>
+          <Button id="removeevent-button" variant="outline-danger" onClick={handleRemoveEvent}>
             Remove Event
           </Button>
         );

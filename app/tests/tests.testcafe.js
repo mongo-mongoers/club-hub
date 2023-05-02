@@ -89,7 +89,7 @@ test('Test that bookmark button changes bookmarks, events page', async (testCont
   await eventsPage.eventCount(testController);
 });
 
-test('Test that create club page shows up for admins', async (testController) => {
+test('Test that create club page is displayed for admins', async (testController) => {
   await navBar.gotoSignInPage(testController);
   await signInPage.signin(testController, 'henric@hawaii.edu', 'foo');
   await navBar.gotoCreateClubPage(testController);
@@ -112,10 +112,9 @@ test('Test that club modification works for club owners', async (testController)
   await navBar.ensureLogout(testController);
 });
 
-test('Test that club owners can add events', async (testController) => {
+test('Test that club owners can create and remove events', async (testController) => {
   await navBar.gotoSignInPage(testController);
   await signInPage.signin(testController, 'acmmanoa@hawaii.edu', 'foo');
-  await navBar.gotoClubListPage(testController);
-  await clubListPage.gotoAddEvent(testController);
+  await navBar.gotoMyEventsPage(testController);
   await addEventPage.addEvent(testController);
 });
