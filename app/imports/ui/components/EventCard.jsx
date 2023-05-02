@@ -14,7 +14,7 @@ const EventCard = ({ event }) => {
         const handleRemoveEvent = () => {
           swal({
             title: 'Are you sure?',
-            text: 'Once removed, you will not be able to recover this club!',
+            text: 'Once removed, you will not be able to recover this Event!',
             icon: 'warning',
             buttons: true,
             dangerMode: true,
@@ -23,11 +23,11 @@ const EventCard = ({ event }) => {
               if (willDelete) {
                 Meteor.call(removeEventMethod, { _id: event._id }, (error) => {
                   if (error) {
-                    swal('Error removing club!', {
+                    swal('Error removing Event!', {
                       icon: 'error',
                     });
                   } else {
-                    swal('Club removed successfully!', {
+                    swal('Event removed successfully!', {
                       icon: 'success',
                     });
                   }
