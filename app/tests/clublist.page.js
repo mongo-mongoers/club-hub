@@ -37,6 +37,15 @@ class ClubListPage {
   async gotoAddEvent(testController) {
     await testController.click('#addevent-button');
   }
+
+  async filterTopics(testController) {
+    // Filter topics by the Recreation topic
+    await testController.click(Selector(`#${ComponentIDs.filterFormTopics}`));
+    await testController.click(Selector(`#${ComponentIDs.filterFormTopics} option:nth-child(9)`));
+    // Check that only one card is displayed.
+    const cardCount = Selector('.card').count;
+    await testController.expect(cardCount).eql(65);
+  }
 }
 
 export const clubListPage = new ClubListPage();
