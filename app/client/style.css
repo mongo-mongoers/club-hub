@@ -56,6 +56,13 @@ body {
   height: 600px;
 }
 
+.landing-page-img {
+  border-style: solid;
+  border-color: black;
+  border-width: 2px;
+  margin: 4px;
+}
+
 .overlay {
   background-color: rgba(0, 0, 0, 0.40);
   height: 600px;

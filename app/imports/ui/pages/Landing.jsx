@@ -24,7 +24,7 @@ const Landing = () => (
         <h2 style={{ color: '#376551' }}>Create an account and discover new clubs at UH Manoa!</h2>
         <Row md={1} lg={1}>
           <Col xs={6}>
-            <Image src="/images/club-list-page.png" width={500} />
+            <Image className="landing-page-img" src="/images/club-list-page.png" width={500} />
           </Col>
         </Row>
       </Container>
@@ -34,10 +34,10 @@ const Landing = () => (
         <h2 style={{ color: 'white' }}>Learn about the clubs and bookmark any that catch your interests!</h2>
         <Row md={1} lg={2}>
           <Col xs={6}>
-            <Image src="/images/club-list-page-two.png" width={500} />
+            <Image className="landing-page-img" src="/images/club-list-page-two.png" width={500} />
           </Col>
           <Col xs={6}>
-            <Image src="/images/bookmarks-page.png" width={500} />
+            <Image className="landing-page-img" src="/images/bookmarks-page.png" width={500} />
           </Col>
         </Row>
       </Container>
@@ -49,10 +49,10 @@ const Landing = () => (
       <Container>
         <Row md={1} lg={2}>
           <Col xs={6}>
-            <Image src="/images/more-info-page.png" width={500} />
+            <Image className="landing-page-img" src="/images/more-info-page.png" width={500} />
           </Col>
           <Col xs={6}>
-            <Image src="/images/events-page.png" width={500} />
+            <Image className="landing-page-img" src="/images/events-page.png" width={500} />
           </Col>
         </Row>
       </Container>
