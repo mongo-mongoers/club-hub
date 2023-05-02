@@ -59,7 +59,7 @@ const CreateEvent = () => {
     });
   };
   if (redirect) {
-    return (<Navigate to="/clubList" />);
+    return (<Navigate to="/events" />);
   }
   // Render the form. Use Uniforms: https://github.com/vazco/uniforms
   let fRef = null;
