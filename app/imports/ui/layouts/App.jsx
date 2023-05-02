@@ -13,9 +13,6 @@ import SignOut from '../pages/SignOut';
 import NavBar from '../components/NavBar';
 import SignIn from '../pages/SignIn';
 import NotAuthorized from '../pages/NotAuthorized';
-import Projects from '../pages/Projects';
-import Interests from '../pages/Interests';
-import AddProject from '../pages/AddProject';
 import EventsPage from '../pages/Events';
 import ClubInfo from '../pages/ClubInfo';
 import ProfilesPage from '../pages/Profiles';
@@ -43,11 +40,8 @@ const App = () => {
           <Route path="/signin" element={<SignIn />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/signout" element={<SignOut />} />
-          <Route path="/interests" element={<Interests />} />
           <Route path="/clubList" element={<ClubList />} />
           <Route path="/clubInfo/:clubSlug" element={<ClubInfo />} />
-          <Route path="/projects" element={<Projects />} />
-          <Route path="/addProject" element={<ProtectedRoute><AddProject /></ProtectedRoute>} />
           <Route path="/bookmarks" element={<ProtectedRoute><ProfilesPage /></ProtectedRoute>} />
           <Route path="/events" element={<ProtectedRoute><EventsPage /></ProtectedRoute>} />
           <Route path="/notauthorized" element={<NotAuthorized />} />
