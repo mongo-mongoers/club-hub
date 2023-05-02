@@ -62,10 +62,9 @@ body {
 }
 
 .club-banner {
-  background-image: url('images/darkbackground.png');
+  background-image: url('images/general-banner-background.png');
   background-repeat: no-repeat;
   background-size: cover;
-  /*background: #575B70;*/
 }
 
 .label {
