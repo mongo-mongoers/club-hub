@@ -1,6 +1,7 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
 import PropTypes from 'prop-types';
+import { Roles } from 'meteor/alanning:roles';
 import { Card, Row, Col, Button } from 'react-bootstrap';
 import swal from 'sweetalert';
 import { removeEventMethod } from '../../startup/both/Methods';
@@ -8,9 +9,10 @@ import { removeEventMethod } from '../../startup/both/Methods';
 /** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
 const EventCard = ({ event }) => {
   const removeEvent = () => {
+    const isAdmin = Roles.userIsInRole(Meteor.userId(), 'admin');
     if (Meteor.userId()) {
       const isOwner = Meteor.user().username === event.email;
-      if (isOwner) {
+      if (isOwner && (!isAdmin)) {
         const handleRemoveEvent = () => {
           swal({
             title: 'Are you sure?',

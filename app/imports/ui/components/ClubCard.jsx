@@ -108,7 +108,7 @@ const ClubCard = ({ club }) => {
       const isAdmin = Roles.userIsInRole(Meteor.userId(), 'admin');
       // Checks if the user is an owner (if username matches the email associated with the club)
       const isOwner = Meteor.user().username === club.email;
-      return (isAdmin || isOwner) ? (
+      return ((!isAdmin) && isOwner) ? (
         <Link to={`/createEvent/${club.slug}`}>
           <Button id="editclub-button" variant="outline-secondary">Add Event</Button>
         </Link>
