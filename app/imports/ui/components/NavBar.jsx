@@ -6,13 +6,23 @@ import { NavLink } from 'react-router-dom';
 import { Container, Image, Nav, Navbar, NavDropdown } from 'react-bootstrap';
 import { BoxArrowRight, PersonFill, PersonPlusFill } from 'react-bootstrap-icons';
 import { ComponentIDs } from '../utilities/ids';
+import { Clubs } from '../../api/clubs/Clubs';
 
 const NavBar = () => {
   // useTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker
-  const { currentUser, loggedIn } = useTracker(() => ({
-    currentUser: Meteor.user() ? Meteor.user().username : '',
-    loggedIn: !!Meteor.user(),
-  }), []);
+  const { isOwner, currentUser, loggedIn } = useTracker(() => {
+    const sub1 = Meteor.subscribe(Clubs.userPublicationName);
+    let hasEvent = [];
+    if (sub1.ready()) {
+      const userEmail = Meteor.user().username;
+      hasEvent = Clubs.collection.findOne({ email: userEmail });
+    }
+    return {
+      isOwner: hasEvent,
+      currentUser: Meteor.user() ? Meteor.user().username : '',
+      loggedIn: !!Meteor.user(),
+    };
+  }, []);
   const menuStyle = { marginBottom: '0px' };
   const navbarClassName = loggedIn ? 'bg-dark' : 'bg-light';
   return (
@@ -31,6 +41,9 @@ const NavBar = () => {
             ) : ''}
             {Roles.userIsInRole(Meteor.userId(), 'admin') ? (
               <Nav.Link as={NavLink} id={ComponentIDs.createClubsMenuItem} to="/createClub" key="createClubs">Create Club</Nav.Link>
+            ) : ''}
+            {(isOwner && currentUser) ? (
+              <Nav.Link as={NavLink} id={ComponentIDs.createClubsMenuItem} to="/YourEvents" key="Your Events">Manage Your Events</Nav.Link>
             ) : ''}
           </Nav>
           <Nav className="justify-content-end">

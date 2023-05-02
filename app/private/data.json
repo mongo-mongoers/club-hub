@@ -195,7 +195,504 @@
       "description":
       "Attend this career fair for a great opportunity to network, learn about job or internship openings, and make connections with industry professionals! This",
       "location": "3rd Floor of the Pacific Ocean Science & Technology (POST) Building",
-      "email": "john@foo.com"
+      "email": "acmmanoa@hawaii.edu"
+    },
+    {
+      "club": "Association for Computing Machinery",
+      "name": "Intro to Machine Learning Workshop",
+      "date": "07/15/2023",
+      "description": "Learn the basics of machine learning and how it can be applied to real-world problems. This workshop will cover linear regression, classification, and clustering.",
+      "location": "Honolulu, HI",
+      "email": "acmmanoa@hawaii.edu"
+    },
+    {
+      "club": "Association for Computing Machinery",
+      "name": "Hackathon",
+      "date": "10/22/2023",
+      "description": "Join us for a day of coding and innovation! Work with a team to develop a project from scratch and compete for prizes.",
+      "location": "Kailua, HI",
+      "email": "acmmanoa@hawaii.edu"
+    },
+    {
+      "club": "Association for Computing Machinery",
+      "name": "Guest Speaker Series",
+      "date": "09/01/2023",
+      "description": "We are pleased to host a guest speaker from Google to talk about the latest trends in artificial intelligence and its applications.",
+      "location": "Manoa, HI",
+      "email": "acmmanoa@hawaii.edu"
+    },
+    {
+      "club": "Ballroom Dance Club",
+      "name": "Spring Fling Dance",
+      "date": "05/21/2023",
+      "description": "Join us for a night of ballroom dancing and fun at our annual Spring Fling Dance! Dress to impress and bring your dance shoes for a night of social dancing with friends old and new. Beginners welcome!",
+      "location": "Waikiki Beach Marriott Resort & Spa",
+      "email": "rnarayan@hawaii.edu"
+    },
+    {
+      "club": "Information Technology Management Association",
+      "name": "IT Innovation Conference",
+      "date": "08/20/2023",
+      "description": "Join us for a day of learning and networking with industry leaders in IT innovation!",
+      "location": "Hawaii Convention Center, Honolulu, HI",
+      "email": "support@itmahawaii.com"
+    },
+    {
+      "club": "Academy of Creative Media Student Association",
+      "name": "ACM Film Festival",
+      "date": "10/15/2023",
+      "description": "Join us for an evening of screenings and discussions featuring short films created by ACM students!",
+      "location": "Doris Duke Theatre, Honolulu, HI",
+      "email": "gohhhm@hawaii.edu"
+    },
+    {
+      "club": "Accounting Club",
+      "name": "Meet the Professionals Night",
+      "date": "09/01/2023",
+      "description": "Join us for a night of networking with accounting professionals and alumni from various firms!",
+      "location": "Shidler College of Business, Honolulu, HI",
+      "email": "mejesrs@hawaii.edu"
+    },
+    {
+      "club": "Advocates for Public Interest Law",
+      "name": "Annual Pro Bono Fair",
+      "date": "11/05/2023",
+      "description": "Join us for the annual pro bono fair featuring local public interest organizations and volunteer opportunities!",
+      "location": "William S. Richardson School of Law, Honolulu, HI",
+      "email": "lmullin@hawaii.edu"
+    },
+    {
+      "club": "AIKIDO at UHM",
+      "name": "Beginner's Class",
+      "date": "08/20/2023",
+      "description": "Join us for a free beginner's class to learn the basics of Aikido and get a workout!",
+      "location": "Hemenway Hall, Honolulu, HI",
+      "email": "halliday@hawaii.edu"
+    },
+    {
+      "club": "AlohaThon Dance Marathon",
+      "name": "Annual Fundraiser",
+      "date": "02/25/2024",
+      "description": "Join us for a night of dancing and fundraising to support Children's Miracle Network Hospitals!",
+      "location": "Stan Sheriff Center, Honolulu, HI",
+      "email": "katerod9@hawaii.edu"
+    },
+    {
+      "club": "Alpha Gamma Delta Delta Sigma",
+      "name": "Recruitment Week",
+      "date": "09/05/2023",
+      "description": "Join us for a week of events and activities to learn about our sorority and meet our members!",
+      "location": "University of Hawaii at Manoa, Honolulu, HI",
+      "email": "amterrel@hawaii.edu"
+    },
+    {
+      "club": "Alpha Omega Hawaii",
+      "name": "Community Service Day",
+      "date": "10/14/2023",
+      "description": "Join us for a day of community service at a local beach to help clean up and preserve our environment!",
+      "location": "Waikiki Beach, Honolulu, HI",
+      "email": "mmorrell@hawaii.edu"
+    },
+    {
+      "club": "Asian American InterVarsity Christian Fellowship",
+      "email": "aivuhm@gmail.com",
+      "name": "Spring Retreat",
+      "date": "04/30/2023",
+      "description": "A weekend retreat to refresh and renew our faith and community.",
+      "location": "Kahuku, HI"
+    },
+    {
+      "club": "Alpha Sigma Phi",
+      "email": "tmiller7@hawaii.edu",
+      "name": "Beach Clean-up",
+      "date": "05/14/2023",
+      "description": "Join us for a day of cleaning up our local beach and protecting the environment.",
+      "location": "Waikiki Beach, HI"
+    },
+    {
+      "club": "American Association of University Women at UH Manoa",
+      "email": "sulee@hawaii.edu",
+      "name": "Gender Equity in STEM Symposium",
+      "date": "04/20/2023",
+      "description": "Join us for a day of panel discussions, networking, and learning about gender equity in STEM fields.",
+      "location": "UH Manoa Campus Center, HI"
+    },
+    {
+      "club": "American Indian Science and Engineering Society at University of Hawai'i",
+      "email": "kmmw@hawaii.edu",
+      "name": "Indigenous Science Fair",
+      "date": "03/15/2023",
+      "description": "Join us for a celebration of indigenous science and engineering with student-led projects and presentations.",
+      "location": "UH Manoa Campus Center, HI"
+    },
+    {
+      "club": "American Institute of Architecture Students Hawaii Chapter",
+      "email": "beaus@hawaii.edu",
+      "name": "Architectural Walking Tour",
+      "date": "05/07/2023",
+      "description": "Join us for a walking tour of Honolulu's historic buildings and learn about their architectural significance.",
+      "location": "Downtown Honolulu, HI"
+    },
+    {
+      "club": "American Library Association Student Chapter",
+      "email": "kjmunro@hawaii.edu",
+      "name": "Book Drive",
+      "date": "04/01/2023",
+      "description": "Help us support literacy and education by donating your gently used books to our book drive.",
+      "location": "UH Manoa Campus Center, HI"
+    },
+    {
+      "club": "American Marketing Association",
+      "email": "aarong2@hawaii.edu",
+      "name": "Marketing Summit",
+      "date": "04/22/2023",
+      "description": "Join us for a day of networking and learning about the latest trends in marketing.",
+      "location": "Hilton Hawaiian Village, HI"
+    },
+    {
+      "club": "American Society of Civil Engineers",
+      "email": "kmashi@hawaii.edu",
+      "name": "Civil Engineering Design Competition",
+      "date": "10/15/2023",
+      "description": "A competition to design a bridge that can withstand a specified load",
+      "location": "Holmes Hall 244"
+    },
+    {
+      "club": "American Society of Civil Engineers",
+      "email": "kmashi@hawaii.edu",
+      "name": "Concrete Canoe Race",
+      "date": "04/01/2024",
+      "description": "A race between canoes made of concrete designed by different teams",
+      "location": "Ala Moana Beach Park"
+    },
+    {
+      "club": "American Society of Heating, Refrigeration, and Air-Conditioning Engineering Student Branch at UH Manoa",
+      "email": "pap4@hawaii.edu",
+      "name": "Energy Efficiency Workshop",
+      "date": "11/08/2023",
+      "description": "A workshop on energy efficiency and HVAC systems",
+      "location": "Keller Hall 105"
+    },
+    {
+      "club": "American Society of Heating, Refrigeration, and Air-Conditioning Engineering Student Branch at UH Manoa",
+      "email": "pap4@hawaii.edu",
+      "name": "Career Fair",
+      "date": "02/15/2024",
+      "description": "A career fair for students interested in the HVAC industry",
+      "location": "Campus Center Ballroom"
+    },
+    {
+      "club": "American Society of Mechanical Engineers",
+      "email": "lindaq@hawaii.edu",
+      "name": "Robotics Competition",
+      "date": "11/22/2023",
+      "description": "A competition to design and build a robot for a specific task",
+      "location": "Watanabe Hall 112"
+    },
+    {
+      "club": "American Society of Mechanical Engineers",
+      "email": "lindaq@hawaii.edu",
+      "name": "3D Printing Workshop",
+      "date": "03/07/2024",
+      "description": "A workshop on 3D printing and its applications in mechanical engineering",
+      "location": "Krauss Hall 12"
+    },
+    {
+      "club": "Anakbayan Hawai'i",
+      "email": "gjuan@hawaii.edu",
+      "name": "Solidarity Night",
+      "date": "10/28/2023",
+      "description": "A night of cultural performances and education on the struggles of the Filipino people",
+      "location": "Campus Center Ballroom"
+    },
+    {
+      "club": "Anakbayan Hawai'i",
+      "email": "gjuan@hawaii.edu",
+      "name": "General Meeting",
+      "date": "02/12/2024",
+      "description": "A meeting to discuss upcoming events and campaigns",
+      "location": "Campus Center 309"
+    },
+    {
+      "club": "Climbing Club at UHM",
+      "email": "hkorver@hawaii.edu",
+      "name": "Climbing Competition",
+      "date": "10/15/2023",
+      "description": "A friendly competition for climbers of all levels to test their skills.",
+      "location": "Makapu'u Point"
+    },
+    {
+      "club": "Coalition to Stop Campus Hunger",
+      "email": "laraj27@hawaii.edu",
+      "name": "Hunger Awareness Walk",
+      "date": "11/20/2023",
+      "description": "A walk to raise awareness about hunger and food insecurity on college campuses.",
+      "location": "University of Hawaii at Manoa"
+    },
+    {
+      "club": "Collegiate Association for the Research of Principle Hawai'i",
+      "email": "saito22@hawaii.edu",
+      "name": "Ethics Symposium",
+      "date": "04/01/2024",
+      "description": "A symposium exploring ethical issues in science and technology.",
+      "location": "Kuykendall Hall"
+    },
+    {
+      "club": "CTAHR Student Ambassadors",
+      "email": "aumi@hawaii.edu",
+      "name": "Ag Day",
+      "date": "03/15/2024",
+      "description": "A day of celebrating agriculture and its contributions to Hawaii's economy and culture.",
+      "location": "Hawaii State Capitol"
+    },
+    {
+      "club": "Delta Sigma Pi: Rho Chi",
+      "email": "alee91@hawaii.edu",
+      "name": "Professional Development Workshop",
+      "date": "02/10/2024",
+      "description": "A workshop on professional development, featuring guest speakers from various industries.",
+      "location": "Shidler College of Business"
+    },
+    {
+      "club": "Dermatology Interest Group at the John A. Burns School of Medicine at the University of Hawaii at Manoa",
+      "email": "amrobert@hawaii.edu",
+      "name": "Dermatology Seminar",
+      "date": "01/25/2024",
+      "description": "A seminar on the latest developments in dermatology research and practice.",
+      "location": "John A. Burns School of Medicine"
+    },
+    {
+      "club": "Disney Ohana Club",
+      "email": "tng4@hawaii.edu",
+      "name": "Movie Night",
+      "date": "11/01/2023",
+      "description": "A screening of the latest Disney movies, with snacks and drinks provided.",
+      "location": "Campus Center Ballroom"
+    },
+    {
+      "club": "Drone Technologies at the University of Hawaii",
+      "email": "jamila2@hawaii.edu",
+      "name": "Drone Demonstration",
+      "date": "09/15/2023",
+      "description": "A demonstration of the latest drone technologies, featuring guest speakers and live drone flights.",
+      "location": "Aloha Stadium"
+    },
+    {
+      "club": "E1R1",
+      "email": "ssirju@hawaii.edu",
+      "name": "Coding Competition",
+      "date": "03/01/2024",
+      "description": "A coding competition for students to showcase their programming skills and creativity.",
+      "location": "Krauss Hall"
+    },
+    {
+      "club": "Engineers' Council at the University of Hawaiʻi",
+      "name": "Engineering Day",
+      "date": "04/30/2023",
+      "description": "Join us for a day of hands-on engineering activities and demonstrations.",
+      "location": "Holmes Hall",
+      "email": "elorica@hawaii.edu"
+    },
+    {
+      "club": "English Majors Association",
+      "name": "Book Club Meeting",
+      "date": "05/10/2023",
+      "description": "Discussing 'The Great Gatsby' by F. Scott Fitzgerald.",
+      "location": "Sinclair Library",
+      "email": "krystenn@hawaii.edu"
+    },
+    {
+      "club": "Environmental Justice Club at University of Hawai'i",
+      "name": "Beach Cleanup",
+      "date": "05/15/2023",
+      "description": "Join us for a beach cleanup at Waikiki Beach.",
+      "location": "Waikiki Beach",
+      "email": "haydena@hawaii.edu"
+    },
+    {
+      "club": "Eta Sigma Delta Honor Society",
+      "name": "Induction Ceremony",
+      "date": "05/20/2023",
+      "description": "Induction ceremony for new members.",
+      "location": "Campus Center Ballroom",
+      "email": "quache@hawaii.edu"
+    },
+    {
+      "club": "Ethnic Studies Student Association",
+      "name": "Guest Speaker Event",
+      "date": "05/05/2023",
+      "description": "Join us for a talk by Dr. Angela Davis on the importance of ethnic studies education.",
+      "location": "Kuykendall Auditorium",
+      "email": "dsmith43@hawaii.edu"
+    },
+    {
+      "club": "Every Nation Campus",
+      "name": "Worship Night",
+      "date": "05/12/2023",
+      "description": "Join us for a night of worship and fellowship.",
+      "location": "Campus Center Plaza",
+      "email": "jomariag@hawaii.edu"
+    },
+    {
+      "club": "Graduate Women in Science Hawaii",
+      "name": "Women in Science Symposium",
+      "date": "03/15/2023",
+      "description": "Join us for our annual Women in Science Symposium where we will have a panel of successful women in various STEM fields sharing their experiences and insights. Refreshments will be provided.",
+      "location": "Krauss Hall 012",
+      "email": "descon@hawaii.edu"
+    },
+    {
+      "club": "Grey Hats at UH Manoa",
+      "name": "Hackathon",
+      "date": "04/22/2023",
+      "description": "Come join us for a fun and challenging hackathon where you'll get to collaborate with other students and work on real-world cybersecurity problems. Food and drinks will be provided.",
+      "location": "IT Center 105",
+      "email": "jimanaka@hawaii.edu"
+    },
+    {
+      "club": "Hawai'i Streams and Ecosystems",
+      "name": "Stream Restoration Volunteer Day",
+      "date": "05/07/2023",
+      "description": "We will be hosting a volunteer day to help restore a local stream. Come learn about stream ecology and help make a positive impact on our environment. Please wear comfortable clothes and shoes that can get dirty.",
+      "location": "Kaneohe, HI",
+      "email": "damienxw@hawaii.edu"
+    },
+    {
+      "club": "Hawaii Student Entrepreneurs",
+      "name": "Startup Pitch Competition",
+      "date": "04/10/2023",
+      "description": "Have an idea for a startup? Come pitch it to a panel of judges and compete for cash prizes! All majors welcome to participate. Refreshments will be provided.",
+      "location": "Shidler College of Business A102",
+      "email": "dpasion3@hawaii.edu"
+    },
+    {
+      "club": "Hawaii Alpha Chapter of Pi Gamma Mu",
+      "name": "International Relations Symposium",
+      "date": "03/25/2023",
+      "description": "Join us for a symposium on international relations where we will have guest speakers and panels discussing topics such as diplomacy, conflict resolution, and globalization. Light refreshments will be provided.",
+      "location": "Saunders Hall 244",
+      "email": "mdizon69@hawaii.edu"
+    },
+    {
+      "club": "Hawaii Sigma Pi",
+      "name": "Networking Night",
+      "date": "04/05/2023",
+      "description": "Come join us for a night of networking with business professionals and other students. Dress code is business casual. Refreshments will be provided.",
+      "location": "Shidler College of Business Atrium",
+      "email": "cyhihara@hawaii.edu"
+    },
+    {
+      "club": "Hawaii Undergraduate Initiative",
+      "name": "College Application Workshop",
+      "date": "05/14/2023",
+      "description": "We will be hosting a workshop to help high school students with the college application process. Come learn about financial aid, essay writing, and more. Lunch will be provided.",
+      "location": "UH Manoa Campus Center 308",
+      "email": "khanh2@hawaii.edu"
+    },
+    {
+      "club": "The IMUA Scholarly Society",
+      "email": "vglimon@hawaii.edu",
+      "name": "Fall Research Symposium",
+      "date": "11/10/2023",
+      "description": "Join us for a day of engaging discussions and presentations on cutting-edge research topics. Network with fellow scholars and learn about opportunities to get involved in research at UH Manoa!",
+      "location": "Shidler College of Business, Honolulu, HI"
+    },
+    {
+      "club": "The Navigators at UH Manoa",
+      "email": "adamhu@hawaii.edu",
+      "name": "Beach Cleanup Day",
+      "date": "09/17/2023",
+      "description": "Join us for a fun and rewarding day of cleaning up the beach! Help preserve Hawaii's beautiful coastlines and make a positive impact in your community.",
+      "location": "Waikiki Beach, Honolulu, HI"
+    },
+    {
+      "club": "The Pre-Veterinary Club at UH Manoa",
+      "email": "dwenzler@hawaii.edu",
+      "name": "Guest Speaker Series: Animal Behaviorist",
+      "date": "10/15/2023",
+      "description": "Come listen to a talk by Dr. Jane Smith, an animal behaviorist who specializes in dog behavior. Learn about what it takes to be a successful animal behaviorist and how you can get involved in the field.",
+      "location": "Kuykendall Hall, UH Manoa, Honolulu, HI"
+    },
+    {
+      "club": "Timpuyog Organization",
+      "email": "laridelb@hawaii.edu",
+      "name": "Filipino Cultural Night",
+      "date": "04/21/2024",
+      "description": "Join us for a night of traditional Filipino music, dance, and food! Learn about Filipino culture and traditions and meet new friends in the Filipino community.",
+      "location": "Kennedy Theatre, UH Manoa, Honolulu, HI"
+    },
+    {
+      "club": "Travel Industry Management Student Association",
+      "email": "fanglin@hawaii.edu",
+      "name": "TIM Career Fair",
+      "date": "02/03/2024",
+      "description": "Looking for a career in the travel industry? Come meet with recruiters from top companies in the field and learn about exciting job opportunities!",
+      "location": "Hilton Hawaiian Village, Honolulu, HI"
+    },
+    {
+      "club": "Tropical Plant and Soil Sciences Graduate Student Organization at the University of Hawaiʻi at Mānoa",
+      "email": "churchs@hawaii.edu",
+      "name": "Graduate Student Research Symposium",
+      "date": "05/09/2024",
+      "description": "Join us for a day of engaging discussions and presentations on cutting-edge research topics in tropical plant and soil sciences. Network with fellow graduate students and learn about opportunities to get involved in research at UH Manoa!",
+      "location": "St. John Plant Science Building, UH Manoa, Honolulu, HI"
+    },
+    {
+      "club": "Student Nurses' Association at UH Manoa",
+      "name": "Annual Banquet",
+      "date": "05/15/2023",
+      "description": "Celebrating the end of the academic year and the hard work of our nursing students!",
+      "location": "Honolulu, HI",
+      "email": "welchne@hawaii.edu"
+    }, {
+      "club": "Students for Life at the University of Hawaii, Manoa",
+      "name": "Pro-Life Conference",
+      "date": "11/07/2023",
+      "description": "Join us for a conference featuring speakers and workshops on pro-life issues and advocacy.",
+      "location": "Kapolei, HI",
+      "email": "mallenc@hawaii.edu"
+    }, {
+      "club": "Students Interested in Pathology",
+      "name": "Guest Lecture Series",
+      "date": "09/21/2023",
+      "description": "Join us for a talk on the latest research in the field of pathology.",
+      "location": "Kaneohe, HI",
+      "email": "Kidac@hawaii.edu"
+    }, {
+      "club": "Supporting Women in Technology and Computing Hawaii at Manoa",
+      "name": "Hackathon",
+      "date": "02/12/2024",
+      "description": "Join us for a weekend of hacking and problem-solving, with a focus on supporting women in tech.",
+      "location": "Waikiki, HI",
+      "email": "nguyencb@hawaii.edu"
+    }, {
+      "club": "Surfrider at UH Manoa ",
+      "name": "Beach Cleanup",
+      "date": "07/23/2023",
+      "description": "Join us in cleaning up our beaches and protecting our oceans!",
+      "location": "Waialua, HI",
+      "email": "anavelas@hawaii.edu"
+    }, {
+      "club": "Tau Beta Pi",
+      "name": "Induction Ceremony",
+      "date": "04/18/2024",
+      "description": "Join us as we welcome new members into the engineering honor society.",
+      "location": "Kailua, HI",
+      "email": "evanpeng@hawaii.edu"
+    }, {
+      "club": "Tea Club at the University of Hawaii at Manoa",
+      "name": "Afternoon Tea",
+      "date": "10/16/2023",
+      "description": "Join us for a relaxing afternoon of tea and conversation.",
+      "location": "Makiki, HI",
+      "email": "hwen@hawaii.edu"
+    }, {
+      "club": "Robotic Space Exploration",
+      "name": "Volunteer Day",
+      "date": "03/02/2024",
+      "description": "Join us as we volunteer in the community and make a difference!",
+      "location": "Kaimuki, HI",
+      "email": "higadebo@hawaii.edu"
     }
   ]
 }
