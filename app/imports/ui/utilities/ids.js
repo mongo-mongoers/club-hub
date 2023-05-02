@@ -53,6 +53,7 @@ export const ComponentIDs = {
   addEventFormLocation: 'addEventFormLocation',
   addEventFormSubmit: 'addEventFormSubmit',
   myEventsMenuItem: 'myEventsMenuItem',
+  filterFormTopics: 'filterFormTopics',
 };
 
 export const PageIDs = {

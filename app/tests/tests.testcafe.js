@@ -118,3 +118,8 @@ test('Test that club owners can create and remove events', async (testController
   await navBar.gotoMyEventsPage(testController);
   await addEventPage.addEvent(testController);
 });
+
+test('Test that clubs can be filtered by topic', async (testController) => {
+  await navBar.gotoClubListPage(testController);
+  await clubListPage.filterTopics(testController);
+});

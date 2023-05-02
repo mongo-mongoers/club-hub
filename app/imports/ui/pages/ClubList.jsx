@@ -5,7 +5,7 @@ import { useTracker } from 'meteor/react-meteor-data';
 import LoadingSpinner from '../components/LoadingSpinner';
 import ClubCard from '../components/ClubCard';
 import { Clubs } from '../../api/clubs/Clubs';
-import { PageIDs } from '../utilities/ids';
+import { ComponentIDs, PageIDs } from '../utilities/ids';
 
 const ClubList = () => {
   const [selectedFilter, setSelectedFilter] = useState('');
@@ -45,7 +45,7 @@ const ClubList = () => {
       </div>
       <FormGroup className="mx-3 my-5">
         <FormLabel>Filter by topic:</FormLabel>
-        <FormSelect onChange={handleFilterChange} value={selectedFilter || ''}>
+        <FormSelect id={ComponentIDs.filterFormTopics} onChange={handleFilterChange} value={selectedFilter || ''}>
           <option value="">All</option>
           <option value="Academic">Academic</option>
           <option value="Social">Social</option>
