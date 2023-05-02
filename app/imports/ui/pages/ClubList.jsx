@@ -7,7 +7,6 @@ import ClubCard from '../components/ClubCard';
 import { Clubs } from '../../api/clubs/Clubs';
 import { PageIDs } from '../utilities/ids';
 
-/* Renders the Club List Page: Displays all the Clubs. */
 const ClubList = () => {
   const [selectedFilter, setSelectedFilter] = useState('');
   const { ready, clubs } = useTracker(() => {
@@ -25,7 +24,7 @@ const ClubList = () => {
       clubs: data,
     };
   }, [selectedFilter]);
-  // Function to toggle bookmark status for a club
+
   const toggleBookmark = (clubId, bookmarked) => {
     Clubs.updateBookmark(clubId, !bookmarked);
   };
