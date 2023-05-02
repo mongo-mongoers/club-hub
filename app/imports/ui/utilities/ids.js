@@ -46,7 +46,13 @@ export const ComponentIDs = {
   clubCardTitle: 'clubCardTitle',
   editClubName: 'editClubName',
   editClubSubmit: 'editClubSubmit',
-
+  addEventFormName: 'addEventFormName',
+  addEventFormDescription: 'addEventFormDescription',
+  addEventFormDate: 'addEventFormDate',
+  addEventFormEmail: 'addEventFormEmail',
+  addEventFormLocation: 'addEventFormLocation',
+  addEventFormSubmit: 'addEventFormSubmit',
+  myEventsMenuItem: 'myEventsMenuItem',
 };
 
 export const PageIDs = {
@@ -68,5 +74,6 @@ export const PageIDs = {
   signUpPage: 'signUpPage',
   createClubPage: 'createClubPage',
   clubInfoPage: 'clubInfoPage',
-
+  addEventPage: 'addEventPage',
+  myEventsPage: 'myEventsPage',
 };

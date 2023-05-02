@@ -9,6 +9,7 @@ import { clubCard } from './clubcard.component';
 import { eventsPage } from './events.page';
 import { createClubPage } from './createclub.page';
 import { clubInfoPage } from './clubinfo.page';
+import { addEventPage } from './addevent.page';
 
 /* global fixture:false, test:false */
 
@@ -88,19 +89,20 @@ test('Test that bookmark button changes bookmarks, events page', async (testCont
   await eventsPage.eventCount(testController);
 });
 
-test('Test that create club page shows up for admins', async (testController) => {
+test('Test that create club page is displayed for admins', async (testController) => {
   await navBar.gotoSignInPage(testController);
   await signInPage.signin(testController, 'henric@hawaii.edu', 'foo');
   await navBar.gotoCreateClubPage(testController);
   await createClubPage.isDisplayed(testController);
 });
 
-test('Test that admins can create a club via create clubs page', async (testController) => {
+test('Test that admins can create and remove clubs', async (testController) => {
   await navBar.gotoSignInPage(testController);
   await signInPage.signin(testController, 'henric@hawaii.edu', 'foo');
   await navBar.gotoCreateClubPage(testController);
   await createClubPage.addClub(testController);
 });
+
 test('Test that club modification works for club owners', async (testController) => {
   await navBar.ensureLogout(testController);
   await navBar.gotoSignInPage(testController);
@@ -108,4 +110,11 @@ test('Test that club modification works for club owners', async (testController)
   await navBar.gotoClubListPage(testController);
   await clubListPage.editClub(testController);
   await navBar.ensureLogout(testController);
+});
+
+test('Test that club owners can create and remove events', async (testController) => {
+  await navBar.gotoSignInPage(testController);
+  await signInPage.signin(testController, 'acmmanoa@hawaii.edu', 'foo');
+  await navBar.gotoMyEventsPage(testController);
+  await addEventPage.addEvent(testController);
 });
