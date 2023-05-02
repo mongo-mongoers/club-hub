@@ -37,7 +37,7 @@ const EventCard = ({ event }) => {
         };
 
         return (
-          <Button id="removeclub-button" variant="outline-danger" onClick={handleRemoveEvent}>
+          <Button id="removeevent-button" variant="outline-danger" onClick={handleRemoveEvent}>
             Remove Event
           </Button>
         );
@@ -59,7 +59,7 @@ const EventCard = ({ event }) => {
         </Row>
       </Card.Header>
       <Card.Body className="text-center">
-        <Card.Title>{event.name}</Card.Title>
+        <Card.Title id="event-title">{event.name}</Card.Title>
         <Card.Text className="text-start">{event.description}</Card.Text>
         <Card.Text>Location : {event.location}</Card.Text>
         <Card.Text>Contact : {event.email}</Card.Text>

@@ -41,7 +41,7 @@ const OwnerEventsPage = () => {
     };
   }, []);
   return ready ? (
-    <Container id={PageIDs.eventsPage} className="align-content-center mx-0 px-0">
+    <Container id={PageIDs.myEventsPage} className="align-content-center mx-0 px-0">
       <div className="club-banner justify-content-center min-vw-100">
         <Row className="justify-content-center align-middle text-center py-5 text-white">
           <Col xs={5}>
@@ -49,7 +49,7 @@ const OwnerEventsPage = () => {
               Manage Your Events
             </h1>
             <Link to={`/createEvent/${club.slug}`}>
-              <Button id="editclub-button" variant="outline-light">Add an Event</Button>
+              <Button id="addevent-button" variant="outline-light">Add an Event</Button>
             </Link>
           </Col>
         </Row>

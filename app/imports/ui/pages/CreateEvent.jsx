@@ -11,6 +11,7 @@ import { Navigate } from 'react-router-dom';
 import { createEventMethod } from '../../startup/both/Methods';
 import { Clubs } from '../../api/clubs/Clubs';
 import LoadingSpinner from '../components/LoadingSpinner';
+import { ComponentIDs, PageIDs } from '../utilities/ids';
 
 // Create a schema to specify the structure of the data to appear in the form.
 const formSchema = new SimpleSchema({
@@ -63,7 +64,7 @@ const CreateEvent = () => {
   // Render the form. Use Uniforms: https://github.com/vazco/uniforms
   let fRef = null;
   return ready ? (
-    <Container className="py-3">
+    <Container id={PageIDs.addEventPage} className="py-3">
       <Row className="justify-content-center">
         <Col xs={5}>
           <Col className="text-center"><h2>Create Event</h2></Col>
@@ -72,19 +73,19 @@ const CreateEvent = () => {
               <Card.Body>
                 <Row>
                   <Col><TextField name="club" /></Col>
-                  <Col><TextField name="name" /></Col>
+                  <Col><TextField id={ComponentIDs.addEventFormName} name="name" /></Col>
                 </Row>
                 <Row>
-                  <LongTextField name="description" />
+                  <LongTextField id={ComponentIDs.addEventFormDescription} name="description" />
                 </Row>
                 <Row>
-                  <LongTextField name="date" />
+                  <LongTextField id={ComponentIDs.addEventFormDate} name="date" />
                 </Row>
                 <Row>
-                  <TextField name="email" />
-                  <TextField name="location" />
+                  <TextField id={ComponentIDs.addEventFormEmail} name="email" />
+                  <TextField id={ComponentIDs.addEventFormLocation} name="location" />
                 </Row>
-                <SubmitField value="Submit" />
+                <SubmitField id={ComponentIDs.addEventFormSubmit} value="Submit" />
                 <ErrorsField />
               </Card.Body>
             </Card>
