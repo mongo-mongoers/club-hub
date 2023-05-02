@@ -33,6 +33,10 @@ class ClubListPage {
   async gotoClubInfo(testController) {
     await testController.click('#moreinfo-button');
   }
+
+  async gotoAddEvent(testController) {
+    await testController.click('#addevent-button');
+  }
 }
 
 export const clubListPage = new ClubListPage();

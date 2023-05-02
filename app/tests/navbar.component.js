@@ -121,6 +121,14 @@ class NavBar {
     await testController.click(`#${ComponentIDs.eventsMenuItem}`);
   }
 
+  async gotoMyEventsPage(testController) {
+    const visible = await Selector(`#${ComponentIDs.basicNavbarNav}`).visible;
+    if (!visible) {
+      await testController.click('button.navbar-toggler');
+    }
+    await testController.click(`#${ComponentIDs.myEventsMenuItem}`);
+  }
+
   async gotoCreateClubPage(testController) {
     const visible = await Selector(`#${ComponentIDs.basicNavbarNav}`).visible;
     if (!visible) {
