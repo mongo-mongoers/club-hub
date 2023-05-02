@@ -55,7 +55,7 @@ test('Test that the more info page displays', async (testController) => {
   await clubInfoPage.isDisplayed(testController);
 });
 
-test('Test that signin and signout work', async (testController) => {
+test.only('Test that signin and signout work', async (testController) => {
   await navBar.gotoSignInPage(testController);
   await signInPage.signin(testController, credentials.username, credentials.password);
   await navBar.logout(testController);

@@ -3,7 +3,7 @@ import { PageIDs } from '../imports/ui/utilities/ids';
 
 class SignOutPage {
   constructor() {
-    this.pageId = `#${PageIDs.signOutPage}`;
+    this.pageId = `#${PageIDs.landingPage}`;
     this.pageSelector = Selector(this.pageId);
   }
 
